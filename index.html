@@ -30,8 +30,42 @@
 
     .logo {
       width: min(1000px, 95%);
-      margin: 0 auto 65px;
+      margin: 0 auto 30px;
       display: block;
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    nav a {
+      color: #9fc5ff;
+      text-decoration: none;
+      margin: 0 18px;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 1px;
+      background: #1e82ff;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,110,255,0.9);
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .status-wrap {
@@ -167,13 +201,18 @@
       }
 
       .logo {
-        margin-bottom: 45px;
+        margin-bottom: 30px;
       }
     }
 
     @media (max-width: 520px) {
       body {
         padding: 28px 16px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px 12px;
       }
 
       .services {
@@ -202,6 +241,12 @@
 
     <img src="logo.png" alt="DELEXI PC" class="logo">
 
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="chi-siamo.html">Chi siamo</a>
+      <a href="mailto:info@delexipc.it">Contatti</a>
+    </nav>
+
     <div class="status-wrap">
       <div class="line"></div>
       <div class="status">Sito in lavorazione</div>
@@ -215,7 +260,7 @@
       </p>
 
       <p>
-        Ci occupiamo di aggiornamenti del sistema operativo, pulizia da virus e software indesiderati,aggiornamenti del sistema operativo,
+        Ci occupiamo di aggiornamenti del sistema operativo, pulizia da virus e software indesiderati,
         miglioramento delle prestazioni, ottimizzazioni per gaming e consulenze tecniche personalizzate.
       </p>
     </section>
