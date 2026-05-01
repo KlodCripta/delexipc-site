@@ -17,26 +17,25 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #000;
       color: #f4f7ff;
-      display: flex;
-      justify-content: center;
       padding: 40px 22px;
     }
 
     .page {
       width: 100%;
-      max-width: 980px;
+      max-width: 1050px;
+      margin: 0 auto;
       text-align: center;
     }
 
     .logo {
-      width: min(1000px, 95%);
-      margin: 0 auto 30px;
+      width: min(760px, 96%);
       display: block;
+      margin: 0 auto 46px;
     }
 
     nav {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
     }
 
     nav a {
@@ -48,16 +47,13 @@
       position: relative;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0%;
-      height: 1px;
-      background: #1e82ff;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(0,110,255,0.9);
+    nav a {
+      color: #9fc5ff;
+      text-decoration: none;
+      margin: 0 14px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      position: relative;
     }
 
     nav a:hover {
@@ -190,9 +186,10 @@
     }
 
     footer {
-      margin-top: 34px;
-      color: #8a8a8a;
-      font-size: 0.9rem;
+     text-align: center;
+     margin-top: 50px;
+     color: #8a8a8a;
+     font-size: 0.9rem;
     }
 
     @media (max-width: 850px) {
