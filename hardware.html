@@ -17,17 +17,13 @@
       --blue: #1e82ff;
       --blue-soft: rgba(0, 110, 255, 0.28);
       --border: rgba(0, 110, 255, 0.70);
+      --border-dim: rgba(0, 110, 255, 0.32);
+      --shadow: rgba(0, 110, 255, 0.22);
+      --nav-h: 58px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
@@ -40,73 +36,95 @@
       line-height: 1.6;
     }
 
-    .page {
-      width: min(1120px, calc(100% - 36px));
-      margin: 0 auto;
-      padding: 34px 0 42px;
-    }
+    a { color: inherit; }
 
-    header {
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-dim);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 54px);
       gap: 28px;
-      margin-bottom: 54px;
     }
 
-    .logo {
-      width: min(330px, 72vw);
+    .nav-logo {
+      width: min(160px, 38vw);
       display: block;
-      filter: drop-shadow(0 0 20px rgba(0, 110, 255, 0.30));
+      filter: drop-shadow(0 0 10px rgba(0, 110, 255, 0.35));
     }
 
-    nav {
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 18px;
-      font-size: 0.98rem;
+      gap: 22px;
     }
 
-    nav a {
+    .nav-links a {
       text-decoration: none;
       color: #dbeaff;
-      opacity: 0.9;
+      opacity: 0.88;
+      font-size: 0.96rem;
+      letter-spacing: 0.3px;
       position: relative;
     }
 
-    nav a::after {
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -7px;
+      bottom: -5px;
       width: 0;
       height: 1px;
       background: var(--blue);
-      box-shadow: 0 0 12px var(--blue);
+      box-shadow: 0 0 10px var(--blue);
       transition: 0.24s;
     }
 
-    nav a:hover {
-      opacity: 1;
+    .nav-links a:hover { opacity: 1; color: #ffffff; }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-links a.active {
       color: #ffffff;
+      opacity: 1;
     }
 
-    nav a:hover::after {
-      width: 100%;
+    .nav-links a.active::after { width: 100%; }
+
+    /* PAGE */
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 0 0 42px;
     }
 
-    .hero {
+    /* HERO */
+    #top {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 54px 0 80px;
+      position: relative;
+    }
+
+    .hero-box {
       padding: 36px;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background:
-        linear-gradient(145deg, rgba(0, 22, 52, 0.88), rgba(0, 0, 0, 0.72));
-      box-shadow:
-        0 0 38px rgba(0, 110, 255, 0.16),
-        inset 0 0 32px rgba(0, 110, 255, 0.06);
-      margin-bottom: 66px;
+      background: linear-gradient(145deg, rgba(0, 22, 52, 0.88), rgba(0, 0, 0, 0.72));
+      box-shadow: 0 0 38px rgba(0, 110, 255, 0.16), inset 0 0 32px rgba(0, 110, 255, 0.06);
+      width: 100%;
     }
 
     .eyebrow {
@@ -150,16 +168,56 @@
       background: rgba(0, 110, 255, 0.18);
       color: #ffffff;
       box-shadow: 0 0 22px rgba(0, 110, 255, 0.22);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 0 30px rgba(0, 110, 255, 0.40);
+      transform: translateY(-2px);
+      box-shadow: 0 0 34px rgba(0, 110, 255, 0.45);
     }
 
-    section {
-      margin-bottom: 66px;
+    /* SCROLL INDICATOR */
+    .scroll-hint {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(0, 110, 255, 0.55);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
     }
+
+    .scroll-hint:hover { color: rgba(0, 110, 255, 0.9); }
+
+    .scroll-hint svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      animation: scrollBounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50%       { transform: translateY(5px); opacity: 1; }
+    }
+
+    /* SEPARATORI */
+    .sep {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+      opacity: 0.35;
+    }
+
+    /* SEZIONI */
+    section { padding: 66px 0; }
 
     .section-head {
       text-align: center;
@@ -181,20 +239,16 @@
       text-shadow: 0 0 18px rgba(0, 110, 255, 0.42);
     }
 
-    .section-head p {
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
+    .section-head p { color: var(--muted); font-size: 1.08rem; }
 
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .grid.two {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
 
     .card {
       min-height: 215px;
@@ -202,201 +256,242 @@
       border: 1px solid var(--border);
       border-radius: 18px;
       background: var(--panel);
-      box-shadow:
-        0 0 26px rgba(0, 110, 255, 0.13),
-        inset 0 0 22px rgba(0, 110, 255, 0.06);
+      box-shadow: 0 0 26px rgba(0, 110, 255, 0.13), inset 0 0 22px rgba(0, 110, 255, 0.06);
+      transition: box-shadow 0.28s, border-color 0.28s, transform 0.22s;
     }
 
-    .card h3 {
-      font-size: 1.28rem;
-      margin-bottom: 12px;
-      color: #ffffff;
+    .card:hover {
+      box-shadow: 0 0 38px rgba(0, 110, 255, 0.32), inset 0 0 24px rgba(0, 110, 255, 0.10);
+      border-color: rgba(0, 150, 255, 0.90);
+      transform: translateY(-3px);
     }
 
-    .card p {
-      color: #d7e4ff;
-      font-size: 1rem;
-    }
+    .card h3 { font-size: 1.28rem; margin-bottom: 12px; color: #ffffff; }
+    .card p { color: #d7e4ff; font-size: 1rem; }
 
+    /* NOTE */
     .note {
       padding: 28px;
       border-radius: 22px;
-      border: 1px solid rgba(0, 110, 255, 0.44);
+      border: 1px solid var(--border-dim);
       background: var(--panel-soft);
       color: #e7efff;
       max-width: 900px;
       margin: 0 auto;
       text-align: center;
+      transition: box-shadow 0.28s;
     }
 
+    .note:hover { box-shadow: 0 0 26px rgba(0, 110, 255, 0.18); }
+
+    /* CONTACT CALL */
     .contact-call {
       text-align: center;
       padding: 34px;
       border-radius: 22px;
       border: 1px solid var(--border);
       background: rgba(0, 10, 24, 0.78);
+      box-shadow: 0 0 30px rgba(0, 110, 255, 0.12);
+      transition: box-shadow 0.28s;
     }
 
+    .contact-call:hover { box-shadow: 0 0 42px rgba(0, 110, 255, 0.22); }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* FOOTER */
     footer {
       text-align: center;
-      color: #8a8a8a;
-      font-size: 0.9rem;
-      padding-top: 16px;
+      color: #6070a0;
+      font-size: 0.88rem;
+      padding: 28px 0 10px;
+      border-top: 1px solid var(--border-dim);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
     }
 
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #7aa0d4;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; color: #fff; }
+
+    /* RESPONSIVE */
     @media (max-width: 900px) {
-      header {
-        display: grid;
-        justify-items: center;
-        text-align: center;
-      }
-
-      nav {
-        justify-content: center;
-      }
-
-      .grid,
-      .grid.two {
-        grid-template-columns: 1fr;
-      }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      #top { padding-top: 38px; min-height: auto; }
+      .scroll-hint { display: none; }
     }
 
-    @media (max-width: 520px) {
-      .page {
-        width: min(100% - 28px, 1120px);
-        padding-top: 24px;
-      }
-
-      .hero {
-        padding: 26px;
-      }
-
-      .button {
-        width: 100%;
-      }
+    @media (max-width: 560px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 0.82rem; }
+      .button { width: 100%; }
+      .page { width: calc(100% - 28px); }
+      .hero-box { padding: 26px; }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- NAV STICKY -->
+  <nav>
+    <a href="index.html" aria-label="DELEXI PC Home">
+      <img src="logo_blu.png" alt="DELEXI PC" class="nav-logo" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="hardware.html" class="active">Hardware</a>
+      <a href="index.html#chi-siamo">Chi siamo</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+  </nav>
+
   <main class="page">
-    <header>
-      <a href="index.html" aria-label="DELEXI PC Home">
-        <img src="logo.png" alt="DELEXI PC" class="logo" />
+
+    <!-- HERO -->
+    <div id="top">
+      <div class="hero-box reveal">
+        <div class="eyebrow">Consigli hardware e configurazioni</div>
+        <h1>Build ragionate, upgrade sensati, meno sprechi.</h1>
+        <p class="lead">
+          La sezione hardware raccoglie configurazioni consigliate, upgrade mirati e build occasionali.
+          Non vendiamo potenza inutile: valutiamo utilizzo, budget, temperature, stabilità e rapporto qualità/prezzo.
+        </p>
+        <a class="button" href="index.html#contatti">Chiedi una consulenza</a>
+      </div>
+
+      <a class="scroll-hint" href="#configurazioni" aria-label="Scorri in basso">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
       </a>
+    </div>
 
-      <nav aria-label="Menu principale">
-        <a href="index.html">Home</a>
-        <a href="index.html#servizi">Servizi</a>
-        <a href="hardware.html">Hardware</a>
-        <a href="index.html#chi-siamo">Chi siamo</a>
-        <a href="index.html#contatti">Contatti</a>
-      </nav>
-    </header>
+    <div class="sep"></div>
 
-    <section class="hero">
-      <div class="eyebrow">Consigli hardware e configurazioni</div>
-      <h1>Build ragionate, upgrade sensati, meno sprechi.</h1>
-      <p class="lead">
-        La sezione hardware raccoglie configurazioni consigliate, upgrade mirati e build occasionali.
-        Non vendiamo potenza inutile: valutiamo utilizzo, budget, temperature, stabilità e rapporto qualità/prezzo.
-      </p>
-
-      <a class="button" href="index.html#contatti">Chiedi una consulenza</a>
-    </section>
-
-    <section>
-      <div class="section-head">
+    <!-- CONFIGURAZIONI -->
+    <section id="configurazioni">
+      <div class="section-head reveal">
         <span>Linee di configurazione</span>
         <h2>Tre famiglie, un criterio: equilibrio.</h2>
-        <p>
-          Le configurazioni vengono adattate di volta in volta ai prezzi reali del momento e alle esigenze
-          della persona che userà il PC.
-        </p>
+        <p>Le configurazioni vengono adattate di volta in volta ai prezzi reali del momento e alle esigenze della persona che userà il PC.</p>
       </div>
-
       <div class="grid">
-        <article class="card">
+        <article class="card reveal">
           <h3>Game Core</h3>
-          <p>
-            Configurazioni pensate per giocare in modo stabile, senza inseguire componenti sovradimensionati.
-            Ideali per chi vuole buone prestazioni con una spesa controllata.
-          </p>
+          <p>Configurazioni pensate per giocare in modo stabile, senza inseguire componenti sovradimensionati. Ideali per chi vuole buone prestazioni con una spesa controllata.</p>
         </article>
-
-        <article class="card">
+        <article class="card reveal" style="transition-delay:0.08s">
           <h3>Frozen Core</h3>
-          <p>
-            Sistemi con attenzione forte a temperature, airflow, silenziosità e stabilità nel tempo.
-            La priorità è ridurre stress termico e throttling.
-          </p>
+          <p>Sistemi con attenzione forte a temperature, airflow, silenziosità e stabilità nel tempo. La priorità è ridurre stress termico e throttling.</p>
         </article>
-
-        <article class="card">
+        <article class="card reveal" style="transition-delay:0.16s">
           <h3>Mini Core</h3>
-          <p>
-            PC compatti per studio, ufficio, uso domestico o setup piccoli, mantenendo ordine interno,
-            consumi contenuti e componenti coerenti.
-          </p>
+          <p>PC compatti per studio, ufficio, uso domestico o setup piccoli, mantenendo ordine interno, consumi contenuti e componenti coerenti.</p>
         </article>
       </div>
     </section>
 
-    <section>
-      <div class="section-head">
+    <div class="sep"></div>
+
+    <!-- UPGRADE -->
+    <section id="upgrade">
+      <div class="section-head reveal">
         <span>Interventi hardware</span>
-        <h2>Upgrade prima dell’acquisto inutile.</h2>
-        <p>
-          Spesso un PC non va sostituito: basta capire dove si trova il collo di bottiglia.
-        </p>
+        <h2>Upgrade prima dell'acquisto inutile.</h2>
+        <p>Spesso un PC non va sostituito: basta capire dove si trova il collo di bottiglia.</p>
       </div>
-
       <div class="grid two">
-        <article class="card">
+        <article class="card reveal">
           <h3>Upgrade mirati</h3>
-          <p>
-            SSD, RAM, pulizia interna, pasta termica, ventole, alimentatore, scheda video o processore:
-            ogni intervento viene valutato in base al reale beneficio.
-          </p>
+          <p>SSD, RAM, pulizia interna, pasta termica, ventole, alimentatore, scheda video o processore: ogni intervento viene valutato in base al reale beneficio.</p>
         </article>
-
-        <article class="card">
+        <article class="card reveal" style="transition-delay:0.10s">
           <h3>Diagnosi e stabilità</h3>
-          <p>
-            Controllo temperature, alimentazione, rumori, blocchi, riavvii, decadimento prestazioni,
-            problemi di avvio e componenti sospetti.
-          </p>
+          <p>Controllo temperature, alimentazione, rumori, blocchi, riavvii, decadimento prestazioni, problemi di avvio e componenti sospetti.</p>
         </article>
       </div>
     </section>
 
+    <div class="sep"></div>
+
+    <!-- ASSEMBLAGGI -->
     <section>
-      <div class="section-head">
+      <div class="section-head reveal">
         <span>Assemblaggi</span>
         <h2>Build occasionali su richiesta.</h2>
       </div>
-
-      <div class="note">
+      <div class="note reveal">
         <p>
           Gli assemblaggi completi non sono il servizio principale di DELEXI PC, ma possono essere valutati
           come richiesta occasionale o consulenza personalizzata. La priorità resta consigliare una macchina
-          sensata, stabile e adatta all’utilizzo previsto.
+          sensata, stabile e adatta all'utilizzo previsto.
         </p>
       </div>
     </section>
 
-    <section class="contact-call">
-      <h2>Hai già un PC da migliorare?</h2>
-      <p class="lead">
-        Possiamo valutare se conviene aggiornarlo, ripulirlo, reinstallare il sistema oppure preparare una nuova configurazione.
-      </p>
+    <div class="sep"></div>
 
-      <a class="button" href="index.html#contatti">Contatta DELEXI PC</a>
+    <!-- CONTACT CALL -->
+    <section>
+      <div class="contact-call reveal">
+        <h2>Hai già un PC da migliorare?</h2>
+        <p class="lead">
+          Possiamo valutare se conviene aggiornarlo, ripulirlo, reinstallare il sistema
+          oppure preparare una nuova configurazione.
+        </p>
+        <a class="button" href="index.html#contatti">Contatta DELEXI PC</a>
+      </div>
     </section>
 
-    <footer>
-      © 2026 DELEXI PC - Consigli hardware e configurazioni
-    </footer>
   </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#chi-siamo">Chi siamo</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+    <span>© 2026 DELEXI PC — Consigli hardware e configurazioni</span>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
