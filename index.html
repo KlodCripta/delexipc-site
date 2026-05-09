@@ -7,6 +7,11 @@
   <title>DELEXI PC - Assistenza informatica e servizi digitali</title>
   <meta name="description" content="DELEXI PC offre assistenza informatica, formattazioni, rimozione malware, ottimizzazione sistemi, supporto Windows, Linux e macOS, configurazioni software e siti web." />
 
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#050505">
+  
   <style>
     :root {
       --bg: #050505;
@@ -45,9 +50,7 @@
       top: 0;
       z-index: 100;
       height: var(--nav-h);
-      background: rgba(5, 5, 5, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: #000000;
       border-bottom: 1px solid rgba(211, 25, 43, 0.28);
       display: flex;
       align-items: center;
@@ -59,7 +62,7 @@
     .nav-logo {
       width: min(160px, 38vw);
       display: block;
-      filter: drop-shadow(0 0 10px rgba(211, 25, 43, 0.30));
+      filter: none;
     }
 
     .nav-links {
@@ -179,19 +182,21 @@
     .button:hover { transform: translateY(-2px); box-shadow: 0 0 34px rgba(211, 25, 43, 0.38); }
     .button.blue:hover { box-shadow: 0 0 34px rgba(0, 110, 255, 0.45); }
 
+    /* HERO IMAGE */
     .hero-img {
       border: 1px solid var(--border);
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 0 38px rgba(211, 25, 43, 0.18);
       align-self: stretch;
+      min-height: 400px;
     }
 
     .hero-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: 30% center;
       display: block;
     }
 
@@ -399,6 +404,7 @@
       .grid, .contact-grid { grid-template-columns: 1fr; }
       #home { padding-top: 38px; min-height: auto; }
       .scroll-hint { display: none; }
+      .hero-img { min-height: 260px; }
     }
 
     @media (max-width: 560px) {
@@ -416,7 +422,7 @@
   <!-- NAV STICKY -->
   <nav>
     <a href="#home" aria-label="DELEXI PC Home">
-      <img src="logo.png" alt="DELEXI PC" class="nav-logo" />
+      <img src="logo_rosso_wide.png" alt="DELEXI PC" class="nav-logo" />
     </a>
     <div class="nav-links">
       <a href="#home">Home</a>
@@ -561,10 +567,12 @@
 
   <footer>
     <div class="footer-links">
-      <a href="mailto:info@delexipc.it">info@delexipc.it</a>
-      <a href="https://wa.me/393793314745">WhatsApp</a>
-      <a href="https://t.me/+393793314745">Telegram</a>
-      <a href="hardware.html">Hardware</a>
+      <a href="index.html">Home</a>
+      <a href="#servizi">Servizi</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#contatti">Contatti</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
     </div>
     <span>© 2026 DELEXI PC — Assistenza informatica e servizi digitali</span>
   </footer>
