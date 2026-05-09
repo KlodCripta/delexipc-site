@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cookie Policy - DELEXI PC</title>
+  <meta name="description" content="Cookie Policy del sito DELEXI PC: informazioni sull'assenza di cookie di profilazione, analytics, pixel, embed e strumenti di tracciamento." />
+
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#050505">
+
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: rgba(18, 8, 10, 0.82);
+      --text: #f5f2f2;
+      --muted: #c8b8b8;
+      --red: #d3192b;
+      --border: rgba(211, 25, 43, 0.48);
+      --nav-h: 58px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(120, 0, 16, 0.24), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(180, 0, 22, 0.16), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--nav-h);
+      background: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(211, 25, 43, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px clamp(16px, 4vw, 54px);
+      gap: 28px;
+    }
+
+    .nav-logo {
+      width: min(160px, 38vw);
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(211, 25, 43, 0.30));
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f2dada;
+      opacity: 0.86;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    main {
+      width: min(920px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 58px 0 46px;
+    }
+
+    .policy-box {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(38, 10, 14, 0.86), rgba(6, 6, 6, 0.76));
+      box-shadow:
+        0 0 38px rgba(211, 25, 43, 0.13),
+        inset 0 0 32px rgba(211, 25, 43, 0.05);
+      padding: clamp(24px, 4vw, 42px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      color: #ffd6d9;
+      background: rgba(90, 0, 10, 0.28);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 1.3px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      text-shadow: 0 0 24px rgba(211, 25, 43, 0.34);
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin: 34px 0 12px;
+      color: #ffffff;
+    }
+
+    p { color: #e7d8d8; margin-bottom: 15px; }
+
+    ul { margin: 0 0 18px 20px; color: #e7d8d8; }
+
+    li { margin-bottom: 8px; }
+
+    .updated {
+      color: #b89a9d;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #6e5f5f;
+      font-size: 0.88rem;
+      padding: 28px 0 24px;
+      border-top: 1px solid rgba(211, 25, 43, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #c8a0a5;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; color: #fff; }
+
+    @media (max-width: 720px) {
+      nav { flex-direction: column; justify-content: center; }
+      .nav-links { justify-content: center; gap: 14px; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" aria-label="DELEXI PC Home">
+      <img src="logo.png" alt="DELEXI PC" class="nav-logo" />
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="hardware.html">Hardware</a>
+      <a href="index.html#chi-siamo">Chi siamo</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="policy-box">
+      <div class="eyebrow">Cookie</div>
+      <h1>Cookie Policy</h1>
+      <p class="updated">Ultimo aggiornamento: 9 maggio 2026</p>
+      <p>
+        Questa informativa descrive l’uso dei cookie e di eventuali strumenti simili sul sito DELEXI PC.
+      </p>
+
+      <h2>Uso dei cookie</h2>
+      <p>
+        Al momento questo sito è statico e non utilizza cookie di profilazione, strumenti di tracciamento,
+        sistemi di advertising, pixel di marketing o servizi di analytics.
+      </p>
+
+      <h2>Cookie tecnici</h2>
+      <p>
+        Il sito non imposta volontariamente cookie tecnici propri tramite codice HTML, JavaScript o sistemi
+        di gestione interni. Eventuali cookie o dati tecnici generati dal browser, dal servizio di hosting
+        o dall’infrastruttura di rete non sono utilizzati da DELEXI PC per profilare gli utenti.
+      </p>
+
+      <h2>Servizi di terze parti</h2>
+      <p>
+        Il sito non integra Google Analytics, Meta Pixel, YouTube embed, Google Maps, sistemi pubblicitari,
+        chatbot, newsletter automatizzate o altri strumenti di tracciamento di terze parti.
+      </p>
+
+      <h2>Link esterni</h2>
+      <p>
+        Alcuni link possono aprire servizi esterni, ad esempio WhatsApp, Telegram o il client email dell’utente.
+        Una volta usciti dal sito DELEXI PC, il trattamento dei dati e l’eventuale uso di cookie dipendono
+        dalle informative dei rispettivi servizi esterni.
+      </p>
+
+      <h2>Banner cookie</h2>
+      <p>
+        Poiché il sito non utilizza cookie di profilazione, analytics, pixel pubblicitari o strumenti di
+        tracciamento, non viene mostrato un banner per la raccolta del consenso.
+      </p>
+
+      <h2>Modifiche future</h2>
+      <p>
+        Se in futuro verranno introdotti strumenti come analytics, mappe incorporate, video embed, moduli
+        avanzati, chatbot o altri servizi di terze parti, questa Cookie Policy verrà aggiornata e, se necessario,
+        verrà introdotto un sistema di consenso conforme alla normativa applicabile.
+      </p>
+
+      <h2>Contatti</h2>
+      <p>
+        Per informazioni relative a questa Cookie Policy è possibile scrivere a
+        <a href="mailto:info@delexipc.it">info@delexipc.it</a>.
+      </p>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="hardware.html">Hardware</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+    <span>© 2026 DELEXI PC — Cookie Policy</span>
+  </footer>
+</body>
+</html>

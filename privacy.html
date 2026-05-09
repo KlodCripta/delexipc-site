@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy - DELEXI PC</title>
+  <meta name="description" content="Privacy Policy del sito DELEXI PC: informazioni sul trattamento dei dati personali inviati tramite email, WhatsApp, Telegram e richieste di assistenza." />
+
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#050505">
+
+  <style>
+    :root {
+      --bg: #050505;
+      --panel: rgba(18, 8, 10, 0.82);
+      --text: #f5f2f2;
+      --muted: #c8b8b8;
+      --red: #d3192b;
+      --border: rgba(211, 25, 43, 0.48);
+      --nav-h: 58px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(120, 0, 16, 0.24), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(180, 0, 22, 0.16), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--nav-h);
+      background: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(211, 25, 43, 0.28);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px clamp(16px, 4vw, 54px);
+      gap: 28px;
+    }
+
+    .nav-logo {
+      width: min(160px, 38vw);
+      display: block;
+      filter: drop-shadow(0 0 10px rgba(211, 25, 43, 0.30));
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #f2dada;
+      opacity: 0.86;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    main {
+      width: min(920px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 58px 0 46px;
+    }
+
+    .policy-box {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(38, 10, 14, 0.86), rgba(6, 6, 6, 0.76));
+      box-shadow:
+        0 0 38px rgba(211, 25, 43, 0.13),
+        inset 0 0 32px rgba(211, 25, 43, 0.05);
+      padding: clamp(24px, 4vw, 42px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      color: #ffd6d9;
+      background: rgba(90, 0, 10, 0.28);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 1.3px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+      text-shadow: 0 0 24px rgba(211, 25, 43, 0.34);
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      margin: 34px 0 12px;
+      color: #ffffff;
+    }
+
+    p { color: #e7d8d8; margin-bottom: 15px; }
+
+    ul { margin: 0 0 18px 20px; color: #e7d8d8; }
+
+    li { margin-bottom: 8px; }
+
+    .updated {
+      color: #b89a9d;
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      color: #6e5f5f;
+      font-size: 0.88rem;
+      padding: 28px 0 24px;
+      border-top: 1px solid rgba(211, 25, 43, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #c8a0a5;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-links a:hover { opacity: 1; color: #fff; }
+
+    @media (max-width: 720px) {
+      nav { flex-direction: column; justify-content: center; }
+      .nav-links { justify-content: center; gap: 14px; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" aria-label="DELEXI PC Home">
+      <img src="logo.png" alt="DELEXI PC" class="nav-logo" />
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="hardware.html">Hardware</a>
+      <a href="index.html#chi-siamo">Chi siamo</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+  </nav>
+
+  <main>
+    <article class="policy-box">
+      <div class="eyebrow">Privacy</div>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Ultimo aggiornamento: 9 maggio 2026</p>
+      <p>
+        Questa informativa descrive in modo semplice come DELEXI PC tratta i dati personali ricevuti
+        attraverso il sito, l’email, WhatsApp, Telegram o altri canali di contatto indicati nelle pagine del sito.
+      </p>
+
+      <h2>Titolare del trattamento</h2>
+      <p>
+        Il titolare del trattamento è DELEXI PC, contattabile all’indirizzo email
+        <a href="mailto:info@delexipc.it">info@delexipc.it</a>.
+      </p>
+
+      <h2>Dati trattati</h2>
+      <p>DELEXI PC può trattare i dati che l’utente decide volontariamente di comunicare, ad esempio:</p>
+      <ul>
+        <li>nome e cognome, se indicati nel messaggio;</li>
+        <li>indirizzo email, numero di telefono o contatto Telegram/WhatsApp;</li>
+        <li>contenuto della richiesta inviata;</li>
+        <li>informazioni tecniche sul dispositivo o sul problema segnalato;</li>
+        <li>eventuali file, immagini o screenshot inviati dall’utente per richiedere assistenza.</li>
+      </ul>
+
+      <h2>Finalità del trattamento</h2>
+      <p>I dati vengono usati esclusivamente per:</p>
+      <ul>
+        <li>rispondere alle richieste di informazioni o assistenza;</li>
+        <li>valutare problemi tecnici, configurazioni, interventi o consulenze;</li>
+        <li>gestire comunicazioni preliminari, preventivi o richieste di servizio;</li>
+        <li>mantenere uno storico minimo delle comunicazioni necessarie alla gestione del rapporto con il cliente.</li>
+      </ul>
+
+      <h2>Base giuridica</h2>
+      <p>
+        Il trattamento si basa sulla richiesta dell’utente e sull’esecuzione di misure precontrattuali
+        o contrattuali, oltre che sul legittimo interesse a gestire correttamente le comunicazioni ricevute.
+      </p>
+
+      <h2>Modalità di trattamento</h2>
+      <p>
+        I dati vengono trattati con strumenti informatici e canali di comunicazione ordinari, adottando
+        misure ragionevoli per evitarne uso improprio, perdita o accesso non autorizzato.
+      </p>
+
+      <h2>Conservazione dei dati</h2>
+      <p>
+        I dati vengono conservati per il tempo necessario a rispondere alla richiesta e gestire l’eventuale
+        servizio. Le comunicazioni possono essere conservate più a lungo quando necessario per esigenze
+        amministrative, fiscali, tecniche o di tutela dei diritti.
+      </p>
+
+      <h2>Comunicazione a terzi</h2>
+      <p>
+        I dati non vengono venduti né ceduti a terzi per finalità pubblicitarie. Possono essere comunicati
+        solo quando necessario per adempiere a obblighi di legge, gestire servizi tecnici richiesti dall’utente
+        o tutelare i diritti di DELEXI PC.
+      </p>
+
+      <h2>Servizi esterni e canali di contatto</h2>
+      <p>
+        Se l’utente contatta DELEXI PC tramite WhatsApp, Telegram, email o altri servizi esterni, il trattamento
+        dei dati da parte di tali piattaforme segue anche le rispettive informative privacy.
+      </p>
+
+      <h2>Diritti dell’utente</h2>
+      <p>
+        L’utente può chiedere accesso, rettifica, cancellazione, limitazione o opposizione al trattamento
+        dei propri dati, nei limiti previsti dalla normativa applicabile. Per esercitare questi diritti è possibile
+        scrivere a <a href="mailto:info@delexipc.it">info@delexipc.it</a>.
+      </p>
+
+      <h2>Modifiche alla presente informativa</h2>
+      <p>
+        Questa Privacy Policy può essere aggiornata in caso di modifiche al sito, ai servizi offerti
+        o agli obblighi normativi applicabili.
+      </p>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="hardware.html">Hardware</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+    <span>© 2026 DELEXI PC — Privacy Policy</span>
+  </footer>
+</body>
+</html>
