@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DELEXI PC - Consigli hardware e configurazioni</title>
+  <meta name="description" content="Consigli hardware, upgrade, configurazioni PC e build occasionali DELEXI PC, con attenzione a stabilità, temperature, airflow e rapporto qualità/prezzo." />
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: rgba(0, 10, 24, 0.78);
+      --panel-soft: rgba(0, 18, 42, 0.62);
+      --text: #f4f7ff;
+      --muted: #cbd8f2;
+      --blue: #1e82ff;
+      --blue-soft: rgba(0, 110, 255, 0.28);
+      --border: rgba(0, 110, 255, 0.70);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 105, 255, 0.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 58, 160, 0.16), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 34px 0 42px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-bottom: 54px;
+    }
+
+    .logo {
+      width: min(330px, 72vw);
+      display: block;
+      filter: drop-shadow(0 0 20px rgba(0, 110, 255, 0.30));
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 0.98rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #dbeaff;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--blue);
+      box-shadow: 0 0 12px var(--blue);
+      transition: 0.24s;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: #ffffff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(0, 22, 52, 0.88), rgba(0, 0, 0, 0.72));
+      box-shadow:
+        0 0 38px rgba(0, 110, 255, 0.16),
+        inset 0 0 32px rgba(0, 110, 255, 0.06);
+      margin-bottom: 66px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 18px;
+      color: #dceaff;
+      background: rgba(0, 25, 70, 0.34);
+      box-shadow: 0 0 18px rgba(0, 105, 255, 0.25);
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 1.3px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.25rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -1.4px;
+      margin-bottom: 22px;
+      text-shadow: 0 0 24px rgba(0, 110, 255, 0.52);
+    }
+
+    .lead {
+      max-width: 820px;
+      margin: 0 auto 28px;
+      font-size: 1.16rem;
+      color: #e7efff;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: rgba(0, 110, 255, 0.18);
+      color: #ffffff;
+      box-shadow: 0 0 22px rgba(0, 110, 255, 0.22);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 30px rgba(0, 110, 255, 0.40);
+    }
+
+    section {
+      margin-bottom: 66px;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 34px;
+    }
+
+    .section-head span {
+      color: #9fc5ff;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 0.82rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.12;
+      margin: 10px 0 14px;
+      text-shadow: 0 0 18px rgba(0, 110, 255, 0.42);
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      min-height: 215px;
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--panel);
+      box-shadow:
+        0 0 26px rgba(0, 110, 255, 0.13),
+        inset 0 0 22px rgba(0, 110, 255, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #d7e4ff;
+      font-size: 1rem;
+    }
+
+    .note {
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(0, 110, 255, 0.44);
+      background: var(--panel-soft);
+      color: #e7efff;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-call {
+      text-align: center;
+      padding: 34px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(0, 10, 24, 0.78);
+    }
+
+    footer {
+      text-align: center;
+      color: #8a8a8a;
+      font-size: 0.9rem;
+      padding-top: 16px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .grid,
+      .grid.two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 28px, 1120px);
+        padding-top: 24px;
+      }
+
+      .hero {
+        padding: 26px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <a href="index.html" aria-label="DELEXI PC Home">
+        <img src="logo.png" alt="DELEXI PC" class="logo" />
+      </a>
+
+      <nav aria-label="Menu principale">
+        <a href="index.html">Home</a>
+        <a href="index.html#servizi">Servizi</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="index.html#chi-siamo">Chi siamo</a>
+        <a href="index.html#contatti">Contatti</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow">Consigli hardware e configurazioni</div>
+      <h1>Build ragionate, upgrade sensati, meno sprechi.</h1>
+      <p class="lead">
+        La sezione hardware raccoglie configurazioni consigliate, upgrade mirati e build occasionali.
+        Non vendiamo potenza inutile: valutiamo utilizzo, budget, temperature, stabilità e rapporto qualità/prezzo.
+      </p>
+
+      <a class="button" href="index.html#contatti">Chiedi una consulenza</a>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span>Linee di configurazione</span>
+        <h2>Tre famiglie, un criterio: equilibrio.</h2>
+        <p>
+          Le configurazioni vengono adattate di volta in volta ai prezzi reali del momento e alle esigenze
+          della persona che userà il PC.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Game Core</h3>
+          <p>
+            Configurazioni pensate per giocare in modo stabile, senza inseguire componenti sovradimensionati.
+            Ideali per chi vuole buone prestazioni con una spesa controllata.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Frozen Core</h3>
+          <p>
+            Sistemi con attenzione forte a temperature, airflow, silenziosità e stabilità nel tempo.
+            La priorità è ridurre stress termico e throttling.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Mini Core</h3>
+          <p>
+            PC compatti per studio, ufficio, uso domestico o setup piccoli, mantenendo ordine interno,
+            consumi contenuti e componenti coerenti.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span>Interventi hardware</span>
+        <h2>Upgrade prima dell’acquisto inutile.</h2>
+        <p>
+          Spesso un PC non va sostituito: basta capire dove si trova il collo di bottiglia.
+        </p>
+      </div>
+
+      <div class="grid two">
+        <article class="card">
+          <h3>Upgrade mirati</h3>
+          <p>
+            SSD, RAM, pulizia interna, pasta termica, ventole, alimentatore, scheda video o processore:
+            ogni intervento viene valutato in base al reale beneficio.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Diagnosi e stabilità</h3>
+          <p>
+            Controllo temperature, alimentazione, rumori, blocchi, riavvii, decadimento prestazioni,
+            problemi di avvio e componenti sospetti.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <span>Assemblaggi</span>
+        <h2>Build occasionali su richiesta.</h2>
+      </div>
+
+      <div class="note">
+        <p>
+          Gli assemblaggi completi non sono il servizio principale di DELEXI PC, ma possono essere valutati
+          come richiesta occasionale o consulenza personalizzata. La priorità resta consigliare una macchina
+          sensata, stabile e adatta all’utilizzo previsto.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-call">
+      <h2>Hai già un PC da migliorare?</h2>
+      <p class="lead">
+        Possiamo valutare se conviene aggiornarlo, ripulirlo, reinstallare il sistema oppure preparare una nuova configurazione.
+      </p>
+
+      <a class="button" href="index.html#contatti">Contatta DELEXI PC</a>
+    </section>
+
+    <footer>
+      © 2026 DELEXI PC - Consigli hardware e configurazioni
+    </footer>
+  </main>
+</body>
+</html>
