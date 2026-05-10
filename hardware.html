@@ -11,7 +11,7 @@
   <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
   <meta name="theme-color" content="#050505">
-  
+
   <style>
     :root {
       --bg: #000000;
@@ -94,12 +94,7 @@
 
     .nav-links a:hover { opacity: 1; color: #ffffff; }
     .nav-links a:hover::after { width: 100%; }
-
-    .nav-links a.active {
-      color: #ffffff;
-      opacity: 1;
-    }
-
+    .nav-links a.active { color: #ffffff; opacity: 1; }
     .nav-links a.active::after { width: 100%; }
 
     /* PAGE */
@@ -111,23 +106,44 @@
 
     /* HERO */
     #top {
+      width: 100%;
       min-height: calc(100vh - var(--nav-h));
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 54px 0 80px;
       position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
 
-    .hero-box {
-      padding: 36px;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      background: linear-gradient(145deg, rgba(0, 22, 52, 0.88), rgba(0, 0, 0, 0.72));
-      box-shadow: 0 0 38px rgba(0, 110, 255, 0.16), inset 0 0 32px rgba(0, 110, 255, 0.06);
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('hardware_image_blu.png');
+      background-size: cover;
+      background-position: center center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.82) 45%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
       width: 100%;
+      padding: 80px clamp(18px, 5vw, 54px);
+    }
+
+    .hero-copy {
+      max-width: 600px;
     }
 
     .eyebrow {
@@ -157,6 +173,11 @@
       margin: 0 auto 28px;
       font-size: 1.16rem;
       color: #e7efff;
+    }
+
+    .hero-copy .lead {
+      margin-left: 0;
+      margin-right: 0;
     }
 
     .button {
@@ -195,6 +216,7 @@
       text-transform: uppercase;
       text-decoration: none;
       transition: color 0.2s;
+      z-index: 3;
     }
 
     .scroll-hint:hover { color: rgba(0, 110, 255, 0.9); }
@@ -342,7 +364,9 @@
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .grid, .grid.two { grid-template-columns: 1fr; }
-      #top { padding-top: 38px; min-height: auto; }
+      #top { min-height: 80vh; }
+      .hero-content { padding: 60px 18px; }
+      .hero-copy { max-width: 100%; }
       .scroll-hint { display: none; }
     }
 
@@ -351,7 +375,6 @@
       .nav-links a { font-size: 0.82rem; }
       .button { width: 100%; }
       .page { width: calc(100% - 28px); }
-      .hero-box { padding: 26px; }
     }
   </style>
 </head>
@@ -372,11 +395,13 @@
     </div>
   </nav>
 
-  <main class="page">
+  <!-- HERO full width -->
+  <div id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
-    <!-- HERO -->
-    <div id="top">
-      <div class="hero-box reveal">
+    <div class="hero-content">
+      <div class="hero-copy reveal">
         <div class="eyebrow">Consigli hardware e configurazioni</div>
         <h1>Build ragionate, upgrade sensati, meno sprechi.</h1>
         <p class="lead">
@@ -385,14 +410,17 @@
         </p>
         <a class="button" href="index.html#contatti">Chiedi una consulenza</a>
       </div>
-
-      <a class="scroll-hint" href="#configurazioni" aria-label="Scorri in basso">
-        <span>Scroll</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
-          <path d="M12 5v14M5 12l7 7 7-7"/>
-        </svg>
-      </a>
     </div>
+
+    <a class="scroll-hint" href="#configurazioni" aria-label="Scorri in basso">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </div>
+
+  <main class="page">
 
     <div class="sep"></div>
 
@@ -463,7 +491,7 @@
     <section>
       <div class="contact-call reveal">
         <h2>Hai già un PC da migliorare?</h2>
-        <p class="lead">
+        <p class="lead" style="margin-left:auto;margin-right:auto;">
           Possiamo valutare se conviene aggiornarlo, ripulirlo, reinstallare il sistema
           oppure preparare una nuova configurazione.
         </p>
@@ -474,19 +502,16 @@
   </main>
 
   <footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="index.html#servizi">Servizi</a>
-    <a href="index.html#chi-siamo">Chi siamo</a>
-    <a href="index.html#contatti">Contatti</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="cookie.html">Cookie Policy</a>
-  </div>
-
-  <span>
-    © 2026 DELEXI PC — Consigli hardware e configurazioni
-  </span>
-</footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#servizi">Servizi</a>
+      <a href="index.html#chi-siamo">Chi siamo</a>
+      <a href="index.html#contatti">Contatti</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+    <span>© 2026 DELEXI PC — Consigli hardware e configurazioni</span>
+  </footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
