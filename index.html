@@ -483,6 +483,58 @@
 
     .browser-screen { display: block; }
 
+    .cs-thumb {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top;
+      cursor: zoom-in;
+      transition: opacity 0.2s;
+    }
+    .cs-thumb:hover { opacity: 0.88; }
+
+    .lb-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lb-overlay.lb-open { display: flex; }
+
+    .lb-img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+      cursor: default;
+      object-fit: contain;
+    }
+
+    .lb-close {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      background: rgba(211,25,43,0.85);
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 1000;
+    }
+    .lb-close:hover { background: rgba(211,25,43,1); }
+
     .siti-strip {
       border-top: 1px solid rgba(211,25,43,0.18);
       padding: 13px 38px;
@@ -801,7 +853,12 @@
               </div>
             </div>
             <div class="browser-screen">
-              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C. — sito web realizzato da DELEXI PC" style="width:100%;display:block;object-fit:cover;object-position:top;" />
+              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C. — sito web realizzato da DELEXI PC" class="cs-thumb" onclick="document.getElementById('lb').classList.add('lb-open')" />
+            </div>
+
+            <div id="lb" class="lb-overlay" onclick="this.classList.remove('lb-open')">
+              <button class="lb-close" onclick="document.getElementById('lb').classList.remove('lb-open')" aria-label="Chiudi">✕</button>
+              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C." class="lb-img" onclick="event.stopPropagation()" />
             </div>
           </div>
         </div>
