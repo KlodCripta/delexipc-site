@@ -498,28 +498,34 @@
       position: fixed;
       inset: 0;
       z-index: 999;
-      background: rgba(0,0,0,0.92);
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      background: rgba(0,0,0,0.94);
+      overflow-y: auto;
+      overflow-x: hidden;
       cursor: zoom-out;
     }
-    .lb-overlay.lb-open { display: flex; }
+    .lb-overlay.lb-open { display: block; }
+
+    .lb-inner {
+      min-height: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 56px 20px 32px;
+    }
 
     .lb-img {
-      max-width: 90vw;
-      max-height: 90vh;
+      width: min(860px, 94vw);
+      height: auto;
       border-radius: 10px;
       box-shadow: 0 0 60px rgba(0,0,0,0.8);
       cursor: default;
-      object-fit: contain;
+      display: block;
     }
 
     .lb-close {
       position: fixed;
-      top: 18px;
-      right: 22px;
-      background: rgba(211,25,43,0.85);
+      top: 14px;
+      right: 18px;
+      background: rgba(211,25,43,0.88);
       border: none;
       color: #fff;
       font-size: 18px;
@@ -531,7 +537,7 @@
       align-items: center;
       justify-content: center;
       transition: background 0.2s;
-      z-index: 1000;
+      z-index: 1001;
     }
     .lb-close:hover { background: rgba(211,25,43,1); }
 
@@ -853,12 +859,14 @@
               </div>
             </div>
             <div class="browser-screen">
-              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C. — sito web realizzato da DELEXI PC" class="cs-thumb" onclick="document.getElementById('lb').classList.add('lb-open')" />
+              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C. — sito web realizzato da DELEXI PC" class="cs-thumb" onclick="openLb()" />
             </div>
 
-            <div id="lb" class="lb-overlay" onclick="this.classList.remove('lb-open')">
-              <button class="lb-close" onclick="document.getElementById('lb').classList.remove('lb-open')" aria-label="Chiudi">✕</button>
-              <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C." class="lb-img" onclick="event.stopPropagation()" />
+            <div id="lb" class="lb-overlay" onclick="if(event.target===this||event.target===document.querySelector('.lb-inner')){closeLb()}">
+              <button class="lb-close" onclick="closeLb()" aria-label="Chiudi">✕</button>
+              <div class="lb-inner">
+                <img src="case_study_autoclubsnc.jpg" alt="Case study Autoclub S.N.C." class="lb-img" />
+              </div>
             </div>
           </div>
         </div>
@@ -954,6 +962,16 @@
   </footer>
 
   <script>
+    function openLb() {
+      document.getElementById('lb').classList.add('lb-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLb() {
+      document.getElementById('lb').classList.remove('lb-open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
