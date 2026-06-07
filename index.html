@@ -294,50 +294,18 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       align-items: stretch; padding-left: 48px;
     }
-    .hw-col { padding-right: 28px; }
-    Sì. Nel file `index(2).html`:
-
-Anno footer:
-
-* Riga **725**
-  Cambia `© 2024` in `© 2026`.
-
-Colore testo footer:
-
-* Riga **391**
-  Cambia:
-
-```css
-.footer-bottom span { font-size: 0.8rem; color: #555; }
-```
-
-in:
-
-```css
-.footer-bottom span { font-size: 0.8rem; color: #ffffff; }
-```
-
-Immagine hardware:
-
-* Blocco da **riga 298 a 306**.
-
-Sostituiscilo tutto con:
-
-```css
-.hw-img-col {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  min-height: 280px;
-  background-image: url('hardware_image_home.png');
-  background-size: 92%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #0d0d0d;
-  opacity: 0.82;
-}
-```
+    .hw-img-col {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-height: 280px;
+      background-image: url('hardware_image_home.png');
+      background-size: 92%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #0d0d0d;
+    }  
     .col-overline {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: var(--red);
