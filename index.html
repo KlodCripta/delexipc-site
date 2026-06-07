@@ -40,9 +40,8 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: var(--nav-h);
-      background: rgba(13,13,13,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
       display: flex; align-items: center;
       padding: 0 clamp(16px,4vw,60px);
       gap: 32px;
@@ -74,22 +73,23 @@
     #home {
       min-height: 100vh;
       padding-top: var(--nav-h);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       align-items: center;
-      gap: 40px;
-      max-width: var(--max);
-      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
       padding-left: clamp(16px,4vw,60px);
       padding-right: clamp(16px,4vw,60px);
-      position: relative;
     }
     #home::before {
       content: '';
-      position: fixed; inset: 0;
+      position: absolute; inset: 0;
       background-image: url('home_image_red.png');
       background-size: cover; background-position: center;
-      opacity: 0.22; z-index: -1;
+      opacity: 0.10; z-index: 0;
+    }
+    .hero-copy {
+      position: relative; z-index: 1;
+      max-width: 680px;
     }
     .hero-overline {
       font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
@@ -148,8 +148,8 @@
     /* ─── FEATURE STRIP ─── */
     .feature-strip {
       background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 2px solid var(--red);
+      border-bottom: 2px solid var(--red);
     }
     .feature-strip-inner {
       max-width: var(--max); margin: 0 auto;
@@ -271,17 +271,16 @@
     /* ─── CHI SIAMO + HARDWARE ─── */
     #about-hw { background: var(--bg2); }
     .about-hw-grid {
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+      display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0;
       align-items: start;
     }
-    .about-col { grid-column: 1; }
-    .hw-col { grid-column: 2; }
+    .about-col { padding-right: 48px; }
+    .hw-right { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; padding-left: 48px; }
     .hw-img-col {
-      grid-column: 3;
       border-radius: 8px; overflow: hidden;
       border: 1px solid var(--border);
     }
-    .hw-img-col img { width: 100%; height: 100%; object-fit: cover; }
+    .hw-img-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .col-overline {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: var(--red);
@@ -312,7 +311,7 @@
     .contatti-strip-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 clamp(16px,4vw,60px);
-      display: grid; grid-template-columns: 1fr auto auto auto; gap: 40px; align-items: center;
+      display: grid; grid-template-columns: 1fr auto auto auto auto; gap: 20px; align-items: center;
     }
     .contatti-left h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; margin-bottom: 4px; }
     .contatti-left h2 span { color: var(--red); }
@@ -366,8 +365,8 @@
     }
     .footer-bottom span { font-size: 0.8rem; color: #555; }
     .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { font-size: 0.8rem; color: #555; transition: color 0.2s; }
-    .footer-bottom-links a:hover { color: #fff; }
+    .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--red); }
 
     /* ─── REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
@@ -375,24 +374,25 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      #home { grid-template-columns: 1fr; text-align: center; min-height: auto; padding-top: calc(var(--nav-h) + 60px); padding-bottom: 60px; }
-      .hero-p { margin-left: auto; margin-right: auto; }
-      .hero-btns { justify-content: center; }
-      .hero-img { display: none; }
+      #home { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
       .feature-strip-inner { grid-template-columns: 1fr 1fr; }
-      .about-hw-grid { grid-template-columns: 1fr 1fr; }
-      .hw-img-col { display: none; }
+      .about-hw-grid { grid-template-columns: 1fr; }
+      .divider-v { display: none; }
+      .hw-right { grid-column: 1; padding-left: 0; grid-template-columns: 1fr 1fr; }
+      .about-col { padding-right: 0; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
-      .contatti-strip-inner { grid-template-columns: 1fr; }
+      .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .siti-grid { grid-template-columns: 1fr; }
       .servizi-grid { grid-template-columns: 1fr; }
-      .about-hw-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
+      .hw-right { grid-template-columns: 1fr; }
+      .hw-img-col { display: none; }
       .feature-strip-inner { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
+      .contatti-strip-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -422,11 +422,8 @@
     <p class="hero-p">Realizziamo siti web professionali, risolviamo problemi informatici e offriamo supporto tecnico per privati e piccole attività.</p>
     <div class="hero-btns">
       <a href="#servizi" class="btn-solid"><i class="ti ti-list-search"></i>Scopri i servizi</a>
-      <a href="#contatti" class="btn-outline"><i class="ti ti-headset"></i>Richiedi assistenza</a>
+      <a href="#contatti-strip" class="btn-outline"><i class="ti ti-headset"></i>Richiedi assistenza</a>
     </div>
-  </div>
-  <div class="hero-img reveal" style="transition-delay:0.15s">
-    <img src="home_image_red.png" alt="DELEXI PC — Soluzioni digitali" />
   </div>
 </div>
 
@@ -544,12 +541,6 @@
         <p>Installiamo e configuriamo software, driver, periferiche e reti per garantirti il massimo delle prestazioni.</p>
         <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
       </div>
-      <div class="servizio-card reveal" style="transition-delay:0.16s">
-        <div class="servizio-icon"><i class="ti ti-network"></i></div>
-        <h3>Sistemi e Reti</h3>
-        <p>Configurazione di reti, backup, account, sicurezza e manutenzione di sistemi per privati e aziende.</p>
-        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-      </div>
       <div class="servizio-card reveal" style="transition-delay:0.24s">
         <div class="servizio-icon"><i class="ti ti-terminal-2"></i></div>
         <h3>Linux e Sistemi Alternativi</h3>
@@ -604,17 +595,17 @@
 
         <div class="divider-v reveal" style="transition-delay:0.1s"></div>
 
-        <!-- Hardware -->
-        <div class="hw-col reveal" style="transition-delay:0.15s">
-          <span class="col-overline">Hardware</span>
-          <h2 class="col-title">Hardware efficiente, sistema performante.</h2>
-          <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
-          <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
-        </div>
-
-        <!-- Immagine PC case -->
-        <div class="hw-img-col reveal" style="transition-delay:0.2s">
-          <img src="hardware_image_blu.png" alt="PC case DELEXI PC" />
+        <!-- Hardware + Immagine affiancati -->
+        <div class="hw-right reveal" style="transition-delay:0.15s">
+          <div class="hw-col">
+            <span class="col-overline">Hardware</span>
+            <h2 class="col-title">Hardware efficiente, sistema performante.</h2>
+            <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
+            <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
+          </div>
+          <div class="hw-img-col">
+            <img src="hardware_image_blu.png" alt="PC case DELEXI PC" />
+          </div>
         </div>
       </div>
     </div>
@@ -632,11 +623,15 @@
       <i class="ti ti-mail"></i>
       <div><h5>Email</h5><span>info@delexipc.it</span></div>
     </a>
-    <a href="https://wa.me/393793314745" class="contatto-item reveal" style="transition-delay:0.16s">
+    <a href="tel:+393793314745" class="contatto-item reveal" style="transition-delay:0.14s">
+      <i class="ti ti-phone"></i>
+      <div><h5>Telefono</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://wa.me/393793314745" class="contatto-item reveal" style="transition-delay:0.20s">
       <i class="ti ti-brand-whatsapp"></i>
       <div><h5>WhatsApp</h5><span>+39 379 3314745</span></div>
     </a>
-    <a href="https://t.me/+393793314745" class="contatto-item reveal" style="transition-delay:0.24s">
+    <a href="https://t.me/+393793314745" class="contatto-item reveal" style="transition-delay:0.26s">
       <i class="ti ti-brand-telegram"></i>
       <div><h5>Telegram</h5><span>@delexipc</span></div>
     </a>
