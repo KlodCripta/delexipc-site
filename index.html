@@ -85,7 +85,7 @@
       position: absolute; inset: 0;
       background-image: url('home_image_red.png');
       background-size: cover; background-position: center;
-      opacity: 0.06; z-index: 0;
+      opacity: 0; z-index: 0;
     }
     .hero-copy {
       position: relative; z-index: 1;
@@ -269,18 +269,29 @@
     .servizio-card:hover .scopri-link { gap: 10px; }
 
     /* ─── CHI SIAMO + HARDWARE ─── */
-    #about-hw { background: var(--bg2); }
+    #about-hw {
+      background: var(--bg2);
+    }
     .about-hw-grid {
       display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0;
       align-items: start;
     }
     .about-col { padding-right: 48px; }
-    .hw-right { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; padding-left: 48px; }
+    .hw-right {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      align-items: stretch; padding-left: 48px;
+    }
+    .hw-col { padding-right: 28px; }
     .hw-img-col {
+      position: relative;
       border-radius: 8px; overflow: hidden;
       border: 1px solid var(--border);
+      min-height: 280px;
+      background-image: url('https://raw.githubusercontent.com/KlodCripta/delexipc-site/main/hardware_image_blu.png');
+      background-size: cover;
+      background-position: center;
     }
-    .hw-img-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     .col-overline {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: var(--red);
@@ -307,7 +318,7 @@
     }
 
     /* ─── CONTATTI STRIP ─── */
-    #contatti-strip { background: var(--bg3); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0; }
+    #contatti-strip { background: #000000; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 60px 0; }
     .contatti-strip-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 clamp(16px,4vw,60px);
@@ -329,10 +340,18 @@
     .contatto-item h5 { font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
     .contatto-item span { font-size: 0.82rem; color: var(--muted); }
 
-    /* ─── FOOTER ─── */
+    /* ─── FOOTER TOTAL BLACK ─── */
     footer {
-      background: var(--bg); padding: 60px 0 24px;
-      border-top: 1px solid var(--border);
+      background: #000000; padding: 60px 0 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto;
+      padding: 20px clamp(16px,4vw,60px) 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+      background: #000000;
     }
     .footer-inner {
       max-width: var(--max); margin: 0 auto;
@@ -345,7 +364,7 @@
     .footer-social { display: flex; gap: 10px; }
     .footer-social a {
       width: 32px; height: 32px; border-radius: 4px;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.08);
       display: flex; align-items: center; justify-content: center;
       color: var(--muted); font-size: 14px;
       transition: border-color 0.2s, color 0.2s;
@@ -356,13 +375,6 @@
     .footer-col ul li a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
     .footer-col ul li a:hover { color: #fff; }
     .footer-col ul li { font-size: 0.82rem; color: var(--muted); }
-    .footer-bottom {
-      max-width: var(--max); margin: 0 auto;
-      padding: 20px clamp(16px,4vw,60px) 0;
-      border-top: 1px solid var(--border);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 10px;
-    }
     .footer-bottom span { font-size: 0.8rem; color: #555; }
     .footer-bottom-links { display: flex; gap: 20px; }
     .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
@@ -609,9 +621,7 @@
             <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
             <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
           </div>
-          <div class="hw-img-col">
-            <img src="https://raw.githubusercontent.com/KlodCripta/delexipc-site/main/hardware_image_blu.png" alt="PC case DELEXI PC" />
-          </div>
+          <div class="hw-img-col"></div>
         </div>
       </div>
     </div>
