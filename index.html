@@ -445,26 +445,58 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      #home { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
-      .feature-strip-inner { grid-template-columns: 1fr 1fr; }
-      .about-hw-grid { grid-template-columns: 1fr; }
-      .divider-v { display: none; }
-      .hw-right { grid-column: 1; padding-left: 0; grid-template-columns: 1fr 1fr; }
-      .about-col { padding-right: 0; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
-    }
+  #home {
+    min-height: auto;
+    padding-top: calc(var(--nav-h) + 80px);
+    padding-bottom: 80px;
+  }
+
+  .feature-strip-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-hw-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .divider-v {
+    display: none;
+  }
+
+  .about-col {
+    padding-right: 0;
+    margin-bottom: 32px;
+  }
+
+  .hw-right {
+    grid-column: 1;
+    padding: 40px;
+    min-height: 400px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contatti-strip-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .siti-grid { grid-template-columns: 1fr; }
       .servizi-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
-      .hw-right { grid-template-columns: 1fr; }
-      .hw-img-col { display: none; }
+
+      .hw-right {
+        min-height: 320px;
+        padding: 32px;
+      }
+
       .feature-strip-inner { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .contatti-strip-inner { grid-template-columns: 1fr; }
-    }
+      }
   </style>
 </head>
 <body>
@@ -680,7 +712,6 @@
             <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
             <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
           </div>
-          <div class="hw-img-col"></div>
         </div>
       </div>
     </div>
