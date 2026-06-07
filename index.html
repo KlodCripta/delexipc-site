@@ -285,44 +285,75 @@
     #about-hw {
       background: var(--bg2);
     }
+
     .about-hw-grid {
-      display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0;
       align-items: start;
     }
-    .about-col { padding-right: 48px; }
-    .hw-right {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-      align-items: stretch; padding-left: 48px;
-    }
-    .hw-col { padding-right: 28px; }
 
-    .hw-img-col {
+    .about-col {
+      padding-right: 48px;
+    }
+
+    .hw-right {
       position: relative;
+      min-height: 360px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
-      min-height: 280px;
-      background: #0d0d0d;
+      padding: 48px;
+      display: flex;
+      align-items: center;
     }
 
-    .hw-img-col::before {
+    .hw-right::before {
       content: '';
       position: absolute;
       inset: 0;
       background-image: url('hardware_image_home.png');
       background-size: cover;
       background-position: center;
-      opacity: 0.65;
-      filter: brightness(0.85);
+      opacity: 0.75;
+      z-index: 0;
     }
+
+    .hw-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.92) 0%,
+        rgba(0,0,0,0.72) 45%,
+        rgba(0,0,0,0.35) 75%,
+        rgba(0,0,0,0.15) 100%
+      );
+      z-index: 1;
+    }
+
+    .hw-col {
+      position: relative;
+      z-index: 2;
+      max-width: 420px;
+    }
+
     .col-overline {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--red);
-      display: block; margin-bottom: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 12px;
     }
+
     .col-title {
       font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 700; margin-bottom: 16px; line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
     }
     .col-p { font-size: 0.9rem; color: #999; line-height: 1.7; margin-bottom: 20px; }
     .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
@@ -549,8 +580,8 @@
         <div class="costi-box">
           <i class="ti ti-coin-euro"></i>
           <div>
-            <h5>COSTI ANNUALI IRRISORI</h5>
-            <p>Costi di gestione contenuti, generalmente intorno ai 20€ all'anno (incluso email).</p>
+            <h5>COSTI ANNUALI RIDOTTI</h5>
+            <p>Costi di gestione contenuti, generalmente intorno ai 30€ all'anno (incluso email).</p>
           </div>
         </div>
         <a href="siti.html" class="btn-solid">SCOPRI DI PIÙ</a>
