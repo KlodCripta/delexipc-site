@@ -294,18 +294,27 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 0;
       align-items: stretch; padding-left: 48px;
     }
+    .hw-col { padding-right: 28px; }
+
     .hw-img-col {
       position: relative;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
       min-height: 280px;
+      background: #0d0d0d;
+    }
+
+    .hw-img-col::before {
+      content: '';
+      position: absolute;
+      inset: 0;
       background-image: url('hardware_image_home.png');
-      background-size: 92%;
-      background-repeat: no-repeat;
+      background-size: cover;
       background-position: center;
-      background-color: #0d0d0d;
-    }  
+      opacity: 0.65;
+      filter: brightness(0.85);
+    }
     .col-overline {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
       text-transform: uppercase; color: var(--red);
@@ -332,7 +341,12 @@
     }
 
     /* ─── CONTATTI STRIP ─── */
-    #contatti-strip { background: #000000; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 60px 0; }
+    #contatti-strip {
+      background: #000000;
+      border-top: 2px solid var(--red);
+      border-bottom: 2px solid var(--red);
+      padding: 60px 0;
+    }
     .contatti-strip-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 clamp(16px,4vw,60px);
