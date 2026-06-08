@@ -252,7 +252,24 @@
     .siti-note i { color: var(--red); }
 
     /* ─── SERVIZI ─── */
-    #servizi { background: var(--bg); }
+    #servizi { background: var(--bg); position: relative; }
+    #servizi::before,
+    #servizi::after {
+      content: '';
+      position: absolute;
+      width: 60px; height: 60px;
+      border-color: var(--red);
+      border-style: solid;
+      pointer-events: none;
+    }
+    #servizi::before {
+      top: 40px; left: clamp(16px,4vw,60px);
+      border-width: 2px 0 0 2px;
+    }
+    #servizi::after {
+      bottom: 40px; right: clamp(16px,4vw,60px);
+      border-width: 0 2px 2px 0;
+    }
     .servizi-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
     }
