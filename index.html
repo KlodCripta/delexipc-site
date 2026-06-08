@@ -410,16 +410,22 @@
     .contatto-item {
       display: flex; align-items: center; gap: 12px;
       padding: 16px 22px;
-      border: 1px solid var(--border); border-radius: 6px;
+      border: 1px solid var(--border-red); border-radius: 6px;
       background: #000000;
-      transition: border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
       text-decoration: none; color: inherit;
     }
-    .contatto-item:hover { border-color: var(--border-red); }
-    .contatto-item i { font-size: 22px; color: var(--red); }
+    .contatto-item:hover {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .contatto-item:hover i,
+    .contatto-item:hover h5,
+    .contatto-item:hover span { color: #fff; }
+    .contatto-item i { font-size: 22px; color: var(--red); transition: color 0.2s; }
     .contatto-item h5 { font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
-    .contatto-item span { font-size: 0.82rem; color: var(--muted); }
-
+    .contatto-item span { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+    
     /* ─── FOOTER TOTAL BLACK ─── */
     footer {
       background: #000000; padding: 60px 0 24px;
