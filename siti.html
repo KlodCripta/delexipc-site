@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siti Web Professionali – KLODEX</title>
+  <meta name="description" content="KLODEX realizza siti web professionali per negozi, artigiani e professionisti. Veloci, sicuri, ottimizzati per smartphone. Dominio, email e Google inclusi." />
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg2: #111111;
+      --bg3: #181818;
+      --bg4: #1f1f1f;
+      --red: #d4192b;
+      --red2: #e8283c;
+      --text: #f0f0f0;
+      --muted: #999;
+      --border: rgba(255,255,255,0.06);
+      --border-red: rgba(212,25,43,0.35);
+      --nav-h: 62px;
+      --font: 'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+      --max: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: #000000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center;
+      padding: 0 clamp(16px,4vw,60px);
+      gap: 32px;
+    }
+    .nav-logo { flex-shrink: 0; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links {
+      display: flex; gap: 28px; align-items: center;
+      flex: 1; justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: #ccc;
+      transition: color 0.2s; letter-spacing: 0.3px;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: var(--red); }
+    .nav-cta {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 20px; border-radius: 4px;
+      border: 1px solid var(--red);
+      color: #fff; font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--red); }
+
+    /* ─── UTILS ─── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px,4vw,60px); }
+    .section-overline {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      display: block; text-align: center; margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; text-align: center;
+      margin-bottom: 14px; line-height: 1.2;
+    }
+    .section-sub {
+      text-align: center; color: var(--muted);
+      font-size: 1rem; max-width: 600px;
+      margin: 0 auto 52px;
+      line-height: 1.7;
+    }
+    .btn-solid {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 4px;
+      background: var(--red); color: #fff;
+      font-size: 0.88rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border: 1px solid var(--red);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-solid:hover { background: var(--red2); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 24px; border-radius: 4px;
+      background: transparent; color: #fff;
+      font-size: 0.88rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      padding-top: var(--nav-h);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-left: clamp(16px,4vw,60px);
+      padding-right: clamp(16px,4vw,60px);
+      background: #000;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('home_image_red.png');
+      background-size: cover; background-position: center;
+      opacity: 0.35; z-index: 0;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.97) 0%,
+        rgba(0,0,0,0.85) 40%,
+        rgba(0,0,0,0.50) 75%,
+        rgba(0,0,0,0.20) 100%
+      );
+      z-index: 0;
+    }
+    .hero-copy {
+      position: relative; z-index: 1;
+      max-width: 720px;
+    }
+    .hero-overline {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 18px;
+    }
+    .hero-h1 {
+      font-family: var(--font-cond);
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 900; line-height: 1.0;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      margin-bottom: 22px;
+    }
+    .hero-h1 .red { color: var(--red); }
+    .hero-p {
+      font-size: 1.05rem; color: #bbb; max-width: 520px;
+      margin-bottom: 36px; line-height: 1.75;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-badges {
+      display: flex; gap: 20px; flex-wrap: wrap;
+      margin-top: 44px;
+    }
+    .hero-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 600; color: #888;
+    }
+    .hero-badge i { color: var(--red); font-size: 16px; }
+
+    /* ─── PER CHI ─── */
+    #per-chi { padding: 90px 0; background: var(--bg2); border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+    .perchi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .perchi-card {
+      background: #000;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 22px;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .perchi-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .perchi-icon {
+      width: 46px; height: 46px;
+      border: 1px solid var(--border-red);
+      border-radius: 8px; background: rgba(212,25,43,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red); font-size: 22px; margin-bottom: 16px;
+    }
+    .perchi-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .perchi-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── COSA INCLUDE ─── */
+    #cosa-include { padding: 90px 0; background: var(--bg); }
+    .include-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .include-left { }
+    .include-left .section-overline,
+    .include-left .section-title { text-align: left; }
+    .include-left .section-title { margin-bottom: 10px; }
+    .include-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 32px; }
+    .include-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .include-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.92rem; color: var(--text); line-height: 1.55;
+    }
+    .include-list li i {
+      color: var(--red); font-size: 18px; margin-top: 1px; flex-shrink: 0;
+    }
+    .include-right {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .include-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
+      border-radius: 6px;
+      padding: 20px 22px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .include-card i { color: var(--red); font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .include-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .include-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+
+    /* ─── PERCHÉ STATICO ─── */
+    #perche { padding: 90px 0; background: #000; }
+    .perche-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+    .perche-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 26px;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .perche-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .perche-num {
+      font-family: var(--font-cond);
+      font-size: 3rem; font-weight: 900;
+      color: rgba(212,25,43,0.18);
+      line-height: 1; margin-bottom: 14px;
+      letter-spacing: -1px;
+    }
+    .perche-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .perche-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── PROGETTI ─── */
+    #progetti { padding: 90px 0; background: var(--bg); }
+    .progetti-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .progetto-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .progetto-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .progetto-thumb {
+      height: 180px;
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .progetto-thumb.has-site {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+    }
+    .progetto-thumb-label {
+      font-family: var(--font-cond);
+      font-size: 2rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: rgba(255,255,255,0.08);
+      user-select: none;
+    }
+    .progetto-thumb-icon {
+      width: 56px; height: 56px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #333; font-size: 26px;
+    }
+    .progetto-tag {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--red); color: #fff;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px;
+    }
+    .progetto-soon-tag {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(255,255,255,0.06); color: #666;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .progetto-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+    .progetto-body h3 { font-size: 1rem; font-weight: 800; text-transform: uppercase; }
+    .progetto-body .tipo { font-size: 0.78rem; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
+    .progetto-body p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .progetto-footer {
+      padding: 0 24px 24px;
+    }
+    .progetto-placeholder {
+      text-align: center; padding: 40px 24px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .progetto-placeholder i { font-size: 32px; color: #2a2a2a; }
+    .progetto-placeholder p { font-size: 0.82rem; color: #333; }
+
+    /* ─── PROCESSO ─── */
+    #processo { padding: 90px 0; background: var(--bg2); border-top: 2px solid var(--red); }
+    .processo-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .processo-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: calc(10% + 14px); right: calc(10% + 14px);
+      height: 1px;
+      background: var(--border-red);
+      z-index: 0;
+    }
+    .pstep {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; padding: 0 12px; position: relative; z-index: 1;
+    }
+    .pstep-num {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      border: 2px solid var(--red);
+      background: #000;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-cond);
+      font-size: 1.2rem; font-weight: 900;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .pstep h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; }
+    .pstep p { font-size: 0.80rem; color: var(--muted); line-height: 1.5; }
+
+    /* ─── CTA FINALE ─── */
+    #cta-finale {
+      padding: 100px 0;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-finale::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(212,25,43,0.12) 0%, transparent 65%);
+      z-index: 0;
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+      max-width: 680px; margin: 0 auto;
+    }
+    .cta-inner .section-overline { margin-bottom: 16px; }
+    .cta-title {
+      font-family: var(--font-cond);
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 900; text-transform: uppercase;
+      line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.5px;
+    }
+    .cta-title .red { color: var(--red); }
+    .cta-sub {
+      font-size: 1rem; color: var(--muted);
+      margin-bottom: 40px; line-height: 1.7;
+    }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-contacts {
+      display: flex; gap: 32px; justify-content: center;
+      margin-top: 44px; flex-wrap: wrap;
+    }
+    .cta-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.88rem; color: var(--muted);
+    }
+    .cta-contact-item i { color: var(--red); font-size: 18px; }
+    .cta-contact-item a { color: var(--muted); transition: color 0.2s; }
+    .cta-contact-item a:hover { color: #fff; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #000000; padding: 60px 0 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 clamp(16px,4vw,60px);
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 14px; }
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 32px; height: 32px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 14px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--red); color: var(--red); }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-col ul li { font-size: 0.82rem; color: var(--muted); }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto;
+      padding: 20px clamp(16px,4vw,60px) 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom span { font-size: 0.8rem; color: #ffffff; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--red); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      #hero { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
+      .perchi-grid { grid-template-columns: 1fr 1fr; }
+      .include-layout { grid-template-columns: 1fr; gap: 40px; }
+      .perche-grid { grid-template-columns: 1fr 1fr; }
+      .progetti-grid { grid-template-columns: 1fr 1fr; }
+      .processo-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .processo-steps::before { display: none; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .perchi-grid { grid-template-columns: 1fr; }
+      .perche-grid { grid-template-columns: 1fr; }
+      .progetti-grid { grid-template-columns: 1fr; }
+      .processo-steps { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .processo-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="KLODEX Home">
+    <img src="logo_rosso_wide.png" alt="KLODEX" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#servizi">Servizi</a>
+    <a href="siti.html" class="active">Siti Web</a>
+    <a href="casestudy.html">Case Study</a>
+    <a href="index.html#contatti-strip">Contatti</a>
+  </div>
+  <a href="index.html#contatti-strip" class="nav-cta">Richiedi assistenza</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-copy reveal">
+    <div class="hero-overline">Siti web professionali</div>
+    <h1 class="hero-h1">IL TUO SITO WEB<br><span class="red">FATTO BENE.</span></h1>
+    <p class="hero-p">Progettiamo e realizziamo siti web per negozi, artigiani e professionisti. Veloci, sicuri, belli su qualsiasi schermo — e pronti a farti trovare online.</p>
+    <div class="hero-btns">
+      <a href="#cta-finale" class="btn-solid"><i class="ti ti-send"></i>Parliamone</a>
+      <a href="#cosa-include" class="btn-outline"><i class="ti ti-list-search"></i>Cosa include</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge"><i class="ti ti-device-mobile"></i>Ottimizzato per smartphone</span>
+      <span class="hero-badge"><i class="ti ti-lock"></i>HTTPS incluso</span>
+      <span class="hero-badge"><i class="ti ti-world"></i>Dominio personalizzato</span>
+      <span class="hero-badge"><i class="ti ti-mail"></i>Email professionale</span>
+    </div>
+  </div>
+</section>
+
+<!-- PER CHI -->
+<section id="per-chi">
+  <div class="container">
+    <span class="section-overline">Per chi è pensato</span>
+    <h2 class="section-title">Un sito per chi lavora sul territorio.</h2>
+    <p class="section-sub">Non serve essere una grande azienda per avere una presenza online professionale. Lavoriamo con chi ha un'attività locale e vuole farsi trovare dai clienti giusti.</p>
+    <div class="perchi-grid">
+      <div class="perchi-card reveal">
+        <div class="perchi-icon"><i class="ti ti-building-store"></i></div>
+        <h3>Negozi e commercianti</h3>
+        <p>Presenta il tuo negozio, i tuoi prodotti o servizi e fatti trovare da chi cerca nelle vicinanze.</p>
+      </div>
+      <div class="perchi-card reveal" style="transition-delay:0.08s">
+        <div class="perchi-icon"><i class="ti ti-tools"></i></div>
+        <h3>Artigiani e installatori</h3>
+        <p>Mostra i tuoi lavori, le tue competenze e dai ai clienti un modo semplice per contattarti.</p>
+      </div>
+      <div class="perchi-card reveal" style="transition-delay:0.16s">
+        <div class="perchi-icon"><i class="ti ti-briefcase"></i></div>
+        <h3>Professionisti e studi</h3>
+        <p>Avvocati, consulenti, dentisti, estetisti: un sito pulito e credibile aumenta la fiducia del cliente.</p>
+      </div>
+      <div class="perchi-card reveal" style="transition-delay:0.24s">
+        <div class="perchi-icon"><i class="ti ti-salad"></i></div>
+        <h3>Ristoranti e locali</h3>
+        <p>Menu, orari, prenotazioni e galleria foto. Tutto quello che serve per far venire voglia di venire da te.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COSA INCLUDE -->
+<section id="cosa-include">
+  <div class="container">
+    <div class="include-layout">
+      <div class="include-left reveal">
+        <span class="section-overline">Cosa include</span>
+        <h2 class="section-title">Tutto quello che ti serve, già incluso.</h2>
+        <p class="include-desc">Ci occupiamo di tutto, dalla prima bozza alla pubblicazione online. Tu non devi preoccuparti di nulla: nessun tecnicismo, nessuna sorpresa.</p>
+        <ul class="include-list">
+          <li><i class="ti ti-check"></i><span>Sito web vetrina sviluppato in HTML e CSS — veloce, leggero e sicuro per definizione.</span></li>
+          <li><i class="ti ti-check"></i><span>Design moderno e responsive: si adatta perfettamente a smartphone, tablet e computer.</span></li>
+          <li><i class="ti ti-check"></i><span>Configurazione del dominio personalizzato (es. iltuonome.it) e dell'hosting.</span></li>
+          <li><i class="ti ti-check"></i><span>Email professionale abbinata al tuo dominio (es. info@iltuonome.it).</span></li>
+          <li><i class="ti ti-check"></i><span>Certificato SSL incluso: il sito è in HTTPS e trasmette sicurezza ai visitatori.</span></li>
+          <li><i class="ti ti-check"></i><span>Integrazione Google Maps e modulo di contatto direttamente nella pagina.</span></li>
+          <li><i class="ti ti-check"></i><span>Ottimizzazione SEO di base per farsi trovare su Google.</span></li>
+          <li><i class="ti ti-check"></i><span>Privacy Policy e Cookie Policy incluse, conformi alla normativa italiana.</span></li>
+          <li><i class="ti ti-check"></i><span>Versione multilingua disponibile su richiesta — ideale per chi vuole raggiungere anche clienti stranieri.</span></li>
+          <li><i class="ti ti-check"></i><span>Assistenza dalla prima bozza fino alla pubblicazione, senza lasciarti solo a metà strada.</span></li>
+        </ul>
+      </div>
+      <div class="include-right">
+        <div class="include-card reveal" style="transition-delay:0.06s">
+          <i class="ti ti-rocket"></i>
+          <div>
+            <h4>Velocità reale</h4>
+            <p>I siti in HTML puro si caricano in frazioni di secondo. Niente plugin, niente database, niente rallentamenti. Google premia i siti veloci.</p>
+          </div>
+        </div>
+        <div class="include-card reveal" style="transition-delay:0.12s">
+          <i class="ti ti-shield-check"></i>
+          <div>
+            <h4>Sicurezza di serie</h4>
+            <p>Un sito statico non ha backend da attaccare. Niente WordPress da aggiornare, niente vulnerabilità da gestire: sicuro per natura.</p>
+          </div>
+        </div>
+        <div class="include-card reveal" style="transition-delay:0.18s">
+          <i class="ti ti-coin-euro"></i>
+          <div>
+            <h4>Costi di gestione bassissimi</h4>
+            <p>L'hosting per un sito statico costa pochissimo. Mediamente meno di 20€ all'anno, tutto incluso — dominio ed email professionale compresi.</p>
+          </div>
+        </div>
+        <div class="include-card reveal" style="transition-delay:0.24s">
+          <i class="ti ti-language"></i>
+          <div>
+            <h4>Versione multilingua</h4>
+            <p>Se la tua clientela è anche straniera, possiamo realizzare il sito in più lingue. Ideale per locali turistici, B&B e attività internazionali.</p>
+          </div>
+        </div>
+        <div class="include-card reveal" style="transition-delay:0.30s">
+          <i class="ti ti-headset"></i>
+          <div>
+            <h4>Accompagnamento completo</h4>
+            <p>Ti seguiamo dalla progettazione alla pubblicazione. Nessun passaggio lasciato a te senza spiegazione: siamo disponibili in ogni fase.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERCHÉ STATICO -->
+<section id="perche">
+  <div class="container">
+    <span class="section-overline">Perché scegliere un sito moderno</span>
+    <h2 class="section-title">Semplice, veloce e che dura nel tempo.</h2>
+    <p class="section-sub">I nostri siti non usano sistemi complicati che si rompono o vanno aggiornati continuamente. Funzionano e basta — proprio come deve fare uno strumento di lavoro.</p>
+    <div class="perche-grid">
+      <div class="perche-card reveal">
+        <div class="perche-num">01</div>
+        <h3>Si carica in un attimo</h3>
+        <p>Un sito lento fa scappare i visitatori prima ancora che vedano cosa offri. I nostri siti si caricano velocemente anche con una connessione mediocre, su qualsiasi dispositivo.</p>
+      </div>
+      <div class="perche-card reveal" style="transition-delay:0.08s">
+        <div class="perche-num">02</div>
+        <h3>Nessuna manutenzione tecnica</h3>
+        <p>Con WordPress hai plugin da aggiornare, backup da fare, vulnerabilità da tappare. Con un sito statico non esiste nulla di tutto questo: funziona e non ti dà problemi.</p>
+      </div>
+      <div class="perche-card reveal" style="transition-delay:0.16s">
+        <div class="perche-num">03</div>
+        <h3>Ottimizzato per Google</h3>
+        <p>Velocità e struttura pulita sono due dei fattori che Google considera nel posizionamento. Partiamo già avvantaggiati rispetto a siti gonfi e lenti.</p>
+      </div>
+      <div class="perche-card reveal" style="transition-delay:0.24s">
+        <div class="perche-num">04</div>
+        <h3>Perfetto su ogni schermo</h3>
+        <p>Oltre il 60% delle persone navega da smartphone. I nostri siti si adattano perfettamente a qualsiasi dimensione di schermo, senza nulla fuori posto.</p>
+      </div>
+      <div class="perche-card reveal" style="transition-delay:0.32s">
+        <div class="perche-num">05</div>
+        <h3>Costi contenuti e trasparenti</h3>
+        <p>Niente abbonamenti nascosti, niente canoni mensili obbligatori. I costi di gestione annuali sono minimi e te li diciamo in anticipo, senza sorprese.</p>
+      </div>
+      <div class="perche-card reveal" style="transition-delay:0.40s">
+        <div class="perche-num">06</div>
+        <h3>Fatto su misura per te</h3>
+        <p>Non usiamo template preconfezionati. Ogni sito viene progettato pensando alla tua attività, ai tuoi clienti e a come vuoi presentarti online.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+  <div class="container">
+    <span class="section-overline">Come lavoriamo</span>
+    <h2 class="section-title">Dal primo contatto alla pubblicazione.</h2>
+    <p class="section-sub">Un percorso semplice e lineare. Ti accompagniamo passo dopo passo, senza lasciarti solo in nessuna fase.</p>
+    <div class="processo-steps">
+      <div class="pstep reveal">
+        <div class="pstep-num">1</div>
+        <h4>Primo contatto</h4>
+        <p>Ci racconti la tua attività, cosa fai e cosa vorresti che il sito comunicasse.</p>
+      </div>
+      <div class="pstep reveal" style="transition-delay:0.08s">
+        <div class="pstep-num">2</div>
+        <h4>Progettazione</h4>
+        <p>Prepariamo una bozza strutturale del sito e la condividiamo con te per raccogliere feedback.</p>
+      </div>
+      <div class="pstep reveal" style="transition-delay:0.16s">
+        <div class="pstep-num">3</div>
+        <h4>Sviluppo</h4>
+        <p>Realizziamo il sito completo con testi, immagini, grafica e tutte le funzionalità concordate.</p>
+      </div>
+      <div class="pstep reveal" style="transition-delay:0.24s">
+        <div class="pstep-num">4</div>
+        <h4>Revisioni</h4>
+        <p>Ti mostriamo il risultato e apportiamo le modifiche necessarie finché non sei soddisfatto.</p>
+      </div>
+      <div class="pstep reveal" style="transition-delay:0.32s">
+        <div class="pstep-num">5</div>
+        <h4>Pubblicazione</h4>
+        <p>Configuriamo dominio, hosting e email. Il tuo sito va online e inizia a lavorare per te.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGETTI -->
+<section id="progetti">
+  <div class="container">
+    <span class="section-overline">Alcuni progetti realizzati</span>
+    <h2 class="section-title">Idee che sono diventate siti.</h2>
+    <p class="section-sub">Ogni progetto nasce da una conversazione e si trasforma in uno strumento reale per l'attività del cliente.</p>
+    <div class="progetti-grid">
+
+      <!-- Auto Club SNC -->
+      <div class="progetto-card reveal">
+        <div class="progetto-thumb has-site">
+          <span class="progetto-thumb-label">AUTO CLUB</span>
+          <div class="progetto-tag">Online</div>
+        </div>
+        <div class="progetto-body">
+          <span class="tipo">Officina &amp; Carrozzeria</span>
+          <h3>Auto Club SNC</h3>
+          <p>Sito vetrina per un'officina meccanica milanese. Presenta i servizi offerti, le informazioni di contatto e la posizione su mappa. Design moderno, veloce e ottimizzato per smartphone.</p>
+        </div>
+        <div class="progetto-footer">
+          <a href="https://autoclubsnc.it" target="_blank" rel="noopener" class="btn-solid" style="width:100%; justify-content:center;">
+            <i class="ti ti-external-link"></i>Visita il sito
+          </a>
+        </div>
+      </div>
+
+      <!-- Placeholder 2 -->
+      <div class="progetto-card reveal" style="transition-delay:0.10s">
+        <div class="progetto-thumb">
+          <div class="progetto-soon-tag">In arrivo</div>
+          <div class="progetto-thumb-icon"><i class="ti ti-plus"></i></div>
+        </div>
+        <div class="progetto-placeholder">
+          <i class="ti ti-dots"></i>
+          <p>Il prossimo progetto potrebbe essere il tuo.</p>
+        </div>
+      </div>
+
+      <!-- Placeholder 3 -->
+      <div class="progetto-card reveal" style="transition-delay:0.20s">
+        <div class="progetto-thumb">
+          <div class="progetto-soon-tag">In arrivo</div>
+          <div class="progetto-thumb-icon"><i class="ti ti-plus"></i></div>
+        </div>
+        <div class="progetto-placeholder">
+          <i class="ti ti-dots"></i>
+          <p>Il prossimo progetto potrebbe essere il tuo.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section id="cta-finale">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="section-overline">Inizia oggi</span>
+      <h2 class="cta-title">PRONTO A FARTI<br>TROVARE <span class="red">ONLINE?</span></h2>
+      <p class="cta-sub">Contattaci per una chiacchierata senza impegno. Ti diciamo subito cosa possiamo fare per la tua attività, in quanto tempo e a quale costo.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/393793314745" class="btn-solid"><i class="ti ti-brand-whatsapp"></i>Scrivici su WhatsApp</a>
+        <a href="mailto:info@klodex.it" class="btn-outline"><i class="ti ti-mail"></i>Manda una mail</a>
+      </div>
+      <div class="cta-contacts">
+        <div class="cta-contact-item"><i class="ti ti-mail"></i><a href="mailto:info@klodex.it">info@klodex.it</a></div>
+        <div class="cta-contact-item"><i class="ti ti-phone"></i><a href="tel:+393793314745">+39 379 3314745</a></div>
+        <div class="cta-contact-item"><i class="ti ti-brand-telegram"></i><a href="https://t.me/klodex">@klodex</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo_rosso_wide.png" alt="KLODEX" />
+      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="#" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#servizi">Servizi</a></li>
+        <li><a href="siti.html">Siti Web</a></li>
+        <li><a href="casestudy.html">Case Study</a></li>
+        <li><a href="index.html#contatti-strip">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Servizi</h4>
+      <ul>
+        <li>Assistenza Software</li>
+        <li>Installazioni e Configurazioni</li>
+        <li>Linux e Sistemi Alternativi</li>
+        <li>Consulenza Informatica</li>
+        <li>Rimozione Malware</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Siti Web</h4>
+      <ul>
+        <li><a href="#cosa-include">Cosa include</a></li>
+        <li><a href="#perche">Perché sceglierci</a></li>
+        <li><a href="#processo">Come lavoriamo</a></li>
+        <li><a href="#progetti">Progetti realizzati</a></li>
+        <li><a href="#cta-finale">Richiedi un preventivo</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li>Email: info@klodex.it</li>
+        <li>Tel: +39 379 3314745</li>
+        <li>Telegram: @klodex</li>
+        <li>Lun – Ven: 9:00 – 18:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 KLODEX – Tutti i diritti riservati.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
