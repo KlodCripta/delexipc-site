@@ -142,20 +142,6 @@
       transition: border-color 0.2s, transform 0.15s;
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
-    .btn-blue {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; border-radius: 4px;
-      background: transparent; color: #fff;
-      font-size: 0.88rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      border: 1px solid rgba(0,120,255,0.6);
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-blue:hover { background: rgba(0,120,255,0.18); transform: translateY(-1px); }
-    .hero-img {
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-img img { max-height: 420px; object-fit: contain; filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7)); }
 
     /* ─── FEATURE STRIP ─── */
     .feature-strip {
@@ -260,8 +246,6 @@
       border-color: var(--red); border-style: solid;
       pointer-events: none; z-index: 1;
     }
-    .servezi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
-    .servezi-grid-wrapper::after { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
     .servizi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
     .servizi-grid-wrapper::after { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
     .servizi-grid {
@@ -291,51 +275,6 @@
       transition: gap 0.2s;
     }
     .servizio-card:hover .scopri-link { gap: 10px; }
-
-    /* ─── HARDWARE ─── */
-    .hw-right {
-      position: relative;
-      min-height: 380px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      padding: 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      align-items: center;
-    }
-    .hw-right::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: url('hardware_image_blu.png');
-      background-size: cover; background-position: center;
-      z-index: 0;
-    }
-    .hw-right::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.20) 100%);
-      z-index: 1;
-    }
-    .hw-col {
-      position: relative; z-index: 2;
-      padding-right: 28px;
-    }
-    .hw-img-col {
-      position: relative; z-index: 2;
-      min-height: 260px;
-    }
-    .col-overline {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--red);
-      display: block; margin-bottom: 12px;
-    }
-    .col-title {
-      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 700; margin-bottom: 16px; line-height: 1.2;
-    }
-    .col-p { font-size: 0.9rem; color: #999; line-height: 1.7; margin-bottom: 20px; }
 
     /* ─── CONTATTI STRIP ─── */
     #contatti-strip {
@@ -423,8 +362,6 @@
       .nav-links { display: none; }
       .siti-grid { grid-template-columns: 1fr; }
       .servizi-grid { grid-template-columns: 1fr; }
-      .hw-right { grid-template-columns: 1fr; padding: 32px; min-height: 320px; }
-      .hw-img-col { display: none; }
       .feature-strip-inner { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .contatti-strip-inner { grid-template-columns: 1fr; }
@@ -442,7 +379,7 @@
     <a href="#home" class="active">Home</a>
     <a href="#servizi">Servizi</a>
     <a href="siti.html">Siti Web</a>
-    <a href="hardware.html">Hardware</a>
+    <a href="casestudy.html">Case Study</a>
     <a href="#contatti-strip">Contatti</a>
   </div>
   <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
@@ -451,9 +388,9 @@
 <!-- HERO -->
 <div id="home">
   <div class="hero-copy reveal">
-    <div class="hero-overline">KLODEX HARDWARE <span style="color:#fff">|</span> SOFTWARE <span style="color:#fff">|</span> WEB SOLUTIONS</div>
+    <div class="hero-overline"><span style="color:#fff">KLODEX</span> IT <span style="color:#fff">|</span> SOFTWARE <span style="color:#fff">|</span> WEB SOLUTIONS</div>
     <h1 class="hero-h1">ASSISTENZA INFORMATICA<br>E <span class="red">SITI WEB</span></h1>
-    <p class="hero-p">Assistenza informatica Windows/Linux, manutenzione e aggiornamento hardware, recupero PC e siti web professionali per privati e piccole attività.</p>
+    <p class="hero-p">Assistenza informatica Windows/Linux, recupero PC e siti web professionali per privati e piccole attività.</p>
     <div class="hero-btns">
       <a href="#servizi" class="btn-solid"><i class="ti ti-list-search"></i>Scopri i servizi</a>
       <a href="#contatti-strip" class="btn-outline"><i class="ti ti-headset"></i>Richiedi assistenza</a>
@@ -605,21 +542,6 @@
   </div>
 </section>
 
-<!-- HARDWARE -->
-<section id="hardware-section" style="padding: 80px 0; background: #000000;">
-  <div class="container">
-    <div class="hw-right reveal">
-      <div class="hw-col">
-        <span class="col-overline">Hardware</span>
-        <h2 class="col-title">Hardware efficiente,<br>sistema performante.</h2>
-        <p class="col-p">Riparazione, pulizia e upgrade PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
-        <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
-      </div>
-      <div class="hw-img-col"></div>
-    </div>
-  </div>
-</section>
-
 <!-- CONTATTI STRIP -->
 <div id="contatti-strip">
   <div class="contatti-strip-inner">
@@ -664,7 +586,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="siti.html">Siti Web</a></li>
-        <li><a href="hardware.html">Hardware</a></li>
+        <li><a href="casestudy.html">Case Study</a></li>
         <li><a href="#contatti-strip">Contatti</a></li>
       </ul>
     </div>
@@ -686,7 +608,7 @@
         <li><a href="siti.html">Presenza Digitale Completa</a></li>
         <li><a href="siti.html">Perché scegliere i nostri siti</a></li>
         <li><a href="siti.html">Domande Frequenti</a></li>
-        <li><a href="siti.html">Case Study</a></li>
+        <li><a href="casestudy.html">Case Study</a></li>
       </ul>
     </div>
     <div class="footer-col">
