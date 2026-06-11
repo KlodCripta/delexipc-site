@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KLODEX - Assistenza informatica e siti web</title>
-  <meta name="description" content="KLODEX offre assistenza informatica, formattazioni, rimozione malware, ottimizzazione sistemi, supporto Windows e Linux, configurazioni software e siti web." />
+  <title>DELEXI PC - Assistenza informatica e servizi digitali</title>
+  <meta name="description" content="DELEXI PC offre assistenza informatica, formattazioni, rimozione malware, ottimizzazione sistemi, supporto Windows, Linux e macOS, configurazioni software e siti web." />
   <link rel="icon" type="image/png" href="/favicon.png?v=1">
   <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
@@ -88,17 +88,16 @@
       opacity: 1; z-index: 0;
     }
     #home::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
         90deg,
         rgba(0,0,0,0.92) 0%,
         rgba(0,0,0,0.75) 35%,
         rgba(0,0,0,0.30) 70%,
         rgba(0,0,0,0.10) 100%
-    );
-    z-index: 0;
+      );
+      z-index: 0;
     }
     .hero-copy {
       position: relative; z-index: 1;
@@ -251,29 +250,20 @@
     }
     .siti-note i { color: var(--red); }
 
-   /* ─── SERVIZI ─── */
+    /* ─── SERVIZI ─── */
     #servizi { background: var(--bg); }
-    .servizi-grid-wrapper {
-      position: relative;
-    }
+    .servizi-grid-wrapper { position: relative; }
     .servizi-grid-wrapper::before,
     .servizi-grid-wrapper::after {
-      content: '';
-      position: absolute;
+      content: ''; position: absolute;
       width: 48px; height: 48px;
-      border-color: var(--red);
-      border-style: solid;
-      pointer-events: none;
-      z-index: 1;
+      border-color: var(--red); border-style: solid;
+      pointer-events: none; z-index: 1;
     }
-    .servizi-grid-wrapper::before {
-      top: -12px; left: -12px;
-      border-width: 2px 0 0 2px;
-    }
-    .servizi-grid-wrapper::after {
-      bottom: -12px; right: -12px;
-      border-width: 0 2px 2px 0;
-    }
+    .servezi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
+    .servezi-grid-wrapper::after { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
+    .servizi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
+    .servizi-grid-wrapper::after { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
     .servizi-grid {
       display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
     }
@@ -302,79 +292,117 @@
     }
     .servizio-card:hover .scopri-link { gap: 10px; }
 
-    /* ─── CHI SIAMO + HARDWARE ─── */
-    #about-hw {
-      background: #000000;
+    /* ─── CHI SIAMO ─── */
+    #chi-siamo-section { background: var(--bg2); }
+    .team-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .team-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .team-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .team-card::before {
+      content: '';
+      position: absolute; top: -1px; left: -1px;
+      width: 28px; height: 28px;
+      border-top: 2px solid var(--red);
+      border-left: 2px solid var(--red);
+    }
+    .team-card::after {
+      content: '';
+      position: absolute; bottom: -1px; right: -1px;
+      width: 28px; height: 28px;
+      border-bottom: 2px solid var(--red);
+      border-right: 2px solid var(--red);
+    }
+    .team-role-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--border-red); border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--red);
+      background: rgba(212,25,43,0.08);
+      margin-bottom: 16px;
+    }
+    .team-name {
+      font-family: var(--font-cond);
+      font-size: 2rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      color: #fff; margin-bottom: 6px;
+    }
+    .team-title {
+      font-size: 0.88rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .team-desc {
+      font-size: 0.92rem; color: #bbb; line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .team-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .team-tag {
+      font-size: 0.75rem; font-weight: 600;
+      color: #ccc; background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px; padding: 4px 10px;
+      letter-spacing: 0.3px;
     }
 
+    /* ─── CHI SIAMO + HARDWARE ─── */
+    #about-hw { background: #000000; }
     .about-hw-grid {
-      display: grid;
-      grid-template-columns: 1fr 1px 1fr;
-      gap: 0;
+      display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0;
       align-items: start;
     }
-
-    .about-col {
-      padding-right: 48px;
-    }
-
+    .about-col { padding-right: 48px; }
     .hw-right {
       position: relative;
-      min-height: 360px;
+      min-height: 380px;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
       padding: 48px;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
       align-items: center;
     }
-
     .hw-right::before {
       content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('hardware_image_home.png');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.75;
+      position: absolute; inset: 0;
+      background-image: url('hardware_image_blu.png');
+      background-size: cover; background-position: center;
       z-index: 0;
     }
-
     .hw-right::after {
       content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(0,0,0,0.92) 0%,
-        rgba(0,0,0,0.72) 45%,
-        rgba(0,0,0,0.35) 75%,
-        rgba(0,0,0,0.15) 100%
-      );
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.20) 100%);
       z-index: 1;
     }
-
     .hw-col {
-      position: relative;
-      z-index: 2;
-      max-width: 420px;
+      position: relative; z-index: 2;
+      padding-right: 28px;
+    }
+    .hw-img-col {
+      position: relative; z-index: 2;
+      min-height: 260px;
     }
 
     .col-overline {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--red);
-      display: block;
-      margin-bottom: 12px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      display: block; margin-bottom: 12px;
     }
-
     .col-title {
       font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 700;
-      margin-bottom: 16px;
-      line-height: 1.2;
+      font-weight: 700; margin-bottom: 16px; line-height: 1.2;
     }
     .col-p { font-size: 0.9rem; color: #999; line-height: 1.7; margin-bottom: 20px; }
     .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
@@ -412,20 +440,17 @@
       padding: 16px 22px;
       border: 1px solid var(--border-red); border-radius: 6px;
       background: #000000;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      transition: background 0.2s, border-color 0.2s;
       text-decoration: none; color: inherit;
     }
-    .contatto-item:hover {
-      background: #9e1020;
-      border-color: #9e1020;
-    }
+    .contatto-item:hover { background: #9e1020; border-color: #9e1020; }
     .contatto-item:hover i,
     .contatto-item:hover h5,
     .contatto-item:hover span { color: #fff; }
     .contatto-item i { font-size: 22px; color: var(--red); transition: color 0.2s; }
     .contatto-item h5 { font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
     .contatto-item span { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
-    
+
     /* ─── FOOTER TOTAL BLACK ─── */
     footer {
       background: #000000; padding: 60px 0 24px;
@@ -472,59 +497,35 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
-      #home {
-        min-height: auto;
-        padding-top: calc(var(--nav-h) + 80px);
-        padding-bottom: 80px;
-      }
-      .feature-strip-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-      .about-hw-grid {
-        grid-template-columns: 1fr;
-      }
-      .divider-v {
-        display: none;
-      }
-     .about-col {
-        padding-right: 0;
-        margin-bottom: 32px;
-      }
-     .hw-right {
-        grid-column: 1;
-        padding: 40px;
-        min-height: 400px;
-      }
-      .footer-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-      .contatti-strip-inner {
-        grid-template-columns: 1fr 1fr;
-      }
-}
+      #home { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
+      .feature-strip-inner { grid-template-columns: 1fr 1fr; }
+      .about-hw-grid { grid-template-columns: 1fr; }
+      .divider-v { display: none; }
+      .hw-right { grid-column: 1; padding-left: 0; grid-template-columns: 1fr 1fr; }
+      .about-col { padding-right: 0; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .siti-grid { grid-template-columns: 1fr; }
       .servizi-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
       .about-features { grid-template-columns: 1fr; }
-
-      .hw-right {
-        min-height: 320px;
-        padding: 32px;
-      }
-
+      .hw-right { grid-template-columns: 1fr; padding: 32px; min-height: 320px; }
+      .hw-img-col { display: none; }
       .feature-strip-inner { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
       .contatti-strip-inner { grid-template-columns: 1fr; }
-      }
+    }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo" aria-label="KLODEX Home">
-    <img src="logo_rosso_wide.png" alt="KLODEX" />
+  <a href="#home" class="nav-logo" aria-label="DELEXI PC Home">
+    <img src="logo_rosso_wide.png" alt="DELEXI PC" />
   </a>
   <div class="nav-links">
     <a href="#home" class="active">Home</a>
@@ -540,8 +541,8 @@
 <!-- HERO -->
 <div id="home">
   <div class="hero-copy reveal">
-    <div class="hero-overline">KLODEX HARDWARE | SOFTWARE | WEB SOLUTIONS</div>
-    <h1 class="hero-h1">ASSISTENZA INFORMATICA<br>E <span class="red">SITI WEB</span></h1>
+    <div class="hero-overline">DELEXI PC SOFTWARE SOLUTIONS</div>
+    <h1 class="hero-h1">ASSISTENZA INFORMATICA<br>E <span class="red">SOLUZIONI DIGITALI.</span></h1>
     <p class="hero-p">Realizziamo siti web professionali, risolviamo problemi informatici e offriamo supporto tecnico per privati e piccole attività.</p>
     <div class="hero-btns">
       <a href="#servizi" class="btn-solid"><i class="ti ti-list-search"></i>Scopri i servizi</a>
@@ -600,7 +601,7 @@
           <li><i class="ti ti-check ok"></i>Design moderno e responsive</li>
           <li><i class="ti ti-check ok"></i>Consegna dei file sorgente</li>
           <li><i class="ti ti-check ok"></i>Ottimizzazione prestazioni</li>
-          <li><i class="ti ti-check ok"></i>Nessun vincolo con Klodex</li>
+          <li><i class="ti ti-check ok"></i>Nessun vincolo con Delexi PC</li>
         </ul>
         <ul class="check-list">
           <li class="dimmed"><i class="ti ti-circle-x no"></i>Dominio non incluso</li>
@@ -632,8 +633,8 @@
         <div class="costi-box">
           <i class="ti ti-coin-euro"></i>
           <div>
-            <h5>COSTI ANNUALI RIDOTTI</h5>
-            <p>Costi di gestione contenuti, generalmente intorno ai 30€ all'anno (incluso email).</p>
+            <h5>COSTI ANNUALI IRRISORI</h5>
+            <p>Costi di gestione contenuti, generalmente intorno ai 20€ all'anno (incluso email).</p>
           </div>
         </div>
         <a href="siti.html" class="btn-solid">SCOPRI DI PIÙ</a>
@@ -653,89 +654,96 @@
     <h2 class="section-title">Soluzioni informatiche complete<br>per ogni esigenza.</h2>
     <div class="servizi-grid-wrapper">
       <div class="servizi-grid">
-        <div class="servizio-card reveal">
-          <div class="servizio-icon"><i class="ti ti-code"></i></div>
-          <h3>Assistenza Software</h3>
-          <p>Risolviamo problemi, errori, malfunzionamenti e lentezze di Windows e altri sistemi.</p>
-          <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.08s">
-          <div class="servizio-icon"><i class="ti ti-settings"></i></div>
-          <h3>Installazioni e Configurazioni</h3>
-          <p>Installiamo e configuriamo software, driver, periferiche e reti per garantirti il massimo delle prestazioni.</p>
-          <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.16s">
-          <div class="servizio-icon"><i class="ti ti-recycle"></i></div>
-          <h3>Recupero PC con Linux</h3>
-          <p>Il tuo PC è troppo vecchio per Windows? Non buttarlo. Lo recuperiamo installando GNU/Linux: torna veloce, sicuro e perfettamente utilizzabile.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.24s">
-          <div class="servizio-icon"><i class="ti ti-terminal-2"></i></div>
-          <h3>Linux e Sistemi Alternativi</h3>
-          <p>Installazione, configurazione e supporto GNU/Linux. Soluzioni stabili, sicure e altamente personalizzabili.</p>
-          <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.32s">
-          <div class="servizio-icon"><i class="ti ti-shield-off"></i></div>
-          <h3>Rimozione Malware</h3>
-          <p>Pulizia completa da virus, trojan, spyware e malware. Ripristino sicurezza e prestazioni del sistema.</p>
-          <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.40s">
-          <div class="servizio-icon"><i class="ti ti-bulb"></i></div>
-          <h3>Consulenza Informatica</h3>
-          <p>Analizziamo le tue esigenze e ti proponiamo le soluzioni più efficaci per ottimizzare il tuo lavoro.</p>
-          <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
+      <div class="servizio-card reveal">
+        <div class="servizio-icon"><i class="ti ti-code"></i></div>
+        <h3>Assistenza Software</h3>
+        <p>Risolviamo problemi, errori, malfunzionamenti e lentezze di Windows e altri sistemi.</p>
+        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="servizio-card reveal" style="transition-delay:0.08s">
+        <div class="servizio-icon"><i class="ti ti-settings"></i></div>
+        <h3>Installazioni e Configurazioni</h3>
+        <p>Installiamo e configuriamo software, driver, periferiche e reti per garantirti il massimo delle prestazioni.</p>
+        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="servizio-card reveal" style="transition-delay:0.16s">
+        <div class="servizio-icon"><i class="ti ti-recycle"></i></div>
+        <h3>Recupero PC con Linux</h3>
+        <p>Il tuo PC è troppo vecchio per Windows? Non buttarlo. Lo recuperiamo installando GNU/Linux: torna veloce, sicuro e perfettamente utilizzabile.</p>
+        <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="servizio-card reveal" style="transition-delay:0.24s">
+        <div class="servizio-icon"><i class="ti ti-terminal-2"></i></div>
+        <h3>Linux e Sistemi Alternativi</h3>
+        <p>Installazione, configurazione e supporto GNU/Linux. Soluzioni stabili, sicure e altamente personalizzabili.</p>
+        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="servizio-card reveal" style="transition-delay:0.32s">
+        <div class="servizio-icon"><i class="ti ti-shield-off"></i></div>
+        <h3>Rimozione Malware</h3>
+        <p>Pulizia completa da virus, trojan, spyware e malware. Ripristino sicurezza e prestazioni del sistema.</p>
+        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="servizio-card reveal" style="transition-delay:0.40s">
+        <div class="servizio-icon"><i class="ti ti-bulb"></i></div>
+        <h3>Consulenza Informatica</h3>
+        <p>Analizziamo le tue esigenze e ti proponiamo le soluzioni più efficaci per ottimizzare il tuo lavoro.</p>
+        <a href="#contatti" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
+      </div>
       </div><!-- fine servizi-grid -->
     </div><!-- fine servizi-grid-wrapper -->
   </div>
 </section>
+<section id="chi-siamo" style="background: var(--bg2); padding: 80px 0;">
+  <div class="container">
+    <span class="section-overline">Il team</span>
+    <h2 class="section-title">Chi siamo.</h2>
+    <div class="team-grid">
 
-<!-- CHI SIAMO + HARDWARE -->
-<section id="chi-siamo" style="padding: 0;">
-  <div id="about-hw">
-    <div class="container" style="padding-top:80px;padding-bottom:80px;">
-      <div class="about-hw-grid">
-        <!-- Chi siamo -->
-        <div class="about-col reveal">
-          <span class="col-overline">Perché sceglierci</span>
-          <h2 class="col-title">Competenza, trasparenza, passione.</h2>
-          <p class="col-p">KLODEX è un punto di riferimento per privati e piccole attività che cercano soluzioni informatiche concrete, veloci e affidabili.</p>
-          <div class="about-features">
-            <div class="about-feat">
-              <div class="about-feat-icon"><i class="ti ti-award"></i></div>
-              <div><h5>Esperienza</h5><p>Anni di interventi e progetti su sistemi e reti.</p></div>
-            </div>
-            <div class="about-feat">
-              <div class="about-feat-icon"><i class="ti ti-refresh"></i></div>
-              <div><h5>Aggiornamento continuo</h5><p>Restiamo sempre al passo con le nuove tecnologie.</p></div>
-            </div>
-            <div class="about-feat">
-              <div class="about-feat-icon"><i class="ti ti-eye"></i></div>
-              <div><h5>Soluzioni chiare</h5><p>Ti spieghiamo le cose in modo semplice e trasparente.</p></div>
-            </div>
-            <div class="about-feat">
-              <div class="about-feat-icon"><i class="ti ti-users"></i></div>
-              <div><h5>Cliente al centro</h5><p>Ascoltiamo le tue esigenze e troviamo la soluzione giusta.</p></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="divider-v reveal" style="transition-delay:0.1s"></div>
-
-        <!-- Hardware + Immagine affiancati -->
-        <div class="hw-right reveal" style="transition-delay:0.15s">
-          <div class="hw-col">
-            <span class="col-overline">Hardware</span>
-            <h2 class="col-title">Hardware efficiente, sistema performante.</h2>
-            <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
-            <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
-          </div>
+      <div class="team-card reveal">
+        <div class="team-role-badge"><i class="ti ti-code"></i> Tecnico</div>
+        <div class="team-name">Klod</div>
+        <div class="team-title">Sviluppo, assistenza e infrastruttura</div>
+        <p class="team-desc">Sviluppo siti web, assistenza informatica, configurazioni tecniche e gestione domini. Seguo direttamente ogni progetto con attenzione alla semplicità, alle prestazioni e alle esigenze reali del cliente. Mi occupo anche di supporto hardware: pulizia interna, sostituzione componenti, cambio pasta termica, upgrade da HDD a SSD e recupero PC con GNU/Linux.</p>
+        <div class="team-tags">
+          <span class="team-tag">Siti web</span>
+          <span class="team-tag">GNU/Linux</span>
+          <span class="team-tag">Assistenza software</span>
+          <span class="team-tag">Recupero PC</span>
+          <span class="team-tag">Hardware</span>
+          <span class="team-tag">Domini & hosting</span>
         </div>
       </div>
+
+      <div class="team-card reveal" style="transition-delay:0.12s">
+        <div class="team-role-badge"><i class="ti ti-users"></i> Commerciale</div>
+        <div class="team-name">Luana</div>
+        <div class="team-title">Relazioni con i clienti e coordinamento</div>
+        <p class="team-desc">Primo contatto con i clienti, gestione delle richieste e organizzazione delle attività. Segue la comunicazione tramite telefono, WhatsApp e Telegram, coordina appuntamenti e preventivi e aiuta i clienti a individuare la soluzione più adatta alle loro esigenze. È il punto di riferimento per tutta la parte organizzativa e commerciale.</p>
+        <div class="team-tags">
+          <span class="team-tag">Accoglienza clienti</span>
+          <span class="team-tag">Preventivi</span>
+          <span class="team-tag">Appuntamenti</span>
+          <span class="team-tag">WhatsApp & Telegram</span>
+          <span class="team-tag">Supporto commerciale</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HARDWARE -->
+<section id="hardware-section" style="padding: 80px 0; background: #000000;">
+  <div class="container">
+    <div class="hw-right reveal">
+      <div class="hw-col">
+        <span class="col-overline">Hardware</span>
+        <h2 class="col-title">Hardware efficiente,<br>sistema performante.</h2>
+        <p class="col-p">Riparazione, pulizia, upgrade e assemblaggio PC. Ci prendiamo cura del tuo hardware per garantirti affidabilità e prestazioni al top.</p>
+        <a href="hardware.html" class="btn-blue">SCOPRI I SERVIZI HARDWARE</a>
+      </div>
+      <div class="hw-img-col"></div>
     </div>
   </div>
 </section>
@@ -747,9 +755,9 @@
       <h2>Hai un problema o un progetto?<br><span>Parliamone.</span></h2>
       <p>Siamo pronti ad aiutarti con soluzioni rapide, chiare e su misura per te.</p>
     </div>
-    <a href="mailto:info@klodex.it" class="contatto-item reveal" style="transition-delay:0.08s">
+    <a href="mailto:info@delexipc.it" class="contatto-item reveal" style="transition-delay:0.08s">
       <i class="ti ti-mail"></i>
-      <div><h5>Email</h5><span>info@klodex.it</span></div>
+      <div><h5>Email</h5><span>info@delexipc.it</span></div>
     </a>
     <a href="tel:+393793314745" class="contatto-item reveal" style="transition-delay:0.14s">
       <i class="ti ti-phone"></i>
@@ -761,7 +769,7 @@
     </a>
     <a href="https://t.me/+393793314745" class="contatto-item reveal" style="transition-delay:0.26s">
       <i class="ti ti-brand-telegram"></i>
-      <div><h5>Telegram</h5><span>@klodex</span></div>
+      <div><h5>Telegram</h5><span>@delexipc</span></div>
     </a>
   </div>
 </div>
@@ -770,7 +778,7 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="logo_rosso_wide.png" alt="KLODEX" />
+      <img src="logo_rosso_wide.png" alt="DELEXI PC" />
       <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività.</p>
       <div class="footer-social">
         <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
@@ -813,15 +821,15 @@
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li>Email: info@klodex.it</li>
+        <li>Email: info@delexipc.it</li>
         <li>Tel: +39 379 3314745</li>
-        <li>Telegram: @klodex</li>
+        <li>Telegram: @delexipc</li>
         <li>Lun – Ven: 9:00 – 18:00</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 KLODEX – Tutti i diritti riservati.</span>
+    <span>© 2024 Delexi PC – Tutti i diritti riservati.</span>
     <div class="footer-bottom-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="cookie.html">Cookie Policy</a>
