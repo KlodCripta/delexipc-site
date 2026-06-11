@@ -725,13 +725,13 @@
       <!-- Auto Club SNC -->
       <div class="progetto-card reveal">
         <div class="progetto-thumb has-site" style="position:relative; overflow:hidden; height:200px;">
-          <img src="autoclubsnc_home.png" alt="Autoclub SNC – screenshot sito" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.3s ease;" class="progetto-screenshot" />
+          <img src="screenshot_autoclubsnc.jpg" alt="Auto Club SNC – screenshot sito" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.3s ease;" class="progetto-screenshot" />
           <div class="progetto-thumb-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.28);transition:background 0.2s ease;pointer-events:none;"></div>
           <div class="progetto-tag">Online</div>
         </div>
         <div class="progetto-body">
           <span class="tipo">Officina &amp; Carrozzeria</span>
-          <h3>Autoclub SNC – autoclubsnc.it</h3>
+          <h3>Auto Club SNC – autoclubsnc.it</h3>
           <p>Sito vetrina per un'officina meccanica milanese. Presenta i servizi offerti, le informazioni di contatto e la posizione su mappa. Design moderno, veloce e ottimizzato per smartphone.</p>
         </div>
         <div class="progetto-footer">
@@ -851,26 +851,29 @@
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  // Screenshot hover: alleggerisce overlay e zooma leggermente
-  document.querySelectorAll('.progetto-card').forEach(card => {
-    const img = card.querySelector('.progetto-screenshot');
-    const overlay = card.querySelector('.progetto-thumb-overlay');
-    if (!img || !overlay) return;
-    card.addEventListener('mouseenter', () => {
-      overlay.style.background = 'rgba(0,0,0,0.08)';
-      img.style.transform = 'scale(1.03)';
-    });
-    card.addEventListener('mouseleave', () => {
-      overlay.style.background = 'rgba(0,0,0,0.28)';
-      img.style.transform = 'scale(1)';
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Screenshot hover
+    document.querySelectorAll('.progetto-card').forEach(card => {
+      const img = card.querySelector('.progetto-screenshot');
+      const overlay = card.querySelector('.progetto-thumb-overlay');
+      if (!img || !overlay) return;
+      card.addEventListener('mouseenter', () => {
+        overlay.style.background = 'rgba(0,0,0,0.08)';
+        img.style.transform = 'scale(1.03)';
+      });
+      card.addEventListener('mouseleave', () => {
+        overlay.style.background = 'rgba(0,0,0,0.28)';
+        img.style.transform = 'scale(1)';
+      });
     });
   });
-
 </script>
 </body>
 </html>
