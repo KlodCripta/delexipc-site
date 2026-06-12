@@ -36,7 +36,7 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       height: var(--nav-h);
@@ -69,7 +69,7 @@
     }
     .nav-cta:hover { background: var(--red); }
 
-    /* ─── UTILS ─── */
+    /* UTILS */
     .container { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px,4vw,60px); }
     .section-overline {
       font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
@@ -108,11 +108,11 @@
     }
     .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
 
-    /* ─── REVEAL ─── */
+    /* REVEAL */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── HERO ─── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       padding-top: var(--nav-h);
@@ -174,7 +174,7 @@
     }
     .hero-badge i { color: var(--red); font-size: 16px; }
 
-    /* ─── PER CHI ─── */
+    /* PER CHI */
     #per-chi { padding: 90px 0; background: var(--bg2); border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
     .perchi-grid {
       display: grid;
@@ -199,7 +199,7 @@
     .perchi-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
     .perchi-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
-    /* ─── COSA INCLUDE ─── */
+    /* COSA INCLUDE */
     #cosa-include { padding: 90px 0; background: var(--bg); }
     .include-layout {
       display: grid;
@@ -207,7 +207,6 @@
       gap: 60px;
       align-items: start;
     }
-    .include-left { }
     .include-left .section-overline,
     .include-left .section-title { text-align: left; }
     .include-left .section-title { margin-bottom: 10px; }
@@ -238,7 +237,7 @@
     .include-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
     .include-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
 
-    /* ─── PERCHÉ STATICO ─── */
+    /* PERCHE */
     #perche { padding: 90px 0; background: #000; }
     .perche-grid {
       display: grid;
@@ -263,76 +262,7 @@
     .perche-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
     .perche-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 
-    /* ─── PROGETTI ─── */
-    #progetti { padding: 90px 0; background: var(--bg); }
-    .progetti-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .progetto-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: border-color 0.25s, transform 0.2s;
-    }
-    .progetto-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
-    .progetto-thumb {
-      height: 180px;
-      background: var(--bg3);
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
-    }
-    .progetto-thumb.has-site {
-      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
-    }
-    .progetto-thumb-label {
-      font-family: var(--font-cond);
-      font-size: 2rem; font-weight: 900;
-      text-transform: uppercase; letter-spacing: 1px;
-      color: rgba(255,255,255,0.08);
-      user-select: none;
-    }
-    .progetto-thumb-icon {
-      width: 56px; height: 56px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: #333; font-size: 26px;
-    }
-    .progetto-tag {
-      position: absolute; top: 14px; left: 14px;
-      background: var(--red); color: #fff;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 3px;
-    }
-    .progetto-soon-tag {
-      position: absolute; top: 14px; left: 14px;
-      background: rgba(255,255,255,0.06); color: #666;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 3px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .progetto-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-    .progetto-body h3 { font-size: 1rem; font-weight: 800; text-transform: uppercase; }
-    .progetto-body .tipo { font-size: 0.78rem; font-weight: 600; color: var(--red); text-transform: uppercase; letter-spacing: 1px; }
-    .progetto-body p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; flex: 1; }
-    .progetto-footer {
-      padding: 0 24px 24px;
-    }
-    .progetto-placeholder {
-      text-align: center; padding: 40px 24px;
-      display: flex; flex-direction: column; align-items: center; gap: 12px;
-    }
-    .progetto-placeholder i { font-size: 32px; color: #2a2a2a; }
-    .progetto-placeholder p { font-size: 0.82rem; color: #333; }
-
-    /* ─── PROCESSO ─── */
+    /* PROCESSO */
     #processo { padding: 90px 0; background: var(--bg2); border-top: 2px solid var(--red); }
     .processo-steps {
       display: grid;
@@ -366,7 +296,65 @@
     .pstep h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 6px; }
     .pstep p { font-size: 0.80rem; color: var(--muted); line-height: 1.5; }
 
-    /* ─── CTA FINALE ─── */
+    /* OFFERTE */
+    #offerte { padding: 90px 0; background: var(--bg); }
+    .offerte-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .offerta-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 36px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .offerta-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .offerta-card.featured {
+      border-color: var(--red);
+      background: var(--bg3);
+      position: relative;
+    }
+    .offerta-badge {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--red); color: #fff;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 14px; border-radius: 3px;
+      white-space: nowrap;
+    }
+    .offerta-icon {
+      width: 52px; height: 52px;
+      border: 1px solid var(--border-red);
+      border-radius: 8px; background: rgba(212,25,43,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red); font-size: 24px;
+    }
+    .offerta-card h3 {
+      font-family: var(--font-cond);
+      font-size: 1.5rem; font-weight: 900;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .offerta-card .offerta-desc {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+    }
+    .offerta-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 10px;
+      flex: 1;
+    }
+    .offerta-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 0.88rem; color: var(--text); line-height: 1.5;
+    }
+    .offerta-list li i { color: var(--red); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+    .offerta-cta { margin-top: auto; }
+
+    /* CTA FINALE */
     #cta-finale {
       padding: 100px 0;
       background: #000;
@@ -409,7 +397,7 @@
     .cta-contact-item a { color: var(--muted); transition: color 0.2s; }
     .cta-contact-item a:hover { color: #fff; }
 
-    /* ─── FOOTER ─── */
+    /* FOOTER */
     footer {
       background: #000000; padding: 60px 0 24px;
       border-top: 1px solid rgba(255,255,255,0.05);
@@ -448,22 +436,21 @@
     .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
     .footer-bottom-links a:hover { color: var(--red); }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
       #hero { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
       .perchi-grid { grid-template-columns: 1fr 1fr; }
       .include-layout { grid-template-columns: 1fr; gap: 40px; }
       .perche-grid { grid-template-columns: 1fr 1fr; }
-      .progetti-grid { grid-template-columns: 1fr 1fr; }
       .processo-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
       .processo-steps::before { display: none; }
+      .offerte-grid { grid-template-columns: 1fr; max-width: 480px; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .perchi-grid { grid-template-columns: 1fr; }
       .perche-grid { grid-template-columns: 1fr; }
-      .progetti-grid { grid-template-columns: 1fr; }
       .processo-steps { grid-template-columns: 1fr 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
     }
@@ -489,7 +476,7 @@
   <a href="index.html#contatti-strip" class="nav-cta">Richiedi assistenza</a>
 </nav>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section id="hero">
   <div class="hero-copy reveal">
     <div class="hero-overline">Siti web professionali</div>
@@ -508,43 +495,7 @@
   </div>
 </section>
 
-<!-- PERCHÉ UN SITO -->
-<section id="perche-un-sito" style="padding: 80px 0; background: #000;">
-  <div class="container">
-    <span class="section-overline">Prima di tutto</span>
-    <h2 class="section-title">Ma a me serve davvero un sito?</h2>
-    <p class="section-sub">È la domanda giusta. Ecco le tre risposte più oneste che possiamo darti.</p>
-    <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;">
-
-      <div class="reveal" style="background: var(--bg3); border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: 8px; padding: 36px 28px; text-align: center;">
-        <div style="width:60px;height:60px;margin:0 auto 20px;border-radius:50%;background:rgba(212,25,43,0.10);border:1px solid var(--border-red);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:26px;">
-          <i class="ti ti-map-search"></i>
-        </div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:12px;">Per essere trovato su Google</h3>
-        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Quando qualcuno cerca un idraulico, un parrucchiere o un avvocato nella propria città, Google mostra i risultati. Se non hai un sito, non esisti per chi non ti conosce ancora.</p>
-      </div>
-
-      <div class="reveal" style="transition-delay:0.10s;background: var(--bg3); border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: 8px; padding: 36px 28px; text-align: center;">
-        <div style="width:60px;height:60px;margin:0 auto 20px;border-radius:50%;background:rgba(212,25,43,0.10);border:1px solid var(--border-red);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:26px;">
-          <i class="ti ti-layout-list"></i>
-        </div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:12px;">Per mostrare i tuoi servizi</h3>
-        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Un sito è il tuo biglietto da visita sempre aperto, 24 ore su 24. Racconta chi sei, cosa fai e perché scegliere te — anche quando sei chiuso o non puoi rispondere al telefono.</p>
-      </div>
-
-      <div class="reveal" style="transition-delay:0.20s;background: var(--bg3); border: 1px solid var(--border); border-top: 3px solid var(--red); border-radius: 8px; padding: 36px 28px; text-align: center;">
-        <div style="width:60px;height:60px;margin:0 auto 20px;border-radius:50%;background:rgba(212,25,43,0.10);border:1px solid var(--border-red);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:26px;">
-          <i class="ti ti-message-circle"></i>
-        </div>
-        <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:12px;">Per offrire un contatto immediato</h3>
-        <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Modulo di contatto, numero di telefono, WhatsApp, mappa: tutto in un posto solo. Il cliente non deve cercare — trova subito come raggiungerti e decide più facilmente di farlo.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PER CHI -->
+<!-- 2. PER CHI -->
 <section id="per-chi">
   <div class="container">
     <span class="section-overline">Per chi è pensato</span>
@@ -575,7 +526,7 @@
   </div>
 </section>
 
-<!-- COSA INCLUDE -->
+<!-- 3. COSA INCLUDE -->
 <section id="cosa-include">
   <div class="container">
     <div class="include-layout">
@@ -637,7 +588,7 @@
   </div>
 </section>
 
-<!-- PERCHÉ STATICO -->
+<!-- 4. PERCHE STATICO -->
 <section id="perche">
   <div class="container">
     <span class="section-overline">Perché scegliere un sito moderno</span>
@@ -678,7 +629,7 @@
   </div>
 </section>
 
-<!-- PROCESSO -->
+<!-- 5. PROCESSO -->
 <section id="processo">
   <div class="container">
     <span class="section-overline">Come lavoriamo</span>
@@ -714,54 +665,46 @@
   </div>
 </section>
 
-<!-- PROGETTI -->
-<section id="progetti">
+<!-- 6. OFFERTE -->
+<section id="offerte">
   <div class="container">
-    <span class="section-overline">Alcuni progetti realizzati</span>
-    <h2 class="section-title">Idee che sono diventate siti.</h2>
-    <p class="section-sub">Ogni progetto nasce da una conversazione e si trasforma in uno strumento reale per l'attività del cliente.</p>
-    <div class="progetti-grid">
+    <span class="section-overline">Le nostre soluzioni</span>
+    <h2 class="section-title">Due soluzioni, un obiettivo.</h2>
+    <p class="section-sub">Che tu stia partendo da zero o voglia una presenza digitale completa, abbiamo il pacchetto giusto per la tua attività.</p>
+    <div class="offerte-grid">
 
-      <!-- Auto Club SNC -->
-      <div class="progetto-card reveal">
-        <div class="progetto-thumb has-site" style="position:relative; overflow:hidden; height:200px;">
-          <img src="autoclubsnc_home.png" alt="Autoclub SNC – screenshot sito" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.3s ease;" class="progetto-screenshot" />
-          <div class="progetto-thumb-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.28);transition:background 0.2s ease;pointer-events:none;"></div>
-          <div class="progetto-tag">Online</div>
-        </div>
-        <div class="progetto-body">
-          <span class="tipo">Officina &amp; Carrozzeria</span>
-          <h3>Autoclub SNC</h3> <h4>– autoclubsnc.it</h4>
-          <p>Sito vetrina per un'officina meccanica milanese. Presenta i servizi offerti, le informazioni di contatto e la posizione su mappa. Design moderno, veloce e ottimizzato per smartphone.</p>
-        </div>
-        <div class="progetto-footer">
-          <a href="https://autoclubsnc.it" target="_blank" rel="noopener" class="btn-solid" style="width:100%; justify-content:center;">
-            <i class="ti ti-external-link"></i>Visita il sito
-          </a>
+      <div class="offerta-card reveal">
+        <div class="offerta-icon"><i class="ti ti-browser"></i></div>
+        <h3>Sito Web Base</h3>
+        <p class="offerta-desc">La soluzione ideale per chi ha bisogno di una presenza online professionale, veloce da attivare e senza complicazioni.</p>
+        <ul class="offerta-list">
+          <li><i class="ti ti-check"></i><span>Sito vetrina in HTML/CSS — veloce e leggero</span></li>
+          <li><i class="ti ti-check"></i><span>Design responsive per smartphone e desktop</span></li>
+          <li><i class="ti ti-check"></i><span>Dominio personalizzato incluso</span></li>
+          <li><i class="ti ti-check"></i><span>Certificato SSL (HTTPS)</span></li>
+          <li><i class="ti ti-check"></i><span>Integrazione Google Maps e modulo contatti</span></li>
+          <li><i class="ti ti-check"></i><span>SEO di base + Privacy &amp; Cookie Policy</span></li>
+        </ul>
+        <div class="offerta-cta">
+          <a href="#cta-finale" class="btn-outline" style="width:100%; justify-content:center;"><i class="ti ti-send"></i>Richiedi informazioni</a>
         </div>
       </div>
 
-      <!-- Placeholder 2 -->
-      <div class="progetto-card reveal" style="transition-delay:0.10s">
-        <div class="progetto-thumb">
-          <div class="progetto-soon-tag">In arrivo</div>
-          <div class="progetto-thumb-icon"><i class="ti ti-plus"></i></div>
-        </div>
-        <div class="progetto-placeholder">
-          <i class="ti ti-dots"></i>
-          <p>Il prossimo progetto potrebbe essere il tuo.</p>
-        </div>
-      </div>
-
-      <!-- Placeholder 3 -->
-      <div class="progetto-card reveal" style="transition-delay:0.20s">
-        <div class="progetto-thumb">
-          <div class="progetto-soon-tag">In arrivo</div>
-          <div class="progetto-thumb-icon"><i class="ti ti-plus"></i></div>
-        </div>
-        <div class="progetto-placeholder">
-          <i class="ti ti-dots"></i>
-          <p>Il prossimo progetto potrebbe essere il tuo.</p>
+      <div class="offerta-card featured reveal" style="transition-delay:0.10s">
+        <div class="offerta-badge">Consigliato</div>
+        <div class="offerta-icon"><i class="ti ti-device-laptop"></i></div>
+        <h3>Presenza Digitale Completa</h3>
+        <p class="offerta-desc">Per chi vuole il massimo: sito professionale, email aziendale, configurazione Google e tutto il supporto nel tempo.</p>
+        <ul class="offerta-list">
+          <li><i class="ti ti-check"></i><span>Tutto del pacchetto Base</span></li>
+          <li><i class="ti ti-check"></i><span>Email professionale (es. info@iltuonome.it)</span></li>
+          <li><i class="ti ti-check"></i><span>Configurazione Google Business Profile</span></li>
+          <li><i class="ti ti-check"></i><span>Versione multilingua disponibile</span></li>
+          <li><i class="ti ti-check"></i><span>Assistenza post-pubblicazione inclusa</span></li>
+          <li><i class="ti ti-check"></i><span>Aggiornamenti contenuti su richiesta</span></li>
+        </ul>
+        <div class="offerta-cta">
+          <a href="#cta-finale" class="btn-solid" style="width:100%; justify-content:center;"><i class="ti ti-send"></i>Parliamone</a>
         </div>
       </div>
 
@@ -769,7 +712,7 @@
   </div>
 </section>
 
-<!-- CTA FINALE -->
+<!-- 7. CTA FINALE -->
 <section id="cta-finale">
   <div class="container">
     <div class="cta-inner reveal">
@@ -827,7 +770,7 @@
         <li><a href="#cosa-include">Cosa include</a></li>
         <li><a href="#perche">Perché sceglierci</a></li>
         <li><a href="#processo">Come lavoriamo</a></li>
-        <li><a href="#progetti">Progetti realizzati</a></li>
+        <li><a href="#offerte">Le nostre soluzioni</a></li>
         <li><a href="#cta-finale">Contattaci</a></li>
       </ul>
     </div>
@@ -858,21 +801,6 @@
       });
     }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Screenshot hover
-    document.querySelectorAll('.progetto-card').forEach(card => {
-      const img = card.querySelector('.progetto-screenshot');
-      const overlay = card.querySelector('.progetto-thumb-overlay');
-      if (!img || !overlay) return;
-      card.addEventListener('mouseenter', () => {
-        overlay.style.background = 'rgba(0,0,0,0.08)';
-        img.style.transform = 'scale(1.03)';
-      });
-      card.addEventListener('mouseleave', () => {
-        overlay.style.background = 'rgba(0,0,0,0.28)';
-        img.style.transform = 'scale(1)';
-      });
-    });
   });
 </script>
 </body>
