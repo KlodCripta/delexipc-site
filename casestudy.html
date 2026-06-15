@@ -272,10 +272,10 @@
     }
 
     /* tech grid */
-    .cs-tech-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    .cs-tech-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
     .cs-tech-block {}
     .cs-tech-label {
@@ -286,20 +286,7 @@
     .cs-tag-list {
       display: flex; flex-wrap: wrap; gap: 7px;
     }
-    .cs-tag-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 7px;
-    }
-    .cs-tag-grid .cs-tag {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 40px;
-      font-size: 0.74rem;
-      padding: 6px 8px;
-    }
+
     .cs-tag {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -408,7 +395,6 @@
       .cs-card { grid-template-columns: 1fr; }
       .cs-card-thumb { min-height: 260px; position: relative; }
       .cs-card-body { padding: 24px 20px; }
-      .cs-tech-row { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
@@ -471,7 +457,7 @@
             <h2 class="cs-card-title">Autoclub SNC</h2>
             <div class="cs-card-location"><i class="ti ti-map-pin"></i>Milano, Italia — 2025</div>
           </div>
-          <div class="cs-tech-row">
+          <div class="cs-tech-stack">
             <div class="cs-tech-block">
               <div class="cs-tech-label">Tecnologie</div>
               <div class="cs-tag-list">
@@ -482,12 +468,12 @@
             </div>
             <div class="cs-tech-block">
               <div class="cs-tech-label">Servizi realizzati</div>
-              <div class="cs-tag-list cs-tag-grid">
+              <div class="cs-tag-list">
                 <span class="cs-tag">Dominio personalizzato</span>
-                <span class="cs-tag">Responsive Design</span>
                 <span class="cs-tag">Hosting statico</span>
-                <span class="cs-tag">Ottimizzazione mobile</span>
                 <span class="cs-tag">Certificato HTTPS</span>
+                <span class="cs-tag">Responsive Design</span>
+                <span class="cs-tag">Ottimizzazione mobile</span>
                 <span class="cs-tag">Google Maps</span>
                 <span class="cs-tag">SEO base</span>
                 <span class="cs-tag">Privacy Policy</span>
