@@ -196,13 +196,15 @@
     .cs-card {
       background: var(--bg2);
       border: 1px solid var(--border);
+      border-left: 3px solid var(--red);
       border-radius: 10px;
       overflow: hidden;
+      max-width: 860px;
       display: grid;
-      grid-template-columns: 340px 1fr;
+      grid-template-columns: 220px 1fr;
     }
 
-    /* screenshot panel */
+    /* thumb: immagine mobile verticale */
     .cs-card-thumb {
       position: relative;
       background: var(--bg3);
@@ -210,31 +212,37 @@
     }
     .cs-card-thumb img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
+      object-fit: cover; object-position: top center;
       display: block;
     }
-    .cs-card-thumb-placeholder {
-      width: 100%; height: 100%; min-height: 260px;
-      display: flex; align-items: center; justify-content: center;
-      color: #2a2a2a; font-size: 48px;
-    }
     .cs-card-status {
-      position: absolute; top: 16px; left: 16px;
+      position: absolute; top: 14px; left: 14px;
       font-size: 0.68rem; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase;
       padding: 4px 12px; border-radius: 3px;
     }
     .cs-card-status.online { background: var(--red); color: #fff; }
-    .cs-card-status.wip {
-      background: rgba(255,255,255,0.05);
-      color: #555;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
 
     /* content panel */
     .cs-card-body {
       padding: 36px 40px;
-      display: flex; flex-direction: column; gap: 24px;
+      display: flex; flex-direction: column; gap: 22px;
+    }
+
+    /* tipo progetto row */
+    .cs-card-meta-row {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .cs-card-meta-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.84rem;
+    }
+    .cs-meta-key {
+      color: var(--muted); font-weight: 500;
+    }
+    .cs-meta-key::after { content: ':'; }
+    .cs-meta-val {
+      color: var(--text); font-weight: 600;
     }
     .cs-card-header {}
     .cs-card-tipo {
@@ -378,9 +386,8 @@
     /* RESPONSIVE */
     @media (max-width: 860px) {
       .cs-card { grid-template-columns: 1fr; }
-      .cs-card-thumb { min-height: 220px; }
-      .cs-card-thumb img { max-height: 240px; }
-      .cs-card-body { padding: 28px 24px; }
+      .cs-card-thumb { height: 220px; }
+      .cs-card-body { padding: 24px 20px; }
       .cs-tech-row { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
@@ -435,7 +442,7 @@
       <!-- Autoclub SNC -->
       <div class="cs-card reveal">
         <div class="cs-card-thumb">
-          <img src="autoclubsnc_home.png" alt="Screenshot sito Autoclub SNC" />
+          <img src="autoclubsnc_mobile.png" alt="Anteprima mobile sito Autoclub SNC" />
           <span class="cs-card-status online">Online</span>
         </div>
         <div class="cs-card-body">
@@ -444,7 +451,9 @@
             <h2 class="cs-card-title">Autoclub SNC</h2>
             <div class="cs-card-location"><i class="ti ti-map-pin"></i>Milano, Italia — 2025</div>
           </div>
-          <p class="cs-card-desc">Sito web professionale realizzato per un'officina meccanica e carrozzeria di Milano. Il cliente non aveva presenza online: niente sito, niente contatti trovabili su Google. Obiettivo: creare uno strumento semplice, veloce e accessibile da smartphone che comunicasse affidabilità e permettesse ai clienti di contattare l'officina in pochi secondi.</p>
+          <div class="cs-card-meta-row">
+            <span class="cs-card-meta-item"><span class="cs-meta-key">Tipo di progetto</span><span class="cs-meta-val">Sito web vetrina professionale</span></span>
+          </div>
           <div class="cs-tech-row">
             <div class="cs-tech-block">
               <div class="cs-tech-label">Tecnologie</div>
@@ -455,20 +464,23 @@
               </div>
             </div>
             <div class="cs-tech-block">
-              <div class="cs-tech-label">Servizi inclusi</div>
+              <div class="cs-tech-label">Servizi realizzati</div>
               <div class="cs-tag-list">
                 <span class="cs-tag">Dominio personalizzato</span>
-                <span class="cs-tag">HTTPS</span>
+                <span class="cs-tag">Hosting statico</span>
+                <span class="cs-tag">Certificato HTTPS</span>
                 <span class="cs-tag">Responsive Design</span>
+                <span class="cs-tag">Ottimizzazione mobile</span>
                 <span class="cs-tag">Google Maps</span>
                 <span class="cs-tag">SEO base</span>
                 <span class="cs-tag">Privacy Policy</span>
                 <span class="cs-tag">Cookie Policy</span>
+                <span class="cs-tag">Open Graph / anteprima social</span>
               </div>
             </div>
           </div>
           <div class="cs-result-line">
-            <strong>Risultato:</strong> Presenza online professionale accessibile 24/7 da smartphone e desktop. Contatti e indirizzo immediatamente reperibili su Google.
+            <strong>Risultato:</strong> Sito web leggero, responsive e consultabile da smartphone e desktop, con struttura pronta per future sezioni e aggiornamenti.
           </div>
           <div class="cs-card-cta">
             <a href="https://autoclubsnc.it" target="_blank" rel="noopener" class="btn-solid">
