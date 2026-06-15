@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Case Study – Progetti Realizzati – KLODEX</title>
-  <meta name="description" content="Scopri i progetti web realizzati da KLODEX: siti professionali per attività locali, artigiani e professionisti. Vedi le soluzioni adottate e i risultati ottenuti." />
+  <title>Case Study – Soluzioni Tecniche – KLODEX</title>
+  <meta name="description" content="Le soluzioni tecniche adottate nei progetti realizzati da KLODEX: tecnologie, servizi inclusi e risultati ottenuti." />
   <link rel="icon" type="image/png" href="/favicon.png?v=1">
   <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
   <link rel="apple-touch-icon" href="/favicon.png?v=1">
@@ -94,9 +94,9 @@
       font-size: 0.88rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.5px;
       border: 1px solid var(--red);
-      transition: background 0.2s, transform 0.15s;
+      transition: background 0.2s;
     }
-    .btn-solid:hover { background: var(--red2); transform: translateY(-1px); }
+    .btn-solid:hover { background: var(--red2); }
     .btn-outline {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 12px 24px; border-radius: 4px;
@@ -104,17 +104,17 @@
       font-size: 0.88rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.5px;
       border: 1px solid rgba(255,255,255,0.25);
-      transition: border-color 0.2s, transform 0.15s;
+      transition: border-color 0.2s;
     }
-    .btn-outline:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); }
 
     /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── 1. HERO ── */
+    /* ── HERO ── */
     #hero {
-      min-height: 60vh;
+      min-height: 52vh;
       padding-top: var(--nav-h);
       display: flex; align-items: center;
       position: relative; overflow: hidden;
@@ -165,309 +165,136 @@
       line-height: 1.75;
     }
 
-    /* ── 2. INTRO ── */
+    /* ── INTRO ── */
     #intro {
-      padding: 80px 0;
+      padding: 60px 0;
       background: var(--bg2);
       border-top: 2px solid var(--red);
       border-bottom: 2px solid var(--red);
     }
     .intro-inner {
-      max-width: 780px; margin: 0 auto;
+      max-width: 720px; margin: 0 auto;
       text-align: center;
+    }
+    .intro-inner h2 {
+      font-family: var(--font-cond);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 800; text-transform: uppercase;
+      margin-bottom: 16px; line-height: 1.2;
     }
     .intro-inner p {
-      font-size: 1.05rem; color: var(--muted);
-      line-height: 1.85;
-    }
-    .intro-inner p + p { margin-top: 18px; }
-    .intro-stat-row {
-      display: flex; justify-content: center; gap: 60px;
-      margin-top: 48px; flex-wrap: wrap;
-    }
-    .intro-stat {
-      text-align: center;
-    }
-    .intro-stat .num {
-      font-family: var(--font-cond);
-      font-size: 2.8rem; font-weight: 900;
-      color: var(--red); line-height: 1;
-      display: block; margin-bottom: 6px;
-    }
-    .intro-stat .label {
-      font-size: 0.82rem; font-weight: 600;
-      color: var(--muted); text-transform: uppercase; letter-spacing: 1px;
+      font-size: 1rem; color: var(--muted); line-height: 1.8;
     }
 
-    /* ── 3. PROGETTO IN EVIDENZA ── */
-    #evidenza { padding: 90px 0; background: var(--bg); }
-    .evidenza-card {
+    /* ── CASE STUDY CARDS ── */
+    #casestudies {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+    .cs-cards { display: flex; flex-direction: column; gap: 48px; }
+
+    .cs-card {
       background: var(--bg2);
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 420px;
+      grid-template-columns: 340px 1fr;
     }
-    .evidenza-thumb {
-      position: relative; overflow: hidden;
+
+    /* screenshot panel */
+    .cs-card-thumb {
+      position: relative;
       background: var(--bg3);
+      overflow: hidden;
     }
-    .evidenza-thumb img {
+    .cs-card-thumb img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: top;
       display: block;
-      transition: transform 0.4s ease;
     }
-    .evidenza-card:hover .evidenza-thumb img { transform: scale(1.03); }
-    .evidenza-thumb-overlay {
-      position: absolute; inset: 0;
-      background: rgba(0,0,0,0.22);
-      transition: background 0.3s;
-      pointer-events: none;
+    .cs-card-thumb-placeholder {
+      width: 100%; height: 100%; min-height: 260px;
+      display: flex; align-items: center; justify-content: center;
+      color: #2a2a2a; font-size: 48px;
     }
-    .evidenza-card:hover .evidenza-thumb-overlay { background: rgba(0,0,0,0.08); }
-    .evidenza-tag {
-      position: absolute; top: 18px; left: 18px;
-      background: var(--red); color: #fff;
+    .cs-card-status {
+      position: absolute; top: 16px; left: 16px;
       font-size: 0.68rem; font-weight: 700;
       letter-spacing: 1px; text-transform: uppercase;
       padding: 4px 12px; border-radius: 3px;
     }
-    .evidenza-body {
-      padding: 40px 44px;
-      display: flex; flex-direction: column; justify-content: center; gap: 20px;
-    }
-    .evidenza-body .tipo {
-      font-size: 0.78rem; font-weight: 700;
-      color: var(--red); text-transform: uppercase; letter-spacing: 1.5px;
-    }
-    .evidenza-body h3 {
-      font-family: var(--font-cond);
-      font-size: 2.2rem; font-weight: 900;
-      text-transform: uppercase; line-height: 1.1;
-    }
-    .evidenza-body h3 span { color: var(--muted); font-size: 1rem; font-family: var(--font); font-weight: 400; text-transform: none; display: block; margin-top: 4px; }
-    .evidenza-body p {
-      font-size: 0.92rem; color: var(--muted); line-height: 1.7;
-    }
-    .evidenza-meta {
-      display: flex; gap: 20px; flex-wrap: wrap;
-    }
-    .evidenza-meta-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 0.82rem; color: #888; font-weight: 500;
-    }
-    .evidenza-meta-item i { color: var(--red); font-size: 16px; }
-    .evidenza-cta { display: flex; gap: 12px; flex-wrap: wrap; }
-
-    /* ── 4. CASE STUDY COMPLETO ── */
-    #casestudy-detail {
-      padding: 90px 0;
-      background: #000;
-      border-top: 2px solid var(--red);
-    }
-    .cs-header {
-      margin-bottom: 60px;
-    }
-    .cs-header .section-overline { text-align: left; }
-    .cs-header h2 {
-      font-family: var(--font-cond);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900; text-transform: uppercase;
-      line-height: 1.1; margin-bottom: 8px;
-    }
-    .cs-header .cs-subtitle {
-      font-size: 1rem; color: var(--muted);
-    }
-    .cs-layout {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 60px;
-      align-items: start;
-    }
-    .cs-main { display: flex; flex-direction: column; gap: 40px; }
-    .cs-block {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
-      border-radius: 6px;
-      padding: 28px 32px;
-    }
-    .cs-block-title {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--red);
-      margin-bottom: 16px;
-    }
-    .cs-list {
-      list-style: none;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .cs-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 0.92rem; color: var(--text); line-height: 1.55;
-    }
-    .cs-list li i { color: var(--red); font-size: 17px; margin-top: 2px; flex-shrink: 0; }
-    .cs-sidebar { display: flex; flex-direction: column; gap: 20px; }
-    .cs-sidebar-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px 26px;
-    }
-    .cs-sidebar-card h4 {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--red);
-      margin-bottom: 14px;
-    }
-    .cs-sidebar-meta { display: flex; flex-direction: column; gap: 10px; }
-    .cs-sidebar-row {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 0.84rem; padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    .cs-sidebar-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .cs-sidebar-row .key { color: var(--muted); }
-    .cs-sidebar-row .val { color: var(--text); font-weight: 600; }
-    .cs-result-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .cs-result-item {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 18px 16px;
-      text-align: center;
-    }
-    .cs-result-item i { color: var(--red); font-size: 24px; margin-bottom: 10px; display: block; }
-    .cs-result-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
-
-    /* Screenshot sezione */
-    .cs-screenshot-strip {
-      margin-top: 40px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .cs-screenshot-strip img {
-      width: 100%; display: block;
-      border-bottom: 1px solid var(--border);
-    }
-    .cs-screenshot-strip .cs-screenshot-caption {
-      padding: 14px 20px;
-      font-size: 0.80rem; color: var(--muted);
-      display: flex; align-items: center; gap: 8px;
-    }
-    .cs-screenshot-strip .cs-screenshot-caption i { color: var(--red); font-size: 15px; }
-
-    /* ── 5. PROSSIMI PROGETTI ── */
-    #prossimi {
-      padding: 90px 0;
-      background: var(--bg2);
-      border-top: 2px solid var(--red);
-      border-bottom: 2px solid var(--red);
-    }
-    .prossimi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .prossimo-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: border-color 0.25s, transform 0.2s;
-    }
-    .prossimo-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
-    .prossimo-thumb {
-      height: 160px;
-      background: var(--bg4);
-      display: flex; align-items: center; justify-content: center;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    .prossimo-soon-tag {
-      position: absolute; top: 14px; left: 14px;
-      background: rgba(255,255,255,0.05); color: #555;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 3px 10px; border-radius: 3px;
+    .cs-card-status.online { background: var(--red); color: #fff; }
+    .cs-card-status.wip {
+      background: rgba(255,255,255,0.05);
+      color: #555;
       border: 1px solid rgba(255,255,255,0.07);
     }
-    .prossimo-thumb-icon {
-      width: 52px; height: 52px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: #2e2e2e; font-size: 24px;
-    }
-    .prossimo-body {
-      padding: 26px 26px 30px;
-      display: flex; flex-direction: column; align-items: center;
-      gap: 16px; text-align: center; flex: 1;
-    }
-    .prossimo-body p { font-size: 0.88rem; color: #444; line-height: 1.6; }
 
-    /* ── 6. COME LAVORIAMO ── */
-    #come-lavoriamo { padding: 90px 0; background: var(--bg); }
-    .lavoriamo-steps {
+    /* content panel */
+    .cs-card-body {
+      padding: 36px 40px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .cs-card-header {}
+    .cs-card-tipo {
+      font-size: 0.72rem; font-weight: 700;
+      color: var(--red); text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .cs-card-title {
+      font-family: var(--font-cond);
+      font-size: 2rem; font-weight: 900;
+      text-transform: uppercase; line-height: 1.05;
+      margin-bottom: 4px;
+    }
+    .cs-card-location {
+      font-size: 0.82rem; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cs-card-location i { color: var(--red); font-size: 14px; }
+    .cs-card-desc {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.7;
+    }
+
+    /* tech grid */
+    .cs-tech-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      position: relative;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
-    .lavoriamo-steps::before {
-      content: '';
-      position: absolute;
-      top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px);
-      height: 1px; background: var(--border-red); z-index: 0;
+    .cs-tech-block {}
+    .cs-tech-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 10px;
     }
-    .lstep {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; position: relative; z-index: 1;
+    .cs-tag-list {
+      display: flex; flex-wrap: wrap; gap: 7px;
     }
-    .lstep-num {
-      width: 56px; height: 56px;
-      border-radius: 50%;
-      border: 2px solid var(--red);
-      background: var(--bg);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-cond);
-      font-size: 1.2rem; font-weight: 900;
-      color: var(--red);
-      margin-bottom: 18px;
-    }
-    .lstep h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 8px; }
-    .lstep p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── 7. MANIFESTO ── */
-    #manifesto {
-      padding: 90px 0;
-      background: var(--bg2);
-      border-top: 2px solid var(--red);
-    }
-    .manifesto-inner {
-      max-width: 760px; margin: 0 auto; text-align: center;
-    }
-    .manifesto-inner h2 {
-      font-family: var(--font-cond);
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 900; text-transform: uppercase;
-      line-height: 1.1; margin-bottom: 20px;
-    }
-    .manifesto-inner h2 .red { color: var(--red); }
-    .manifesto-inner p {
-      font-size: 1rem; color: var(--muted); line-height: 1.85;
+    .cs-tag {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--text);
+      padding: 4px 10px;
     }
 
-    /* ── 8. CTA FINALE ── */
+    /* result line */
+    .cs-result-line {
+      background: var(--bg3);
+      border-left: 3px solid var(--red);
+      border-radius: 3px;
+      padding: 12px 16px;
+      font-size: 0.88rem; color: var(--muted); line-height: 1.6;
+    }
+    .cs-result-line strong { color: var(--text); font-weight: 600; }
+
+    /* cta row */
+    .cs-card-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── CTA FINALE ── */
     #cta-finale {
       padding: 100px 0;
       background: #000;
@@ -549,25 +376,17 @@
     .footer-bottom-links a:hover { color: var(--red); }
 
     /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .evidenza-card { grid-template-columns: 1fr; }
-      .evidenza-thumb { height: 260px; }
-      .cs-layout { grid-template-columns: 1fr; }
-      .cs-sidebar { flex-direction: row; flex-wrap: wrap; }
-      .cs-sidebar-card { flex: 1 1 260px; }
-      .lavoriamo-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .lavoriamo-steps::before { display: none; }
+    @media (max-width: 860px) {
+      .cs-card { grid-template-columns: 1fr; }
+      .cs-card-thumb { min-height: 220px; }
+      .cs-card-thumb img { max-height: 240px; }
+      .cs-card-body { padding: 28px 24px; }
+      .cs-tech-row { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .prossimi-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-      .lavoriamo-steps { grid-template-columns: 1fr 1fr; }
-      .cs-result-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      .lavoriamo-steps { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -582,250 +401,91 @@
     <a href="index.html">Home</a>
     <a href="index.html#servizi">Servizi</a>
     <a href="siti.html">Siti Web</a>
+    <a href="portfolio.html">Portfolio</a>
     <a href="casestudy.html" class="active">Case Study</a>
     <a href="index.html#contatti-strip">Contatti</a>
   </div>
   <a href="index.html#contatti-strip" class="nav-cta">Richiedi assistenza</a>
 </nav>
 
-<!-- 1. HERO -->
+<!-- HERO -->
 <section id="hero">
   <div class="hero-copy reveal">
-    <div class="hero-overline">Progetti realizzati</div>
+    <div class="hero-overline">Soluzioni tecniche</div>
     <h1 class="hero-h1">CASE <span class="red">STUDY</span></h1>
-    <p class="hero-p">Ogni attività ha esigenze diverse. Qui puoi vedere alcuni dei progetti sviluppati da KLODEX e il percorso seguito per realizzarli.</p>
+    <p class="hero-p">Le tecnologie adottate, i servizi inclusi e i risultati raggiunti per ogni progetto realizzato.</p>
   </div>
 </section>
 
-<!-- 2. INTRO -->
+<!-- INTRO -->
 <section id="intro">
   <div class="container">
     <div class="intro-inner reveal">
-      <p>Un sito web non è solo una vetrina. È uno strumento che aiuta un'attività a presentarsi online, farsi trovare e comunicare con i clienti nel modo giusto.</p>
-      <p>In questa sezione mostriamo i progetti realizzati, le esigenze che li hanno generati e le soluzioni concrete adottate per rispondervi.</p>
-      <div class="intro-stat-row">
-        <div class="intro-stat">
-          <span class="num">100%</span>
-          <span class="label">HTML statico — zero CMS</span>
-        </div>
-        <div class="intro-stat">
-          <span class="num">&lt; 1s</span>
-          <span class="label">Tempo di caricamento</span>
-        </div>
-        <div class="intro-stat">
-          <span class="num">100%</span>
-          <span class="label">Responsive su tutti i dispositivi</span>
-        </div>
-      </div>
+      <h2>Come vengono realizzati i nostri progetti</h2>
+      <p>In questa sezione mostriamo le soluzioni tecniche adottate nei progetti realizzati e i servizi inclusi in ogni realizzazione.</p>
     </div>
   </div>
 </section>
 
-<!-- 3. PROGETTO IN EVIDENZA -->
-<section id="evidenza">
+<!-- CASE STUDIES -->
+<section id="casestudies">
   <div class="container">
-    <span class="section-overline">Progetto in evidenza</span>
-    <h2 class="section-title">Il primo progetto realizzato.</h2>
-    <p class="section-sub">Da un'esigenza concreta a un sito funzionante in pochi giorni. Ecco il percorso completo.</p>
+    <div class="cs-cards">
 
-    <div class="evidenza-card reveal">
-      <div class="evidenza-thumb">
-        <img src="autoclubsnc_home.png" alt="Screenshot sito Autoclub SNC" />
-        <div class="evidenza-thumb-overlay"></div>
-        <div class="evidenza-tag">Online</div>
-      </div>
-      <div class="evidenza-body">
-        <span class="tipo">Officina &amp; Carrozzeria</span>
-        <h3>Autoclub SNC<span>autoclubsnc.it — Milano</span></h3>
-        <p>Sito vetrina per un'officina meccanica milanese attiva da anni. Il cliente aveva bisogno di una presenza online professionale che comunicasse affidabilità, mostrasse i servizi offerti e permettesse ai clienti di contattarlo facilmente, anche da smartphone.</p>
-        <div class="evidenza-meta">
-          <span class="evidenza-meta-item"><i class="ti ti-map-pin"></i>Milano, Italia</span>
-          <span class="evidenza-meta-item"><i class="ti ti-calendar"></i>2025</span>
-          <span class="evidenza-meta-item"><i class="ti ti-code"></i>HTML / CSS statico</span>
+      <!-- Autoclub SNC -->
+      <div class="cs-card reveal">
+        <div class="cs-card-thumb">
+          <img src="autoclubsnc_home.png" alt="Screenshot sito Autoclub SNC" />
+          <span class="cs-card-status online">Online</span>
         </div>
-        <div class="evidenza-cta">
-          <a href="https://autoclubsnc.it" target="_blank" rel="noopener" class="btn-solid">
-            <i class="ti ti-external-link"></i>Visita il sito
-          </a>
-          <a href="#casestudy-detail" class="btn-outline">
-            <i class="ti ti-file-text"></i>Leggi il case study
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4. CASE STUDY COMPLETO -->
-<section id="casestudy-detail">
-  <div class="container">
-    <div class="cs-header reveal">
-      <span class="section-overline">Case study completo</span>
-      <h2>Autoclub SNC</h2>
-      <p class="cs-subtitle">Officina meccanica e carrozzeria – Milano</p>
-    </div>
-
-    <div class="cs-layout">
-      <div class="cs-main">
-
-        <div class="cs-block reveal">
-          <div class="cs-block-title">Esigenza del cliente</div>
-          <ul class="cs-list">
-            <li><i class="ti ti-arrow-right"></i><span>L'officina era conosciuta principalmente tramite passaparola, ma non aveva alcuna presenza online. Chi cercava un'officina su Google non poteva trovarla.</span></li>
-            <li><i class="ti ti-arrow-right"></i><span>I clienti non riuscivano a trovare facilmente i contatti, gli orari o l'indirizzo preciso dell'attività.</span></li>
-            <li><i class="ti ti-arrow-right"></i><span>Era necessario un sito consultabile in modo chiaro e veloce da smartphone, il principale dispositivo usato dai clienti.</span></li>
-            <li><i class="ti ti-arrow-right"></i><span>Il cliente cercava una soluzione senza costi di gestione elevati e senza dover imparare a usare un pannello complicato.</span></li>
-          </ul>
-        </div>
-
-        <div class="cs-block reveal">
-          <div class="cs-block-title">Soluzione realizzata</div>
-          <ul class="cs-list">
-            <li><i class="ti ti-check"></i><span>Sito web statico in HTML e CSS puro — veloce, leggero, sicuro e senza dipendenze esterne.</span></li>
-            <li><i class="ti ti-check"></i><span>Design responsive ottimizzato per smartphone: tutto leggibile e accessibile su qualsiasi schermo.</span></li>
-            <li><i class="ti ti-check"></i><span>Sezione servizi chiara e strutturata: il visitatore capisce subito cosa offre l'officina.</span></li>
-            <li><i class="ti ti-check"></i><span>Contatti rapidi in evidenza: telefono, email e pulsante WhatsApp direttamente accessibili.</span></li>
-            <li><i class="ti ti-check"></i><span>Mappa Google Maps integrata per trovare subito la sede fisica dell'officina.</span></li>
-            <li><i class="ti ti-check"></i><span>Hosting leggero su infrastruttura statica: costi annuali contenuti, nessun aggiornamento da fare.</span></li>
-            <li><i class="ti ti-check"></i><span>Certificato SSL incluso: il sito è in HTTPS e trasmette sicurezza ai visitatori.</span></li>
-          </ul>
-        </div>
-
-        <div class="cs-block reveal">
-          <div class="cs-block-title">Risultato</div>
-          <div class="cs-result-grid">
-            <div class="cs-result-item">
-              <i class="ti ti-world"></i>
-              <p>Presenza online professionale attiva 24 ore su 24, 7 giorni su 7</p>
+        <div class="cs-card-body">
+          <div class="cs-card-header">
+            <div class="cs-card-tipo">Officina &amp; Carrozzeria</div>
+            <h2 class="cs-card-title">Autoclub SNC</h2>
+            <div class="cs-card-location"><i class="ti ti-map-pin"></i>Milano, Italia — 2025</div>
+          </div>
+          <p class="cs-card-desc">Sito web professionale realizzato per un'officina meccanica e carrozzeria di Milano. Il cliente non aveva presenza online: niente sito, niente contatti trovabili su Google. Obiettivo: creare uno strumento semplice, veloce e accessibile da smartphone che comunicasse affidabilità e permettesse ai clienti di contattare l'officina in pochi secondi.</p>
+          <div class="cs-tech-row">
+            <div class="cs-tech-block">
+              <div class="cs-tech-label">Tecnologie</div>
+              <div class="cs-tag-list">
+                <span class="cs-tag">HTML5</span>
+                <span class="cs-tag">CSS3</span>
+                <span class="cs-tag">GitHub Pages</span>
+              </div>
             </div>
-            <div class="cs-result-item">
-              <i class="ti ti-device-mobile"></i>
-              <p>Esperienza di navigazione ottimale da smartphone e desktop</p>
-            </div>
-            <div class="cs-result-item">
-              <i class="ti ti-map-pin"></i>
-              <p>Sede e contatti immediatamente reperibili su Google e Maps</p>
-            </div>
-            <div class="cs-result-item">
-              <i class="ti ti-coin-euro"></i>
-              <p>Costi di gestione annuali contenuti, senza sorprese o canoni mensili</p>
+            <div class="cs-tech-block">
+              <div class="cs-tech-label">Servizi inclusi</div>
+              <div class="cs-tag-list">
+                <span class="cs-tag">Dominio personalizzato</span>
+                <span class="cs-tag">HTTPS</span>
+                <span class="cs-tag">Responsive Design</span>
+                <span class="cs-tag">Google Maps</span>
+                <span class="cs-tag">SEO base</span>
+                <span class="cs-tag">Privacy Policy</span>
+                <span class="cs-tag">Cookie Policy</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="cs-screenshot-strip reveal">
-          <img src="autoclubsnc_home.png" alt="Screenshot homepage Autoclub SNC" />
-          <div class="cs-screenshot-caption">
-            <i class="ti ti-photo"></i>
-            Homepage di autoclubsnc.it — design moderno, informazioni in evidenza, ottimizzato per mobile.
+          <div class="cs-result-line">
+            <strong>Risultato:</strong> Presenza online professionale accessibile 24/7 da smartphone e desktop. Contatti e indirizzo immediatamente reperibili su Google.
+          </div>
+          <div class="cs-card-cta">
+            <a href="https://autoclubsnc.it" target="_blank" rel="noopener" class="btn-solid">
+              <i class="ti ti-external-link"></i>Visita il sito
+            </a>
+            <a href="portfolio.html" class="btn-outline">
+              <i class="ti ti-layout-grid"></i>Guarda il portfolio
+            </a>
           </div>
         </div>
-
       </div>
 
-      <!-- Sidebar -->
-      <div class="cs-sidebar">
-        <div class="cs-sidebar-card reveal">
-          <h4>Scheda progetto</h4>
-          <div class="cs-sidebar-meta">
-            <div class="cs-sidebar-row">
-              <span class="key">Cliente</span>
-              <span class="val">Autoclub SNC</span>
-            </div>
-            <div class="cs-sidebar-row">
-              <span class="key">Settore</span>
-              <span class="val">Officina / Carrozzeria</span>
-            </div>
-            <div class="cs-sidebar-row">
-              <span class="key">Città</span>
-              <span class="val">Milano</span>
-            </div>
-            <div class="cs-sidebar-row">
-              <span class="key">Anno</span>
-              <span class="val">2025</span>
-            </div>
-            <div class="cs-sidebar-row">
-              <span class="key">Tecnologia</span>
-              <span class="val">HTML / CSS</span>
-            </div>
-            <div class="cs-sidebar-row">
-              <span class="key">URL</span>
-              <span class="val"><a href="https://autoclubsnc.it" target="_blank" rel="noopener" style="color:var(--red);">autoclubsnc.it</a></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="cs-sidebar-card reveal">
-          <h4>Servizi inclusi</h4>
-          <ul class="cs-list" style="gap:10px;">
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Progettazione e sviluppo</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Design responsive</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Configurazione dominio</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Certificato SSL</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Integrazione Maps</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">SEO di base</span></li>
-            <li><i class="ti ti-check"></i><span style="font-size:0.85rem;">Privacy &amp; Cookie Policy</span></li>
-          </ul>
-        </div>
-
-        <div class="cs-sidebar-card reveal" style="background: rgba(212,25,43,0.06); border-color: var(--border-red);">
-          <h4>Vuoi un risultato simile?</h4>
-          <p style="font-size:0.85rem;color:var(--muted);line-height:1.65;margin-bottom:16px;">Raccontaci la tua attività e ti diciamo subito cosa possiamo fare per te.</p>
-          <a href="#cta-finale" class="btn-solid" style="width:100%;justify-content:center;font-size:0.82rem;padding:10px 16px;">
-            <i class="ti ti-send"></i>Parliamone
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- 5. PROSSIMI PROGETTI -->
-<section id="prossimi">
-  <div class="container">
-    <span class="section-overline">In arrivo</span>
-    <h2 class="section-title">Altri progetti in sviluppo.</h2>
-    <p class="section-sub">Il portfolio cresce con ogni nuovo cliente. Il prossimo progetto potrebbe essere il tuo.</p>
-    <div class="prossimi-grid">
-      <div class="prossimo-card reveal">
-        <div class="prossimo-thumb">
-          <div class="prossimo-soon-tag">In arrivo</div>
-          <div class="prossimo-thumb-icon"><i class="ti ti-plus"></i></div>
-        </div>
-        <div class="prossimo-body">
-          <p>Il prossimo progetto potrebbe essere il tuo.</p>
-          <a href="#cta-finale" class="btn-solid" style="font-size:0.82rem;padding:10px 20px;">
-            <i class="ti ti-send"></i>Parliamone
-          </a>
-        </div>
-      </div>
-      <div class="prossimo-card reveal" style="transition-delay:0.10s">
-        <div class="prossimo-thumb">
-          <div class="prossimo-soon-tag">In arrivo</div>
-          <div class="prossimo-thumb-icon"><i class="ti ti-plus"></i></div>
-        </div>
-        <div class="prossimo-body">
-          <p>Il prossimo progetto potrebbe essere il tuo.</p>
-          <a href="#cta-finale" class="btn-outline" style="font-size:0.82rem;padding:10px 20px;">
-            <i class="ti ti-mail"></i>Richiedi informazioni
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 7. MANIFESTO -->
-<section id="manifesto">
-  <div class="container">
-    <div class="manifesto-inner reveal">
-      <h2>OGNI PROGETTO NASCE DA<br>UN'<span class="red">ESIGENZA REALE.</span></h2>
-      <p>Non realizziamo siti standardizzati. Ogni progetto viene costruito in base alle esigenze dell'attività, mantenendo semplicità, velocità e facilità di gestione. Il risultato è uno strumento che funziona davvero — non solo un sito bello da vedere.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 8. CTA FINALE -->
+<!-- CTA FINALE -->
 <section id="cta-finale">
   <div class="container">
     <div class="cta-inner reveal">
@@ -863,6 +523,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="index.html#servizi">Servizi</a></li>
         <li><a href="siti.html">Siti Web</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="casestudy.html">Case Study</a></li>
         <li><a href="index.html#contatti-strip">Contatti</a></li>
       </ul>
@@ -880,9 +541,8 @@
     <div class="footer-col">
       <h4>Case Study</h4>
       <ul>
-        <li><a href="#evidenza">Progetto in evidenza</a></li>
-        <li><a href="#casestudy-detail">Autoclub SNC</a></li>
-        <li><a href="#prossimi">Prossimi progetti</a></li>
+        <li><a href="#casestudies">Autoclub SNC</a></li>
+        <li><a href="portfolio.html">Portfolio lavori</a></li>
         <li><a href="#cta-finale">Contattaci</a></li>
       </ul>
     </div>
