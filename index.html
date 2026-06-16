@@ -301,47 +301,6 @@
     }
     .servizio-card:hover .scopri-link { gap: 10px; }
 
-    /* ─── PORTFOLIO ─── */
-    #portfolio { background: var(--bg2); }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .portfolio-card {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: border-color 0.2s, transform 0.18s;
-      display: flex; flex-direction: column;
-    }
-    .portfolio-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
-    .portfolio-thumb {
-      width: 100%; aspect-ratio: 16/9;
-      background: var(--bg4);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 32px;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-    .portfolio-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .portfolio-body { padding: 22px 20px; flex: 1; display: flex; flex-direction: column; }
-    .portfolio-tag {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--red);
-      margin-bottom: 8px;
-    }
-    .portfolio-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .portfolio-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 16px; }
-    .portfolio-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.8px;
-      text-transform: uppercase; color: var(--red);
-      transition: gap 0.18s;
-    }
-    .portfolio-card:hover .portfolio-link { gap: 10px; }
-
     /* ─── CONTATTI STRIP ─── */
     #contatti-strip {
       background: var(--bg2);
@@ -595,43 +554,6 @@
           <h3>Consulenza Informatica</h3>
           <p>Analizziamo le tue esigenze e ti proponiamo le soluzioni più efficaci per ottimizzare il tuo lavoro.</p>
           <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="container">
-    <span class="section-overline">Portfolio</span>
-    <h2 class="section-title">Alcuni lavori realizzati.</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-card reveal">
-        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
-        <div class="portfolio-body">
-          <div class="portfolio-tag">Sito Web</div>
-          <h3>Nome Progetto</h3>
-          <p>Breve descrizione del progetto realizzato per il cliente.</p>
-          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-card reveal" style="transition-delay:0.08s">
-        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
-        <div class="portfolio-body">
-          <div class="portfolio-tag">Sito Web</div>
-          <h3>Nome Progetto</h3>
-          <p>Breve descrizione del progetto realizzato per il cliente.</p>
-          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-card reveal" style="transition-delay:0.16s">
-        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
-        <div class="portfolio-body">
-          <div class="portfolio-tag">Sito Web</div>
-          <h3>Nome Progetto</h3>
-          <p>Breve descrizione del progetto realizzato per il cliente.</p>
-          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
         </div>
       </div>
     </div>
