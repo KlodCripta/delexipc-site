@@ -69,6 +69,51 @@
     }
     .nav-cta:hover { background: var(--red); }
 
+    /* ─── HAMBURGER ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; align-items: center;
+      gap: 5px; width: 38px; height: 38px;
+      background: none; border: none; cursor: pointer;
+      margin-left: auto; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE MENU OVERLAY ─── */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: #000;
+      z-index: 99;
+      flex-direction: column;
+      padding: 32px clamp(16px,4vw,40px);
+      gap: 8px;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1.3rem; font-weight: 700; color: #ccc;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--red); }
+    .mobile-menu .mobile-cta {
+      margin-top: 24px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: 4px;
+      border: 1px solid var(--red); background: var(--red);
+      color: #fff; font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
     /* ─── HERO ─── */
     #home {
       min-height: 100vh;
@@ -256,6 +301,47 @@
     }
     .servizio-card:hover .scopri-link { gap: 10px; }
 
+    /* ─── PORTFOLIO ─── */
+    #portfolio { background: var(--bg2); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .portfolio-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.18s;
+      display: flex; flex-direction: column;
+    }
+    .portfolio-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .portfolio-thumb {
+      width: 100%; aspect-ratio: 16/9;
+      background: var(--bg4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 32px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .portfolio-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .portfolio-body { padding: 22px 20px; flex: 1; display: flex; flex-direction: column; }
+    .portfolio-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 8px;
+    }
+    .portfolio-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .portfolio-body p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+    .portfolio-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; color: var(--red);
+      transition: gap 0.18s;
+    }
+    .portfolio-card:hover .portfolio-link { gap: 10px; }
+
     /* ─── CONTATTI STRIP ─── */
     #contatti-strip {
       background: var(--bg2);
@@ -289,21 +375,13 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: #000000; padding: 60px 0 24px;
+      background: #000000; padding: 48px 0 0;
       border-top: 1px solid rgba(255,255,255,0.05);
-    }
-    .footer-bottom {
-      max-width: var(--max); margin: 0 auto;
-      padding: 20px clamp(16px,4vw,60px) 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 10px;
-      background: #000000;
     }
     .footer-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 clamp(16px,4vw,60px);
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px;
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 48px;
       margin-bottom: 40px;
     }
     .footer-brand img { height: 32px; margin-bottom: 14px; }
@@ -322,9 +400,16 @@
     .footer-col ul li a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
     .footer-col ul li a:hover { color: #fff; }
     .footer-col ul li { font-size: 0.82rem; color: var(--muted); }
-    .footer-bottom span { font-size: 0.8rem; color: #ffffff; }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto;
+      padding: 20px clamp(16px,4vw,60px);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom span { font-size: 0.8rem; color: #888; }
     .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
+    .footer-bottom-links a { font-size: 0.8rem; color: #888; transition: color 0.2s; }
     .footer-bottom-links a:hover { color: var(--red); }
 
     /* ─── REVEAL ─── */
@@ -336,19 +421,25 @@
       #home { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
       .feature-strip-inner { grid-template-columns: 1fr 1fr; }
       .serve-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
       .serve-grid { grid-template-columns: 1fr; }
       .servizi-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
       .feature-strip-inner { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
       .contatti-strip-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
-      .serve-grid { grid-template-columns: 1fr; }
+      .hero-h1 { font-size: 2.4rem; }
+      .hero-p { font-size: 0.92rem; }
+      #home { min-height: 100svh; padding-top: calc(var(--nav-h) + 40px); padding-bottom: 60px; }
     }
   </style>
 </head>
@@ -363,11 +454,26 @@
     <a href="#home" class="active">Home</a>
     <a href="#servizi">Servizi</a>
     <a href="siti.html">Siti Web</a>
+    <a href="#portfolio">Portfolio</a>
     <a href="casestudy.html">Case Study</a>
     <a href="#contatti-strip">Contatti</a>
   </div>
   <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home">Home</a>
+  <a href="#servizi">Servizi</a>
+  <a href="siti.html">Siti Web</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="casestudy.html">Case Study</a>
+  <a href="#contatti-strip">Contatti</a>
+  <a href="#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
+</div>
 
 <!-- HERO -->
 <div id="home">
@@ -495,6 +601,43 @@
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <span class="section-overline">Portfolio</span>
+    <h2 class="section-title">Alcuni lavori realizzati.</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Sito Web</div>
+          <h3>Nome Progetto</h3>
+          <p>Breve descrizione del progetto realizzato per il cliente.</p>
+          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" style="transition-delay:0.08s">
+        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Sito Web</div>
+          <h3>Nome Progetto</h3>
+          <p>Breve descrizione del progetto realizzato per il cliente.</p>
+          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" style="transition-delay:0.16s">
+        <div class="portfolio-thumb"><i class="ti ti-world"></i></div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">Sito Web</div>
+          <h3>Nome Progetto</h3>
+          <p>Breve descrizione del progetto realizzato per il cliente.</p>
+          <a href="#" class="portfolio-link">Visita il sito <i class="ti ti-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTATTI STRIP -->
 <div id="contatti-strip">
   <div class="contatti-strip-inner">
@@ -526,7 +669,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="logo_rosso_wide.png" alt="KLODEX" />
-      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività.</p>
+      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
       <div class="footer-social">
         <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
         <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
@@ -539,36 +682,16 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#servizi">Servizi</a></li>
         <li><a href="siti.html">Siti Web</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="casestudy.html">Case Study</a></li>
         <li><a href="#contatti-strip">Contatti</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Servizi</h4>
-      <ul>
-        <li>Assistenza Software</li>
-        <li>Installazioni e Configurazioni</li>
-        <li>Sistemi e Reti</li>
-        <li>Linux e Sistemi Alternativi</li>
-        <li>Consulenza Informatica</li>
-        <li>Rimozione Malware</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Siti Web</h4>
-      <ul>
-        <li><a href="siti.html">Sito Web Base</a></li>
-        <li><a href="siti.html">Presenza Digitale Completa</a></li>
-        <li><a href="siti.html">Perché scegliere i nostri siti</a></li>
-        <li><a href="siti.html">Domande Frequenti</a></li>
-        <li><a href="casestudy.html">Case Study</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li>Email: info@klodex.it</li>
-        <li>Tel: +39 379 3314745</li>
+        <li><a href="mailto:info@klodex.it">info@klodex.it</a></li>
+        <li><a href="tel:+393793314745">+39 379 3314745</a></li>
         <li>Telegram: @klodex</li>
         <li>Lun – Ven: 9:00 – 18:00</li>
       </ul>
@@ -584,6 +707,7 @@
 </footer>
 
 <script>
+  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -600,6 +724,25 @@
     navLinks.forEach(a => {
       a.classList.remove('active');
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // Chiude il menu mobile al click su un link
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
     });
   });
 </script>
