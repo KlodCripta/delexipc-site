@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistenza Informatica – KLODEX Milano</title>
+  <meta name="description" content="Assistenza software, installazioni, configurazioni, rimozione malware e consulenza informatica a Milano. KLODEX – supporto Windows e Linux per privati e aziende." />
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --bg2: #111111;
+      --bg3: #181818;
+      --red: #d4192b;
+      --red2: #e8283c;
+      --text: #f0f0f0;
+      --muted: #999;
+      --border: rgba(255,255,255,0.06);
+      --border-red: rgba(212,25,43,0.35);
+      --nav-h: 62px;
+      --font: 'Barlow', sans-serif;
+      --font-cond: 'Barlow Condensed', sans-serif;
+      --max: 1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center;
+      padding: 0 clamp(16px,4vw,60px);
+      gap: 32px;
+    }
+    .nav-logo { flex-shrink: 0; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-links { display: flex; gap: 28px; align-items: center; flex: 1; justify-content: center; }
+    .nav-links a { font-size: 0.9rem; font-weight: 500; color: #ccc; transition: color 0.2s; letter-spacing: 0.3px; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: var(--red); }
+    .nav-cta {
+      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 20px; border-radius: 4px;
+      border: 1px solid var(--red); color: #fff;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--red); }
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center; align-items: center;
+      gap: 5px; width: 38px; height: 38px;
+      background: none; border: none; cursor: pointer; margin-left: auto; padding: 4px;
+    }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── MOBILE MENU ─── */
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: #000; z-index: 99; flex-direction: column;
+      padding: 32px clamp(16px,4vw,40px); gap: 8px; overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; font-weight: 700; color: #ccc; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--red); }
+    .mobile-menu .mobile-cta {
+      margin-top: 24px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: 4px;
+      border: 1px solid var(--red); background: var(--red);
+      color: #fff; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      padding-top: calc(var(--nav-h) + 64px);
+      padding-bottom: 64px;
+      padding-left: clamp(16px,4vw,60px);
+      padding-right: clamp(16px,4vw,60px);
+      background: #000;
+      border-bottom: 2px solid var(--red);
+      text-align: center;
+    }
+    .page-header .overline {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--red);
+      display: block; margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-family: var(--font-cond);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900; text-transform: uppercase;
+      line-height: 1.0; letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .page-header p {
+      font-size: 1rem; color: var(--muted);
+      max-width: 540px; margin: 0 auto; line-height: 1.7;
+    }
+
+    /* ─── SERVIZI GRID ─── */
+    .servizi-section { padding: 72px 0; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px,4vw,60px); }
+    .servizi-grid-wrapper { position: relative; }
+    .servizi-grid-wrapper::before,
+    .servizi-grid-wrapper::after {
+      content: ''; position: absolute; width: 48px; height: 48px;
+      border-color: var(--red); border-style: solid; pointer-events: none; z-index: 1;
+    }
+    .servizi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
+    .servizi-grid-wrapper::after  { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
+    .servizi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .servizio-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.18s;
+      display: flex; flex-direction: column;
+    }
+    .servizio-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
+    .servizio-icon {
+      width: 46px; height: 46px; border: 1px solid var(--border-red);
+      border-radius: 8px; background: rgba(212,25,43,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red); font-size: 22px; margin-bottom: 18px;
+    }
+    .servizio-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .servizio-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 18px; }
+    .scopri-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; color: var(--red); transition: gap 0.18s;
+    }
+    .servizio-card:hover .scopri-link { gap: 10px; }
+
+    /* ─── LINUX CTA BANNER ─── */
+    .linux-banner {
+      margin-top: 56px;
+      background: var(--bg3);
+      border: 1px solid var(--border-red);
+      border-left: 4px solid var(--red);
+      border-radius: 8px;
+      padding: 32px 36px;
+      display: flex; align-items: center; gap: 32px;
+      flex-wrap: wrap;
+    }
+    .linux-banner-icon {
+      width: 56px; height: 56px; flex-shrink: 0;
+      border-radius: 50%; background: rgba(212,25,43,0.10);
+      border: 1px solid var(--border-red);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--red); font-size: 26px;
+    }
+    .linux-banner-copy { flex: 1; min-width: 200px; }
+    .linux-banner-copy h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
+    .linux-banner-copy p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .linux-banner-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 4px;
+      border: 1px solid var(--red); color: var(--red);
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .linux-banner-btn:hover { background: var(--red); color: #fff; }
+
+    /* ─── CONTATTI STRIP ─── */
+    #contatti-strip {
+      background: var(--bg2);
+      border-top: 2px solid var(--red); border-bottom: 2px solid var(--red);
+      padding: 60px 0;
+    }
+    .contatti-strip-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 clamp(16px,4vw,60px);
+      display: grid; grid-template-columns: 1fr auto auto auto auto; gap: 20px; align-items: center;
+    }
+    .contatti-left h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; margin-bottom: 4px; }
+    .contatti-left h2 span { color: var(--red); }
+    .contatti-left p { font-size: 0.9rem; color: var(--muted); }
+    .contatto-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 22px; border: 1px solid var(--border-red); border-radius: 6px;
+      background: #000; transition: background 0.18s, border-color 0.18s;
+      text-decoration: none; color: inherit;
+    }
+    .contatto-item:hover { background: #9e1020; border-color: #9e1020; }
+    .contatto-item:hover i, .contatto-item:hover h5, .contatto-item:hover span { color: #fff; }
+    .contatto-item i { font-size: 22px; color: var(--red); transition: color 0.18s; }
+    .contatto-item h5 { font-size: 0.82rem; font-weight: 700; margin-bottom: 1px; }
+    .contatto-item span { font-size: 0.82rem; color: var(--muted); transition: color 0.18s; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #000; padding: 48px 0 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 clamp(16px,4vw,60px);
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 48px; margin-bottom: 40px;
+    }
+    .footer-brand img { height: 32px; margin-bottom: 14px; }
+    .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a {
+      width: 32px; height: 32px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 14px; transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: var(--red); color: var(--red); }
+    .footer-col h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col ul li a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-col ul li { font-size: 0.82rem; color: var(--muted); }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto; padding: 20px clamp(16px,4vw,60px);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom span { font-size: 0.8rem; color: #888; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { font-size: 0.8rem; color: #888; transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: var(--red); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .servizi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .servizi-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .contatti-strip-inner { grid-template-columns: 1fr; }
+      .linux-banner { flex-direction: column; gap: 20px; padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="KLODEX Home">
+    <img src="logo_rosso_wide.png" alt="KLODEX" />
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="assistenza.html" class="active">Servizi</a>
+    <a href="siti.html">Siti Web</a>
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="casestudy.html">Case Study</a>
+    <a href="#contatti-strip">Contatti</a>
+  </div>
+  <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="assistenza.html" class="active">Servizi</a>
+  <a href="siti.html">Siti Web</a>
+  <a href="index.html#portfolio">Portfolio</a>
+  <a href="casestudy.html">Case Study</a>
+  <a href="#contatti-strip">Contatti</a>
+  <a href="#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <span class="overline">KLODEX – Milano</span>
+  <h1>Assistenza Informatica</h1>
+  <p>Supporto tecnico per Windows e Linux, configurazioni, manutenzione e rimozione malware per privati e piccole attività.</p>
+</header>
+
+<!-- SERVIZI -->
+<section class="servizi-section">
+  <div class="container">
+    <div class="servizi-grid-wrapper">
+      <div class="servizi-grid">
+
+        <div class="servizio-card reveal">
+          <div class="servizio-icon"><i class="ti ti-code"></i></div>
+          <h3>Assistenza Software</h3>
+          <p>Risolviamo problemi, errori, malfunzionamenti e lentezze di Windows e altri sistemi operativi. Diagnosi rapida e soluzione mirata.</p>
+          <a href="#contatti-strip" class="scopri-link">RICHIEDI ASSISTENZA <i class="ti ti-arrow-right"></i></a>
+        </div>
+
+        <div class="servizio-card reveal" style="transition-delay:0.08s">
+          <div class="servizio-icon"><i class="ti ti-settings"></i></div>
+          <h3>Installazioni e Configurazioni</h3>
+          <p>Installiamo e configuriamo software, driver e ambienti di lavoro su sistemi Windows e GNU/Linux, personalizzati sulle tue esigenze.</p>
+          <a href="#contatti-strip" class="scopri-link">RICHIEDI ASSISTENZA <i class="ti ti-arrow-right"></i></a>
+        </div>
+
+        <div class="servizio-card reveal" style="transition-delay:0.16s">
+          <div class="servizio-icon"><i class="ti ti-shield-off"></i></div>
+          <h3>Rimozione Malware</h3>
+          <p>Pulizia completa da virus, trojan, spyware e malware. Ripristino sicurezza e prestazioni del sistema, con verifica finale dell'integrità.</p>
+          <a href="#contatti-strip" class="scopri-link">RICHIEDI ASSISTENZA <i class="ti ti-arrow-right"></i></a>
+        </div>
+
+        <div class="servizio-card reveal" style="transition-delay:0.24s">
+          <div class="servizio-icon"><i class="ti ti-terminal-2"></i></div>
+          <h3>Linux e Sistemi Alternativi</h3>
+          <p>Installazione, configurazione e supporto GNU/Linux su sistemi moderni. Soluzioni stabili e sicure con ambienti grafici potenti come KDE Plasma.</p>
+          <a href="#contatti-strip" class="scopri-link">RICHIEDI ASSISTENZA <i class="ti ti-arrow-right"></i></a>
+        </div>
+
+        <div class="servizio-card reveal" style="transition-delay:0.32s">
+          <div class="servizio-icon"><i class="ti ti-bulb"></i></div>
+          <h3>Consulenza Informatica</h3>
+          <p>Analizziamo le tue esigenze e ti proponiamo le soluzioni più efficaci per ottimizzare il tuo lavoro, scegliere gli strumenti giusti e ridurre i costi.</p>
+          <a href="#contatti-strip" class="scopri-link">RICHIEDI ASSISTENZA <i class="ti ti-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BANNER LINUX -->
+    <div class="linux-banner reveal" style="transition-delay:0.1s">
+      <div class="linux-banner-icon"><i class="ti ti-brand-debian"></i></div>
+      <div class="linux-banner-copy">
+        <h3>Hai un PC vecchio che non riesci più a usare?</h3>
+        <p>Non buttarlo — potremmo fargli tornare vita. Scopri come recuperiamo i computer obsoleti installando GNU/Linux.</p>
+      </div>
+      <a href="linux.html" class="linux-banner-btn"><i class="ti ti-arrow-right"></i>Scopri il servizio</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTATTI STRIP -->
+<div id="contatti-strip">
+  <div class="contatti-strip-inner">
+    <div class="contatti-left reveal">
+      <h2>Hai un problema?<br><span>Parliamone.</span></h2>
+      <p>Siamo pronti ad aiutarti con soluzioni rapide, chiare e su misura per te.</p>
+    </div>
+    <a href="mailto:info@klodex.it" class="contatto-item reveal" style="transition-delay:0.08s">
+      <i class="ti ti-mail"></i>
+      <div><h5>Email</h5><span>info@klodex.it</span></div>
+    </a>
+    <a href="tel:+393793314745" class="contatto-item reveal" style="transition-delay:0.14s">
+      <i class="ti ti-phone"></i>
+      <div><h5>Telefono</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://wa.me/393793314745" class="contatto-item reveal" style="transition-delay:0.20s">
+      <i class="ti ti-brand-whatsapp"></i>
+      <div><h5>WhatsApp</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://t.me/+393793314745" class="contatto-item reveal" style="transition-delay:0.26s">
+      <i class="ti ti-brand-telegram"></i>
+      <div><h5>Telegram</h5><span>@klodex</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo_rosso_wide.png" alt="KLODEX" />
+      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="#" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assistenza.html">Servizi</a></li>
+        <li><a href="siti.html">Siti Web</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="casestudy.html">Case Study</a></li>
+        <li><a href="#contatti-strip">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:info@klodex.it">info@klodex.it</a></li>
+        <li><a href="tel:+393793314745">+39 379 3314745</a></li>
+        <li>Telegram: @klodex</li>
+        <li>Lun – Ven: 9:00 – 18:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 KLODEX – Tutti i diritti riservati.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
