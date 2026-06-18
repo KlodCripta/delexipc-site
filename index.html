@@ -211,41 +211,68 @@
     .feature-item h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 3px; }
     .feature-item p { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
 
-    /* ─── SERVE UN SITO? ─── */
-    #serve-un-sito {
+    /* ─── COME POSSIAMO AIUTARTI ─── */
+    #come-aiutarti {
       padding: 80px 0;
       background: #000;
     }
-    .serve-grid {
+    .aiuto-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-    .serve-card {
+    .aiuto-card {
       background: var(--bg3);
       border: 1px solid var(--border);
       border-top: 3px solid var(--red);
       border-radius: 8px;
-      padding: 36px 28px;
-      text-align: center;
+      padding: 36px 28px 30px;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.2s, transform 0.18s;
     }
-    .serve-card:hover {
+    .aiuto-card:hover {
       border-color: var(--border-red);
       border-top-color: var(--red2);
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
-    .serve-card-icon {
-      width: 60px; height: 60px;
-      margin: 0 auto 20px;
+    .aiuto-card-icon {
+      width: 58px; height: 58px;
+      margin-bottom: 22px;
       border-radius: 50%;
       background: rgba(212,25,43,0.10);
       border: 1px solid var(--border-red);
       display: flex; align-items: center; justify-content: center;
       color: var(--red); font-size: 26px;
+      flex-shrink: 0;
     }
-    .serve-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 12px; }
-    .serve-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .aiuto-card h3 {
+      font-size: 1.1rem; font-weight: 800;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .aiuto-card p {
+      font-size: 0.88rem; color: var(--muted);
+      line-height: 1.7; flex: 1;
+      margin-bottom: 28px;
+    }
+    .aiuto-card .aiuto-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 4px;
+      background: transparent;
+      border: 1px solid var(--border-red);
+      color: var(--red);
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .aiuto-card:hover .aiuto-btn {
+      background: var(--red);
+      color: #fff;
+      border-color: var(--red);
+    }
 
     /* ─── SEZIONI GENERICHE ─── */
     section { padding: 80px 0; }
@@ -260,46 +287,6 @@
       font-weight: 700; text-align: center;
       margin-bottom: 48px; line-height: 1.2;
     }
-
-    /* ─── SERVIZI ─── */
-    #servizi { background: var(--bg); }
-    .servizi-grid-wrapper { position: relative; }
-    .servizi-grid-wrapper::before,
-    .servizi-grid-wrapper::after {
-      content: ''; position: absolute;
-      width: 48px; height: 48px;
-      border-color: var(--red); border-style: solid;
-      pointer-events: none; z-index: 1;
-    }
-    .servizi-grid-wrapper::before { top: -12px; left: -12px; border-width: 2px 0 0 2px; }
-    .servizi-grid-wrapper::after { bottom: -12px; right: -12px; border-width: 0 2px 2px 0; }
-    .servizi-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
-    }
-    .servizio-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px; padding: 28px 24px;
-      transition: border-color 0.2s, transform 0.18s;
-      display: flex; flex-direction: column;
-    }
-    .servizio-card:hover { border-color: var(--border-red); transform: translateY(-3px); }
-    .servizio-icon {
-      width: 46px; height: 46px;
-      border: 1px solid var(--border-red);
-      border-radius: 8px; background: rgba(212,25,43,0.08);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--red); font-size: 22px; margin-bottom: 18px;
-    }
-    .servizio-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
-    .servizio-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; margin-bottom: 18px; }
-    .scopri-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.8px;
-      text-transform: uppercase; color: var(--red);
-      transition: gap 0.18s;
-    }
-    .servizio-card:hover .scopri-link { gap: 10px; }
 
     /* ─── CONTATTI STRIP ─── */
     #contatti-strip {
@@ -379,7 +366,7 @@
     @media (max-width: 1024px) {
       #home { min-height: auto; padding-top: calc(var(--nav-h) + 80px); padding-bottom: 80px; }
       .feature-strip-inner { grid-template-columns: 1fr 1fr; }
-      .serve-grid { grid-template-columns: 1fr 1fr; }
+      .aiuto-grid { grid-template-columns: 1fr 1fr; }
       .portfolio-grid { grid-template-columns: 1fr 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .contatti-strip-inner { grid-template-columns: 1fr 1fr; }
@@ -388,8 +375,7 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-      .serve-grid { grid-template-columns: 1fr; }
-      .servizi-grid { grid-template-columns: 1fr; }
+      .aiuto-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .feature-strip-inner { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -411,7 +397,7 @@
   </a>
   <div class="nav-links">
     <a href="#home" class="active">Home</a>
-    <a href="#servizi">Servizi</a>
+    <a href="servizi.html">Servizi</a>
     <a href="siti.html">Siti Web</a>
     <a href="#portfolio">Portfolio</a>
     <a href="casestudy.html">Case Study</a>
@@ -426,7 +412,7 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home">Home</a>
-  <a href="#servizi">Servizi</a>
+  <a href="servizi.html">Servizi</a>
   <a href="siti.html">Siti Web</a>
   <a href="#portfolio">Portfolio</a>
   <a href="casestudy.html">Case Study</a>
@@ -441,7 +427,7 @@
     <h1 class="hero-h1">ASSISTENZA INFORMATICA<br>E <span class="red">SITI WEB</span></h1>
     <p class="hero-p">Assistenza informatica Windows/Linux, recupero PC e siti web professionali per privati e piccole attività.</p>
     <div class="hero-btns">
-      <a href="#servizi" class="btn-solid"><i class="ti ti-list-search"></i>Scopri i servizi</a>
+      <a href="#come-aiutarti" class="btn-solid"><i class="ti ti-list-search"></i>Scopri i servizi</a>
       <a href="#contatti-strip" class="btn-outline"><i class="ti ti-headset"></i>Richiedi assistenza</a>
     </div>
   </div>
@@ -481,81 +467,40 @@
   </div>
 </div>
 
-<!-- SERVE UN SITO? -->
-<section id="serve-un-sito">
+<!-- COME POSSIAMO AIUTARTI -->
+<section id="come-aiutarti">
   <div class="container">
-    <span class="section-overline">Prima di tutto</span>
-    <h2 class="section-title">Ma a me serve davvero un sito?</h2>
-    <p style="text-align:center;color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto 48px;line-height:1.7;">
-      È la domanda giusta. Ecco le tre risposte più oneste che possiamo darti.
+    <span class="section-overline">Cosa facciamo</span>
+    <h2 class="section-title">Come possiamo aiutarti?</h2>
+    <p style="text-align:center;color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 52px;line-height:1.7;">
+      Tre aree di intervento per privati, professionisti e piccole attività.
     </p>
-    <div class="serve-grid">
-      <div class="serve-card reveal">
-        <div class="serve-card-icon"><i class="ti ti-map-search"></i></div>
-        <h3>Per essere trovato su Google</h3>
-        <p>Quando qualcuno cerca un idraulico, un parrucchiere o un avvocato nella propria città, Google mostra i risultati. Se non hai un sito, non esisti per chi non ti conosce ancora.</p>
-      </div>
-      <div class="serve-card reveal" style="transition-delay:0.10s">
-        <div class="serve-card-icon"><i class="ti ti-layout-list"></i></div>
-        <h3>Per mostrare i tuoi servizi</h3>
-        <p>Un sito è il tuo biglietto da visita sempre aperto, 24 ore su 24. Racconta chi sei, cosa fai e perché scegliere te — anche quando sei chiuso o non puoi rispondere al telefono.</p>
-      </div>
-      <div class="serve-card reveal" style="transition-delay:0.20s">
-        <div class="serve-card-icon"><i class="ti ti-message-circle"></i></div>
-        <h3>Per offrire un contatto immediato</h3>
-        <p>Modulo di contatto, numero di telefono, WhatsApp, mappa: tutto in un posto solo. Il cliente non deve cercare — trova subito come raggiungerti e decide più facilmente di farlo.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px;">
-      <a href="siti.html" class="btn-solid"><i class="ti ti-arrow-right"></i>Scopri come realizziamo i siti</a>
-    </div>
-  </div>
-</section>
+    <div class="aiuto-grid">
 
-<!-- SERVIZI -->
-<section id="servizi">
-  <div class="container">
-    <span class="section-overline">I nostri servizi</span>
-    <h2 class="section-title">Soluzioni informatiche complete<br>per ogni esigenza.</h2>
-    <div class="servizi-grid-wrapper">
-      <div class="servizi-grid">
-        <div class="servizio-card reveal">
-          <div class="servizio-icon"><i class="ti ti-code"></i></div>
-          <h3>Assistenza Software</h3>
-          <p>Risolviamo problemi, errori, malfunzionamenti e lentezze di Windows e altri sistemi.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.08s">
-          <div class="servizio-icon"><i class="ti ti-settings"></i></div>
-          <h3>Installazioni e Configurazioni</h3>
-          <p>Installiamo e configuriamo software e driver su sistemi windows e GNU/Linux.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.16s">
-          <div class="servizio-icon"><i class="ti ti-recycle"></i></div>
-          <h3>Recupero PC con Linux</h3>
-          <p>Il tuo PC è troppo vecchio per Windows? Non buttarlo. Lo recuperiamo installando GNU/Linux: torna veloce, sicuro e perfettamente utilizzabile.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.24s">
-          <div class="servizio-icon"><i class="ti ti-terminal-2"></i></div>
-          <h3>Linux e Sistemi Alternativi</h3>
-          <p>Installazione, configurazione e supporto GNU/Linux su sistemi moderni. Soluzioni stabili, sicure e altamente personalizzabili, con ambienti grafici potenti come KDE Plasma.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.32s">
-          <div class="servizio-icon"><i class="ti ti-shield-off"></i></div>
-          <h3>Rimozione Malware</h3>
-          <p>Pulizia completa da virus, trojan, spyware e malware. Ripristino sicurezza e prestazioni del sistema.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
-        <div class="servizio-card reveal" style="transition-delay:0.40s">
-          <div class="servizio-icon"><i class="ti ti-bulb"></i></div>
-          <h3>Consulenza Informatica</h3>
-          <p>Analizziamo le tue esigenze e ti proponiamo le soluzioni più efficaci per ottimizzare il tuo lavoro.</p>
-          <a href="#contatti-strip" class="scopri-link">SCOPRI DI PIÙ <i class="ti ti-arrow-right"></i></a>
-        </div>
+      <!-- CARD 1: Assistenza informatica -->
+      <div class="aiuto-card reveal">
+        <div class="aiuto-card-icon"><i class="ti ti-device-desktop"></i></div>
+        <h3>Assistenza Informatica</h3>
+        <p>Configurazioni, manutenzione, formattazioni, installazione software, rimozione malware e supporto tecnico.</p>
+        <a href="servizi.html" class="aiuto-btn"><i class="ti ti-arrow-right"></i>Scopri i servizi</a>
       </div>
+
+      <!-- CARD 2: Siti web -->
+      <div class="aiuto-card reveal" style="transition-delay:0.10s">
+        <div class="aiuto-card-icon"><i class="ti ti-world"></i></div>
+        <h3>Siti Web Professionali</h3>
+        <p>Realizzazione di siti web moderni, veloci e ottimizzati per privati, professionisti e piccole attività.</p>
+        <a href="siti.html" class="aiuto-btn"><i class="ti ti-arrow-right"></i>Scopri i siti web</a>
+      </div>
+
+      <!-- CARD 3: Recupero PC Linux -->
+      <div class="aiuto-card reveal" style="transition-delay:0.20s">
+        <div class="aiuto-card-icon"><i class="ti ti-brand-debian"></i></div>
+        <h3>Ridai Vita al Tuo PC</h3>
+        <p>Recuperiamo computer troppo vecchi per Windows installando sistemi GNU/Linux moderni, sicuri e leggeri.</p>
+        <a href="servizi.html" class="aiuto-btn"><i class="ti ti-arrow-right"></i>Scopri Linux</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -602,7 +547,7 @@
       <h4>Navigazione</h4>
       <ul>
         <li><a href="#home">Home</a></li>
-        <li><a href="#servizi">Servizi</a></li>
+        <li><a href="servizi.html">Servizi</a></li>
         <li><a href="siti.html">Siti Web</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="casestudy.html">Case Study</a></li>
