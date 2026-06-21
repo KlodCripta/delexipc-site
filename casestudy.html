@@ -96,7 +96,9 @@
     .cs-card-status{position:absolute;top:14px;left:14px;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;}
     .cs-card-status.online{background:var(--red);color:#fff;}
     .cs-card-body{padding:36px 40px;display:flex;flex-direction:column;gap:22px;}
-    .cs-card-tipo{font-size:0.72rem;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+    .cs-card-tipo{font-size:0.95rem;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .cs-solution-label{font-family:var(--font-cond);font-size:1.4rem;font-weight:900;color:var(--text);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+    .cs-solution-label .cs-solution-num{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--red);color:#fff;font-size:1rem;flex-shrink:0;}
     .cs-card-title{font-family:var(--font-cond);font-size:2rem;font-weight:900;text-transform:uppercase;line-height:1.05;margin-bottom:4px;}
     .cs-card-location{font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
     .cs-card-location i{color:var(--red);font-size:14px;}
@@ -212,6 +214,7 @@
     <div class="cs-cards">
 
           <!-- SCHEDA 1: Piano Completo -->
+          <div class="cs-solution-label"><span class="cs-solution-num">A</span>Soluzione A</div>
           <div class="cs-card featured reveal">
             <div class="cs-card-thumb" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;">
               <span class="cs-card-badge">Consigliato</span>
@@ -262,6 +265,7 @@
           </div>
 
           <!-- SCHEDA 2: Piano Base -->
+          <div class="cs-solution-label"><span class="cs-solution-num">B</span>Soluzione B</div>
           <div class="cs-card reveal" style="transition-delay:0.1s">
             <div class="cs-card-thumb" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;">
               <div style="text-align:center;padding:24px;">
