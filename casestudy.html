@@ -90,7 +90,7 @@
     .cs-cards{display:flex;flex-direction:column;gap:48px;}
     .cs-card{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:10px;overflow:hidden;max-width:860px;display:grid;grid-template-columns:240px 1fr;align-items:stretch;}
     .cs-card.featured{border:1px solid var(--red);border-left:3px solid var(--red);position:relative;}
-    .cs-card-badge{position:absolute;top:-13px;left:36px;background:var(--red);color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:3px;z-index:2;white-space:nowrap;}
+    .cs-card-badge{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:3px;z-index:2;white-space:nowrap;}
     .cs-card-thumb{position:relative;background:var(--bg3);display:flex;align-items:flex-start;justify-content:center;padding:24px 20px;}
     .cs-card-thumb img{display:block;width:100%;height:auto;border-radius:6px;box-shadow:0 4px 24px rgba(0,0,0,0.5);}
     .cs-card-status{position:absolute;top:14px;left:14px;font-size:0.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;}
@@ -213,8 +213,8 @@
 
           <!-- SCHEDA 1: Piano Completo -->
           <div class="cs-card featured reveal">
-            <span class="cs-card-badge">Consigliato</span>
-            <div class="cs-card-thumb" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;">
+            <div class="cs-card-thumb" style="background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;">
+              <span class="cs-card-badge">Consigliato</span>
               <div style="text-align:center;padding:24px;">
                 <div style="width:72px;height:72px;border-radius:50%;background:rgba(212,25,43,0.12);border:1px solid rgba(212,25,43,0.35);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;color:var(--red);font-size:32px;">
                   <i class="ti ti-device-laptop"></i>
