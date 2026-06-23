@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ Siti Web – Domande Frequenti – KLODEX</title>
+  <meta name="description" content="Tutte le risposte alle domande più frequenti sulla realizzazione di siti web: piani, pagamenti, contenuti, assistenza e aspetti tecnici. KLODEX – Milano." />
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
+  <meta name="theme-color" content="#0d0d0d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    :root {
+      --bg:#0d0d0d;--bg2:#111111;--bg3:#181818;
+      --red:#d4192b;--red2:#e8283c;--text:#f0f0f0;--muted:#999;
+      --border:rgba(255,255,255,0.06);--border-red:rgba(212,25,43,0.35);
+      --nav-h:62px;--font:'Barlow',sans-serif;--font-cond:'Barlow Condensed',sans-serif;--max:1200px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;}
+    a{color:inherit;text-decoration:none;}
+    img{display:block;max-width:100%;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:#000;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;padding:0 clamp(16px,4vw,60px);gap:32px;}
+    .nav-logo{flex-shrink:0;}
+    .nav-logo img{height:36px;width:auto;}
+    .nav-links{display:flex;gap:28px;align-items:center;flex:1;justify-content:center;}
+    .nav-links a{font-size:0.9rem;font-weight:500;color:#ccc;transition:color 0.2s;letter-spacing:0.3px;}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:var(--red);}
+    .nav-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:4px;border:1px solid var(--red);color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s;}
+    .nav-cta:hover{background:var(--red);}
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;margin-left:auto;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform 0.25s,opacity 0.25s;}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .nav-hamburger.open span:nth-child(2){opacity:0;}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+    .mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:#000;z-index:99;flex-direction:column;padding:32px clamp(16px,4vw,40px);gap:8px;overflow-y:auto;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-size:1.3rem;font-weight:700;color:#ccc;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s;}
+    .mobile-menu a:hover,.mobile-menu a.active{color:var(--red);}
+    .mobile-menu .mobile-cta{margin-top:24px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:4px;border:1px solid var(--red);background:var(--red);color:#fff;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+
+    .page-header{padding-top:calc(var(--nav-h) + 64px);padding-bottom:56px;padding-left:clamp(16px,4vw,60px);padding-right:clamp(16px,4vw,60px);background:#000;border-bottom:2px solid var(--red);text-align:center;}
+    .page-header .overline{font-size:0.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px;}
+    .page-header h1{font-family:var(--font-cond);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;line-height:1.0;letter-spacing:-0.5px;margin-bottom:18px;}
+    .page-header p{font-size:1rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7;}
+
+    .cat-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:18px clamp(16px,4vw,60px);position:sticky;top:var(--nav-h);z-index:50;}
+    .cat-nav-inner{max-width:var(--max);margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+    .cat-pill{font-size:0.8rem;font-weight:600;color:var(--muted);padding:8px 16px;border:1px solid var(--border);border-radius:20px;transition:border-color 0.18s,color 0.18s;}
+    .cat-pill:hover{border-color:var(--border-red);color:var(--text);}
+
+    .container{max-width:880px;margin:0 auto;padding:0 clamp(16px,4vw,60px);}
+    .faq-section{padding:56px 0 8px;}
+    .faq-section:first-of-type{padding-top:64px;}
+    .faq-cat-title{font-family:var(--font-cond);font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:900;text-transform:uppercase;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+    .faq-cat-title .cat-icon{width:38px;height:38px;flex-shrink:0;border-radius:8px;background:rgba(212,25,43,0.1);border:1px solid var(--border-red);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:18px;}
+
+    .faq-list{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+    details.faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color 0.18s;}
+    details.faq-item:hover{border-color:var(--border-red);}
+    details.faq-item[open]{border-color:var(--border-red);}
+    summary.faq-q{list-style:none;cursor:pointer;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:0.92rem;font-weight:700;color:var(--text);}
+    summary.faq-q::-webkit-details-marker{display:none;}
+    summary.faq-q .faq-icon{color:var(--red);font-size:18px;flex-shrink:0;transition:transform 0.25s;}
+    details.faq-item[open] summary.faq-q .faq-icon{transform:rotate(45deg);}
+    .faq-a{padding:0 22px 20px;font-size:0.88rem;color:var(--muted);line-height:1.75;}
+    .faq-a p{margin-bottom:10px;}
+    .faq-a p:last-child{margin-bottom:0;}
+
+    #contatti-strip{background:var(--bg2);border-top:2px solid var(--red);border-bottom:2px solid var(--red);padding:60px 0;margin-top:48px;}
+    .contatti-strip-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1fr auto auto auto auto;gap:20px;align-items:center;}
+    .contatti-left h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;margin-bottom:4px;}
+    .contatti-left h2 span{color:var(--red);}
+    .contatti-left p{font-size:0.9rem;color:var(--muted);}
+    .contatto-item{display:flex;align-items:center;gap:12px;padding:16px 22px;border:1px solid var(--border-red);border-radius:6px;background:#000;transition:background 0.18s,border-color 0.18s;text-decoration:none;color:inherit;}
+    .contatto-item:hover{background:#9e1020;border-color:#9e1020;}
+    .contatto-item:hover i,.contatto-item:hover h5,.contatto-item:hover span{color:#fff;}
+    .contatto-item i{font-size:22px;color:var(--red);transition:color 0.18s;}
+    .contatto-item h5{font-size:0.82rem;font-weight:700;margin-bottom:1px;}
+    .contatto-item span{font-size:0.82rem;color:var(--muted);transition:color 0.18s;}
+
+    .return-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:48px 0;}
+    .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:4px;background:transparent;color:#fff;font-size:0.88rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border:1px solid rgba(255,255,255,0.25);transition:border-color 0.2s;}
+    .btn-outline:hover{border-color:rgba(255,255,255,0.6);}
+
+    footer{background:#000;padding:48px 0 0;border-top:1px solid rgba(255,255,255,0.05);}
+    .footer-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:48px;margin-bottom:40px;}
+    .footer-brand img{height:32px;margin-bottom:14px;}
+    .footer-brand p{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+    .footer-social{display:flex;gap:10px;}
+    .footer-social a{width:32px;height:32px;border-radius:4px;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:14px;transition:border-color 0.2s,color 0.2s;}
+    .footer-social a:hover{border-color:var(--red);color:var(--red);}
+    .footer-col h4{font-size:0.88rem;font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .footer-col ul li a{font-size:0.82rem;color:var(--muted);transition:color 0.2s;}
+    .footer-col ul li a:hover{color:#fff;}
+    .footer-col ul li{font-size:0.82rem;color:var(--muted);}
+    .footer-bottom{max-width:var(--max);margin:0 auto;padding:20px clamp(16px,4vw,60px);border-top:1px solid rgba(255,255,255,0.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+    .footer-bottom span{font-size:0.8rem;color:#888;}
+    .footer-bottom-links{display:flex;gap:20px;}
+    .footer-bottom-links a{font-size:0.8rem;color:#888;transition:color 0.2s;}
+    .footer-bottom-links a:hover{color:var(--red);}
+
+    @media(max-width:1024px){
+      .contatti-strip-inner{grid-template-columns:1fr 1fr;}
+      .footer-inner{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none;}
+      .nav-cta{display:none;}
+      .nav-hamburger{display:flex;}
+      .contatti-strip-inner{grid-template-columns:1fr;}
+      .footer-inner{grid-template-columns:1fr;gap:28px;}
+      .cat-nav{position:static;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="KLODEX Home"><img src="logo_rosso_wide.png" alt="KLODEX" /></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="assistenza.html">Assistenza</a>
+    <a href="linux.html">Salva PC</a>
+    <a href="siti.html" class="active">Siti Web</a>
+    <a href="#contatti-strip">Contatti</a>
+  </div>
+  <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="assistenza.html">Assistenza</a>
+  <a href="linux.html">Salva PC</a>
+  <a href="siti.html" class="active">Siti Web</a>
+  <a href="#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <span class="overline">Siti Web — Domande frequenti</span>
+  <h1>FAQ</h1>
+  <p>Tutto quello che c'è da sapere prima di iniziare un progetto: piani, pagamenti, contenuti, assistenza e aspetti tecnici.</p>
+</header>
+
+<!-- CATEGORY JUMP NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#cat-progetto" class="cat-pill">Il progetto</a>
+    <a href="#cat-pagamenti" class="cat-pill">Pagamenti</a>
+    <a href="#cat-gestione" class="cat-pill">Gestione e assistenza</a>
+    <a href="#cat-tecnici" class="cat-pill">Aspetti tecnici</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- IL PROGETTO -->
+  <section class="faq-section" id="cat-progetto">
+    <h2 class="faq-cat-title"><span class="cat-icon"><i class="ti ti-bulb"></i></span>Il progetto</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Che tipo di siti realizzate?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Realizziamo esclusivamente siti vetrina professionali. Sono adatti ad attività locali, artigiani, professionisti, associazioni, club, band musicali, autori, artisti e piccole realtà che desiderano una presenza online moderna e professionale.</p>
+          <p>I nostri siti sono sviluppati utilizzando tecnologie web standard, senza CMS obbligatori e senza sistemi complessi da mantenere. Questo permette di ottenere siti leggeri, veloci, sicuri e affidabili nel tempo.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Utilizzate WordPress o altri CMS?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>No. I siti vengono realizzati principalmente come siti statici personalizzati.</p>
+          <p>Questa scelta consente di ridurre manutenzione, aggiornamenti, problemi di sicurezza e costi di gestione, mantenendo al tempo stesso ottime prestazioni.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Il sito sarà visibile da smartphone e tablet?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Sì. Tutti i siti vengono progettati per funzionare correttamente su computer, smartphone e tablet.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Devo fornire testi e contenuti già pronti?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>No, non necessariamente. Possiamo partire dalle informazioni fornite dal cliente e occuparci noi della stesura dei contenuti del sito, organizzando testi, sezioni e presentazione delle informazioni.</p>
+          <p>Prima della pubblicazione il sito viene sempre mostrato al cliente, che può richiedere modifiche, correzioni o integrazioni senza problemi.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Devo fornire foto e logo?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Se disponibili, fotografie e loghi possono essere forniti direttamente dal cliente.</p>
+          <p>In alternativa possiamo occuparci della selezione, dell'ottimizzazione e dell'elaborazione delle immagini necessarie al progetto. Su richiesta è possibile anche realizzare o aggiornare loghi, materiale grafico e contenuti fotografici personalizzati. Eventuali servizi aggiuntivi vengono concordati preventivamente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Sono disponibili siti multilingua?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Sì. I siti multilingua sono disponibili come servizio aggiuntivo.</p>
+          <p>Le lingue disponibili e le modalità di realizzazione vengono valutate in base alle caratteristiche del progetto e alle esigenze del cliente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Posso aggiungere nuove funzionalità in futuro?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Certamente. I siti vengono progettati in modo da poter essere ampliati nel tempo con nuove pagine, sezioni, gallerie fotografiche, portfolio, servizi e contenuti aggiuntivi.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Quanto tempo serve per realizzare un sito?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Dipende dalla complessità del progetto e dalla disponibilità del materiale. Generalmente i tempi partono da circa una settimana e aumentano in base alle caratteristiche richieste.</p>
+          <p>Il nostro obiettivo è consegnare un lavoro curato e professionale, non semplicemente il più veloce possibile.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Perché realizzare un sito web se ho già Facebook o Instagram?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>I social network sono utili, ma un sito web rappresenta la presenza ufficiale della propria attività online.</p>
+          <p>Un sito professionale aumenta la credibilità, migliora la visibilità sui motori di ricerca e permette di presentare servizi, contatti e informazioni in modo più completo e professionale. A differenza dei social, il sito web è uno spazio interamente dedicato alla tua attività e non dipende dagli algoritmi o dalle regole delle piattaforme esterne.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- PAGAMENTI -->
+  <section class="faq-section" id="cat-pagamenti">
+    <h2 class="faq-cat-title"><span class="cat-icon"><i class="ti ti-credit-card"></i></span>Pagamenti</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Come funziona il pagamento?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Per avviare il progetto è richiesto un piccolo acconto iniziale, utile a coprire le prime spese operative e a confermare l'inizio dei lavori.</p>
+          <p>Il saldo viene effettuato al termine del progetto, prima della pubblicazione definitiva del sito. Eventuali modalità particolari possono essere concordate direttamente in fase di preventivo.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Quanto costa un sito web?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Ogni progetto viene preventivato in base alle reali esigenze del cliente. Il costo dipende principalmente dal numero di pagine, dai contenuti da inserire e dalle funzionalità richieste.</p>
+          <p>In generale, i nostri prezzi risultano spesso sensibilmente inferiori rispetto a quelli normalmente praticati da molte web agency tradizionali.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Ci sono canoni mensili obbligatori?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>No. Non imponiamo abbonamenti mensili obbligatori.</p>
+          <p>Possono essere presenti esclusivamente i normali costi annuali legati ai servizi utilizzati, come dominio, email professionali o altri servizi opzionali richiesti dal cliente.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- GESTIONE E ASSISTENZA -->
+  <section class="faq-section" id="cat-gestione">
+    <h2 class="faq-cat-title"><span class="cat-icon"><i class="ti ti-headset"></i></span>Gestione e assistenza</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Perché scegliere il piano Completo invece del piano Base?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>La differenza principale è semplice: il piano Base è pensato per chi desidera gestire autonomamente il proprio sito, mentre il piano Completo è dedicato a chi preferisce delegare ogni aspetto tecnico.</p>
+          <p>Con il piano Base forniamo tutti i file del sito una volta terminato il lavoro. Il costo è inferiore, ma il cliente dovrà occuparsi autonomamente di pubblicazione, configurazione del dominio, eventuale hosting, aggiornamenti e modifiche future.</p>
+          <p>Con il piano Completo ci occupiamo invece di tutto noi: registrazione del dominio, configurazioni tecniche, pubblicazione online, gestione email, assistenza e modifiche richieste dal cliente. Le modifiche rapide e di piccola entità vengono normalmente effettuate senza costi aggiuntivi durante la collaborazione.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Chi gestisce il sito dopo la pubblicazione?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Dipende dal piano scelto. Con il piano Base consegniamo tutti i file del sito e il cliente può gestirlo autonomamente.</p>
+          <p>Con il piano Completo ci occupiamo direttamente della gestione tecnica, delle modifiche richieste e dell'assistenza, senza che il cliente debba preoccuparsi degli aspetti tecnici.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Posso modificare il sito da solo?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Dipende dal piano scelto. Con il piano Completo ci occupiamo direttamente della gestione del sito: nella maggior parte dei casi è sufficiente inviarci un messaggio indicando le modifiche desiderate.</p>
+          <p>Con il piano Base forniamo invece tutti i file del sito, lasciando al cliente la completa libertà di gestirlo, modificarlo e pubblicarlo autonomamente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Le modifiche sono incluse?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Le modifiche rapide e di piccola entità vengono normalmente effettuate senza costi aggiuntivi durante la collaborazione. Aggiornamento di recapiti, orari, testi o altre correzioni semplici vengono generalmente gestiti rapidamente.</p>
+          <p>Interventi più estesi, come nuove pagine, nuove sezioni, gallerie fotografiche o modifiche strutturali, vengono invece valutati caso per caso.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Cosa succede prima della pubblicazione?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Prima della pubblicazione definitiva il cliente può visionare il sito e richiedere modifiche, correzioni o integrazioni. Il sito viene pubblicato solo dopo l'approvazione finale del cliente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Come vengono gestiti eventuali problemi tecnici?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Eventuali problemi tecnici riconducibili alla realizzazione del sito vengono corretti senza costi aggiuntivi.</p>
+          <p>Nel piano Completo continuiamo inoltre a fornire assistenza e supporto tecnico per tutta la durata della collaborazione.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Se un giorno decido di interrompere il servizio?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Nessun problema. In caso di cessazione del servizio forniamo tutti i file necessari del sito, comprese immagini, fogli di stile e contenuti realizzati.</p>
+          <p>Il cliente mantiene così la possibilità di trasferire il progetto presso altri fornitori o gestirlo autonomamente.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Quanto tempo serve per ricevere un preventivo?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Generalmente forniamo un primo riscontro entro 24-48 ore lavorative dal contatto iniziale. I tempi possono variare in base alla complessità del progetto e alle informazioni fornite dal cliente.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ASPETTI TECNICI -->
+  <section class="faq-section" id="cat-tecnici">
+    <h2 class="faq-cat-title"><span class="cat-icon"><i class="ti ti-settings"></i></span>Aspetti tecnici</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-q">Il dominio è incluso?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Possiamo occuparci direttamente della registrazione e della gestione del dominio, oppure lavorare su un dominio già esistente.</p>
+          <p>Nella formula completa ci occupiamo direttamente della gestione tecnica del dominio e dei servizi collegati, così il cliente non deve preoccuparsi di configurazioni, rinnovi o aspetti tecnici.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">È possibile avere un'email professionale?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Sì. Possiamo configurare uno o più indirizzi email professionali associati al dominio, come ad esempio info@, contatti@, amministrazione@ o altri indirizzi personalizzati.</p>
+          <p>Le email possono essere utilizzate tramite webmail oppure configurate su programmi come Thunderbird, Outlook, Apple Mail o Gmail. Su richiesta possiamo fornire assistenza per la configurazione delle caselle email.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Il sito sarà trovato su Google?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Sì. Tutti i siti vengono predisposti per una corretta indicizzazione tramite sitemap XML, configurazioni SEO di base e ottimizzazioni tecniche.</p>
+          <p>L'indicizzazione non è immediata: normalmente Google impiega da pochi giorni a qualche settimana per inserire il sito nei risultati di ricerca.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Installate Google Analytics?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Di norma preferiamo non installarlo. Questa scelta permette di mantenere il sito più semplice dal punto di vista della privacy, evitando cookie aggiuntivi, banner invasivi e ulteriori adempimenti normativi.</p>
+          <p>Se il cliente ha esigenze specifiche, possiamo comunque valutare insieme le possibili soluzioni.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Il sito è conforme al GDPR?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>Sì. Dedichiamo particolare attenzione agli aspetti normativi.</p>
+          <p>Privacy Policy, Cookie Policy, Note Legali e altri documenti vengono predisposti in base alle caratteristiche effettive del progetto, riducendo il rischio di problemi legati alla conformità.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Lavorate solo a Milano?<i class="ti ti-plus faq-icon"></i></summary>
+        <div class="faq-a">
+          <p>No. Possiamo realizzare siti web per clienti in tutta Italia, lavorando comodamente da remoto tramite email, telefono e WhatsApp.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- RETURN LINKS -->
+  <div class="return-links">
+    <a href="siti.html" class="btn-outline"><i class="ti ti-arrow-left"></i>Torna a Siti Web</a>
+    <a href="casestudy.html" class="btn-outline"><i class="ti ti-file-description"></i>Come lavoriamo</a>
+    <a href="portfolio.html" class="btn-outline"><i class="ti ti-layout-grid"></i>Guarda il portfolio</a>
+  </div>
+
+</div>
+
+<!-- CONTATTI STRIP -->
+<div id="contatti-strip">
+  <div class="contatti-strip-inner">
+    <div class="contatti-left">
+      <h2>Non hai trovato risposta?<br><span>Scrivici.</span></h2>
+      <p>Siamo pronti a risponderti con soluzioni rapide e chiare.</p>
+    </div>
+    <a href="mailto:info@klodex.it" class="contatto-item">
+      <i class="ti ti-mail"></i><div><h5>Email</h5><span>info@klodex.it</span></div>
+    </a>
+    <a href="tel:+393793314745" class="contatto-item">
+      <i class="ti ti-phone"></i><div><h5>Telefono</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://wa.me/393793314745" class="contatto-item">
+      <i class="ti ti-brand-whatsapp"></i><div><h5>WhatsApp</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://t.me/klodex_it" class="contatto-item">
+      <i class="ti ti-brand-telegram"></i><div><h5>Telegram</h5><span>@klodex_it</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo_rosso_wide.png" alt="KLODEX" />
+      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://t.me/klodex_it" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigazione</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="assistenza.html">Assistenza</a></li>
+        <li><a href="linux.html">Salva PC</a></li>
+        <li><a href="siti.html">Siti Web</a></li>
+        <li><a href="#contatti-strip">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="mailto:info@klodex.it">info@klodex.it</a></li>
+        <li><a href="tel:+393793314745">+39 379 3314745</a></li>
+        <li>Telegram: @klodex_it</li>
+        <li>Lun – Ven: 9:00 – 18:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 KLODEX – Tutti i diritti riservati.</span>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open'); hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false); document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
