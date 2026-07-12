@@ -28,6 +28,21 @@
     .nav-links a{font-size:0.9rem;font-weight:500;color:#ccc;transition:color 0.2s;letter-spacing:0.3px;}
     .nav-links a:hover{color:#fff;}
     .nav-links a.active{color:var(--red);}
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+    .nav-item-dropdown > a i { font-size: 14px; transition: transform 0.2s; }
+    .nav-item-dropdown:hover > a i { transform: rotate(180deg); }
+    .nav-item-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 20px; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 19px); left: 50%; transform: translateX(-50%);
+      background: #000; border: 1px solid var(--border); border-top: 2px solid var(--red);
+      border-radius: 0 0 6px 6px; min-width: 220px; padding: 6px 0;
+      opacity: 0; visibility: hidden; transition: opacity 0.18s, visibility 0.18s;
+      z-index: 101;
+    }
+    .nav-item-dropdown:hover .nav-dropdown { opacity: 1; visibility: visible; }
+    .nav-dropdown a { display: block; padding: 10px 18px; font-size: 0.85rem; color: #ccc; transition: color 0.2s, background 0.2s; }
+    .nav-dropdown a:hover { color: #fff; background: var(--bg2); }
     .nav-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:4px;border:1px solid var(--red);color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s;}
     .nav-cta:hover{background:var(--red);}
     
@@ -50,6 +65,7 @@
     .mobile-menu.open { display: flex; }
     .mobile-menu a { font-size: 1.3rem; font-weight: 700; color: #ccc; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
     .mobile-menu a:hover, .mobile-menu a.active { color: var(--red); }
+    .mobile-menu a.mobile-sub { font-size: 1.05rem; padding: 11px 0 11px 22px; color: #999; border-bottom: 1px solid rgba(255,255,255,0.04); }
     .mobile-menu .mobile-cta {
       margin-top: 24px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 14px 24px; border-radius: 4px; border: 1px solid var(--red); background: var(--red);
@@ -93,6 +109,7 @@
     .proj-meta-item i{color:var(--red);font-size:14px;}
     .proj-desc{font-size:0.9rem;color:var(--muted);line-height:1.7;}
     .proj-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+    .return-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:56px;}
     
     /* CONTATTI STRIP */
     #contatti-strip { background: var(--bg2); border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); padding: 60px 0; }
@@ -118,7 +135,7 @@
     .contatto-item span { font-size: 0.82rem; color: var(--muted); transition: color 0.18s; }
 
     footer{background:#000;padding:48px 0 0;border-top:1px solid rgba(255,255,255,0.05);}
-    .footer-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+    .footer-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1.8fr 1fr 1fr;gap:48px;margin-bottom:40px;}
     .footer-brand img{height:32px;margin-bottom:14px;}
     .footer-brand p{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
     .footer-social{display:flex;gap:10px;}
@@ -161,7 +178,15 @@
     <a href="index.html">Home</a>
     <a href="assistenza.html">Assistenza</a>
     <a href="linux.html">Salva PC</a>
-    <a href="siti.html">Siti Web</a>
+    <div class="nav-item-dropdown">
+      <a href="siti.html" class="active">Siti Web <i class="ti ti-chevron-down"></i></a>
+      <div class="nav-dropdown">
+        <a href="siti.html">Panoramica</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="casestudy.html">Come lavoriamo</a>
+        <a href="faq-siti.html">FAQ — Domande Frequenti</a>
+      </div>
+    </div>
     <a href="#contatti-strip">Contatti</a>
   </div>
   <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
@@ -175,6 +200,9 @@
   <a href="assistenza.html">Assistenza</a>
   <a href="linux.html">Salva PC</a>
   <a href="siti.html">Siti Web</a>
+  <a href="portfolio.html" class="mobile-sub active">Portfolio</a>
+  <a href="casestudy.html" class="mobile-sub">Come lavoriamo</a>
+  <a href="faq-siti.html" class="mobile-sub">FAQ Siti Web</a>
   <a href="#contatti-strip">Contatti</a>
   <a href="#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
 </div>
@@ -220,6 +248,11 @@
         <div class="proj-body"><div class="proj-tipo">Prossimo progetto</div><h2 class="proj-title">In sviluppo</h2><p class="proj-desc">Il prossimo progetto sarà visibile qui non appena pubblicato.</p></div>
       </div>
     </div>
+
+    <div class="return-links">
+      <a href="siti.html" class="btn-outline"><i class="ti ti-arrow-left"></i>Torna a Siti Web</a>
+      <a href="casestudy.html" class="btn-outline"><i class="ti ti-file-description"></i>Come lavoriamo</a>
+    </div>
   </div>
 </section>
 
@@ -252,8 +285,6 @@
       <img src="logo_rosso_wide.png" alt="KLODEX" />
       <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
         <a href="https://t.me/klodex_it" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
       </div>
     </div>
