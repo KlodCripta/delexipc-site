@@ -33,6 +33,21 @@
     .nav-links a{font-size:0.9rem;font-weight:500;color:#ccc;transition:color 0.2s;letter-spacing:0.3px;}
     .nav-links a:hover{color:#fff;}
     .nav-links a.active{color:var(--red);}
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+    .nav-item-dropdown > a i { font-size: 14px; transition: transform 0.2s; }
+    .nav-item-dropdown:hover > a i { transform: rotate(180deg); }
+    .nav-item-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 20px; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 19px); left: 50%; transform: translateX(-50%);
+      background: #000; border: 1px solid var(--border); border-top: 2px solid var(--red);
+      border-radius: 0 0 6px 6px; min-width: 220px; padding: 6px 0;
+      opacity: 0; visibility: hidden; transition: opacity 0.18s, visibility 0.18s;
+      z-index: 101;
+    }
+    .nav-item-dropdown:hover .nav-dropdown { opacity: 1; visibility: visible; }
+    .nav-dropdown a { display: block; padding: 10px 18px; font-size: 0.85rem; color: #ccc; transition: color 0.2s, background 0.2s; }
+    .nav-dropdown a:hover { color: #fff; background: var(--bg2); }
     .nav-cta{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:4px;border:1px solid var(--red);color:#fff;font-size:0.85rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;transition:background 0.2s;}
     .nav-cta:hover{background:var(--red);}
     .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;margin-left:auto;padding:4px;}
@@ -44,6 +59,7 @@
     .mobile-menu.open{display:flex;}
     .mobile-menu a{font-size:1.3rem;font-weight:700;color:#ccc;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s;}
     .mobile-menu a:hover,.mobile-menu a.active{color:var(--red);}
+    .mobile-menu a.mobile-sub{font-size:1.05rem;padding:11px 0 11px 22px;color:#999;border-bottom:1px solid rgba(255,255,255,0.04);}
     .mobile-menu .mobile-cta{margin-top:24px;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:4px;border:1px solid var(--red);background:var(--red);color:#fff;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
 
     .container{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);}
@@ -106,14 +122,25 @@
     .cta-title .red{color:var(--red);}
     .cta-sub{font-size:1rem;color:var(--muted);margin-bottom:40px;line-height:1.7;}
     .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-    .cta-contacts{display:flex;gap:32px;justify-content:center;margin-top:44px;flex-wrap:wrap;}
-    .cta-contact-item{display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--muted);}
-    .cta-contact-item i{color:var(--red);font-size:18px;}
-    .cta-contact-item a{color:var(--muted);transition:color 0.2s;}
-    .cta-contact-item a:hover{color:#fff;}
+
+    /* CONTATTI STRIP */
+    #contatti-strip{background:var(--bg2);border-top:2px solid var(--red);border-bottom:2px solid var(--red);padding:60px 0;}
+    .contatti-strip-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1fr auto auto auto auto;gap:20px;align-items:center;}
+    .contatti-left h2{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;margin-bottom:4px;}
+    .contatti-left h2 span{color:var(--red);}
+    .contatti-left p{font-size:0.9rem;color:var(--muted);}
+    .contatto-item{display:flex;align-items:center;gap:12px;padding:16px 22px;border:1px solid var(--border-red);border-radius:6px;background:#000;transition:background 0.18s,border-color 0.18s;text-decoration:none;color:inherit;}
+    .contatto-item:active{background:#9e1020;border-color:#9e1020;}
+    .contatto-item:hover i{color:var(--red2);}
+    .contatto-item:hover h5{color:#fff;}
+    .contatto-item:hover span{color:#ccc;}
+    .contatto-item:active i,.contatto-item:active h5,.contatto-item:active span{color:#fff;}
+    .contatto-item i{font-size:22px;color:var(--red);transition:color 0.18s;}
+    .contatto-item h5{font-size:0.82rem;font-weight:700;margin-bottom:1px;}
+    .contatto-item span{font-size:0.82rem;color:var(--muted);transition:color 0.18s;}
 
     footer{background:#000;padding:60px 0 24px;border-top:1px solid rgba(255,255,255,0.05);}
-    .footer-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+    .footer-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,4vw,60px);display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
     .footer-brand img{height:32px;margin-bottom:14px;}
     .footer-brand p{font-size:0.82rem;color:var(--muted);line-height:1.7;margin-bottom:16px;}
     .footer-social{display:flex;gap:10px;}
@@ -135,6 +162,7 @@
       .perchi-grid{grid-template-columns:1fr 1fr;}
       .offerte-grid{grid-template-columns:1fr;max-width:480px;}
       .footer-inner{grid-template-columns:1fr 1fr;}
+      .contatti-strip-inner{grid-template-columns:1fr 1fr;}
     }
     @media(max-width:768px){
       .nav-links{display:none;}
@@ -142,6 +170,7 @@
       .nav-hamburger{display:flex;}
       .perchi-grid{grid-template-columns:1fr 1fr;}
       .footer-inner{grid-template-columns:1fr;}
+      .contatti-strip-inner{grid-template-columns:1fr;}
     }
     @media(max-width:600px){.portfolio-box{padding:36px 24px;}}
   </style>
@@ -155,7 +184,15 @@
     <a href="index.html">Home</a>
     <a href="assistenza.html">Assistenza</a>
     <a href="linux.html">Salva PC</a>
-    <a href="siti.html" class="active">Siti Web</a>
+    <div class="nav-item-dropdown">
+      <a href="siti.html" class="active">Siti Web <i class="ti ti-chevron-down"></i></a>
+      <div class="nav-dropdown">
+        <a href="siti.html" class="active">Panoramica</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="casestudy.html">Come lavoriamo</a>
+        <a href="faq-siti.html">FAQ — Domande Frequenti</a>
+      </div>
+    </div>
     <a href="#contatti-strip">Contatti</a>
   </div>
   <a href="#contatti-strip" class="nav-cta">Richiedi assistenza</a>
@@ -169,6 +206,9 @@
   <a href="assistenza.html">Assistenza</a>
   <a href="linux.html">Salva PC</a>
   <a href="siti.html" class="active">Siti Web</a>
+  <a href="portfolio.html" class="mobile-sub">Portfolio</a>
+  <a href="casestudy.html" class="mobile-sub">Come lavoriamo</a>
+  <a href="faq-siti.html" class="mobile-sub">FAQ Siti Web</a>
   <a href="#contatti-strip">Contatti</a>
   <a href="#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
 </div>
@@ -295,14 +335,31 @@
         <a href="https://wa.me/393793314745" class="btn-solid"><i class="ti ti-brand-whatsapp"></i>Scrivici su WhatsApp</a>
         <a href="mailto:info@klodex.it" class="btn-outline"><i class="ti ti-mail"></i>Manda una mail</a>
       </div>
-      <div class="cta-contacts">
-        <div class="cta-contact-item"><i class="ti ti-mail"></i><a href="mailto:info@klodex.it">info@klodex.it</a></div>
-        <div class="cta-contact-item"><i class="ti ti-phone"></i><a href="tel:+393793314745">+39 379 3314745</a></div>
-        <div class="cta-contact-item"><i class="ti ti-brand-telegram"></i><a href="https://t.me/klodex_it">@klodex_it</a></div>
-      </div>
     </div>
   </div>
 </section>
+
+<!-- CONTATTI STRIP -->
+<div id="contatti-strip">
+  <div class="contatti-strip-inner">
+    <div class="contatti-left reveal">
+      <h2>Hai un progetto in mente?<br><span>Parliamone.</span></h2>
+      <p>Siamo pronti ad aiutarti con soluzioni rapide, chiare e su misura per te.</p>
+    </div>
+    <a href="mailto:info@klodex.it" class="contatto-item reveal" style="transition-delay:0.08s">
+      <i class="ti ti-mail"></i><div><h5>Email</h5><span>info@klodex.it</span></div>
+    </a>
+    <a href="tel:+393793314745" class="contatto-item reveal" style="transition-delay:0.14s">
+      <i class="ti ti-phone"></i><div><h5>Telefono</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://wa.me/393793314745" class="contatto-item reveal" style="transition-delay:0.20s">
+      <i class="ti ti-brand-whatsapp"></i><div><h5>WhatsApp</h5><span>+39 379 3314745</span></div>
+    </a>
+    <a href="https://t.me/klodex_it" class="contatto-item reveal" style="transition-delay:0.26s">
+      <i class="ti ti-brand-telegram"></i><div><h5>Telegram</h5><span>@klodex_it</span></div>
+    </a>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -311,8 +368,6 @@
       <img src="logo_rosso_wide.png" alt="KLODEX" />
       <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
         <a href="https://t.me/klodex_it" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
       </div>
     </div>
@@ -342,6 +397,7 @@
         <li><a href="#offerte">Le soluzioni</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
         <li><a href="casestudy.html">Come lavoriamo</a></li>
+        <li><a href="faq-siti.html">FAQ</a></li>
       </ul>
     </div>
   </div>
