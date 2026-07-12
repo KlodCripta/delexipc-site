@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy - KLODEX</title>
   <meta name="description" content="Privacy Policy del sito KLODEX: informazioni sul trattamento dei dati personali inviati tramite email, WhatsApp, Telegram e richieste di assistenza." />
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png?v=1">
   <meta name="theme-color" content="#0d0d0d">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     /* NAV */
     nav {
@@ -56,6 +57,22 @@
       transition: color 0.2s; letter-spacing: 0.3px;
     }
     .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: var(--red); }
+    .nav-item-dropdown { position: relative; }
+    .nav-item-dropdown > a { display: inline-flex; align-items: center; gap: 5px; }
+    .nav-item-dropdown > a i { font-size: 14px; transition: transform 0.2s; }
+    .nav-item-dropdown:hover > a i { transform: rotate(180deg); }
+    .nav-item-dropdown::after { content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 20px; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 19px); left: 50%; transform: translateX(-50%);
+      background: #000; border: 1px solid var(--border); border-top: 2px solid var(--red);
+      border-radius: 0 0 6px 6px; min-width: 220px; padding: 6px 0;
+      opacity: 0; visibility: hidden; transition: opacity 0.18s, visibility 0.18s;
+      z-index: 101;
+    }
+    .nav-item-dropdown:hover .nav-dropdown { opacity: 1; visibility: visible; }
+    .nav-dropdown a { display: block; padding: 10px 18px; font-size: 0.85rem; color: #ccc; transition: color 0.2s, background 0.2s; }
+    .nav-dropdown a:hover { color: #fff; background: var(--bg2); }
     .nav-cta {
       flex-shrink: 0;
       display: inline-flex; align-items: center; gap: 8px;
@@ -66,6 +83,33 @@
       transition: background 0.2s;
     }
     .nav-cta:hover { background: var(--red); }
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center; align-items: center;
+      gap: 5px; width: 38px; height: 38px;
+      background: none; border: none; cursor: pointer; margin-left: auto; padding: 4px;
+    }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: transform 0.25s, opacity 0.25s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+      background: #000; z-index: 99; flex-direction: column;
+      padding: 32px clamp(16px,4vw,40px); gap: 8px; overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.3rem; font-weight: 700; color: #ccc; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-menu a:hover, .mobile-menu a.active { color: var(--red); }
+    .mobile-menu a.mobile-sub { font-size: 1.05rem; padding: 11px 0 11px 22px; color: #999; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .mobile-menu .mobile-cta {
+      margin-top: 24px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 24px; border-radius: 4px;
+      border: 1px solid var(--red); background: var(--red);
+      color: #fff; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+    }
 
     /* PAGE HEADER */
     .page-header {
@@ -171,19 +215,11 @@
     }
 
     /* FOOTER */
-    footer { background: #000000; padding: 60px 0 24px; border-top: 1px solid rgba(255,255,255,0.05); }
-    .footer-bottom {
-      max-width: var(--max); margin: 0 auto;
-      padding: 20px clamp(16px,4vw,60px) 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 10px;
-    }
+    footer { background: #000; padding: 48px 0 0; border-top: 1px solid rgba(255,255,255,0.05); }
     .footer-inner {
       max-width: var(--max); margin: 0 auto;
       padding: 0 clamp(16px,4vw,60px);
-      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 40px;
-      margin-bottom: 40px;
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 48px; margin-bottom: 40px;
     }
     .footer-brand img { height: 32px; margin-bottom: 14px; }
     .footer-brand p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
@@ -201,39 +237,71 @@
     .footer-col ul li a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; }
     .footer-col ul li a:hover { color: #fff; }
     .footer-col ul li { font-size: 0.82rem; color: var(--muted); }
-    .footer-bottom span { font-size: 0.8rem; color: #ffffff; }
+    .footer-bottom {
+      max-width: var(--max); margin: 0 auto; padding: 20px clamp(16px,4vw,60px);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-bottom span { font-size: 0.8rem; color: #888; }
     .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { font-size: 0.8rem; color: #ffffff; transition: color 0.2s; }
+    .footer-bottom-links a { font-size: 0.8rem; color: #888; transition: color 0.2s; }
     .footer-bottom-links a:hover { color: var(--red); }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .content-wrap { grid-template-columns: 1fr; }
       .toc { position: static; }
+    }
+    @media (max-width: 1024px) {
       .footer-inner { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo" aria-label="KLODEX Home">
     <img src="logo_rosso_wide.png" alt="KLODEX" />
   </a>
   <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="index.html#servizi">Servizi</a>
-    <a href="siti.html">Siti Web</a>
-    <a href="hardware.html">Hardware</a>
-    <a href="index.html#chi-siamo">Chi siamo</a>
+    <a href="assistenza.html">Assistenza</a>
+    <a href="linux.html">Salva PC</a>
+    <div class="nav-item-dropdown">
+      <a href="siti.html">Siti Web <i class="ti ti-chevron-down"></i></a>
+      <div class="nav-dropdown">
+        <a href="siti.html">Panoramica</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="casestudy.html">Come lavoriamo</a>
+        <a href="faq-siti.html">FAQ — Domande Frequenti</a>
+      </div>
+    </div>
     <a href="index.html#contatti-strip">Contatti</a>
   </div>
   <a href="index.html#contatti-strip" class="nav-cta">Richiedi assistenza</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="assistenza.html">Assistenza</a>
+  <a href="linux.html">Salva PC</a>
+  <a href="siti.html">Siti Web</a>
+  <a href="portfolio.html" class="mobile-sub">Portfolio</a>
+  <a href="casestudy.html" class="mobile-sub">Come lavoriamo</a>
+  <a href="faq-siti.html" class="mobile-sub">FAQ Siti Web</a>
+  <a href="index.html#contatti-strip">Contatti</a>
+  <a href="index.html#contatti-strip" class="mobile-cta"><i class="ti ti-headset"></i>Richiedi assistenza</a>
+</div>
 
 <div class="page-header">
   <div class="page-header-inner">
@@ -331,66 +399,62 @@
   </article>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="logo_rosso_wide.png" alt="KLODEX" />
-      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività.</p>
+      <p>Assistenza informatica, sviluppo siti web e soluzioni digitali per privati e piccole attività a Milano.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-        <a href="#" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
+        <a href="https://t.me/klodex_it" aria-label="Telegram"><i class="ti ti-brand-telegram"></i></a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Navigazione</h4>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#servizi">Servizi</a></li>
+        <li><a href="assistenza.html">Assistenza</a></li>
+        <li><a href="linux.html">Salva PC</a></li>
         <li><a href="siti.html">Siti Web</a></li>
-        <li><a href="hardware.html">Hardware</a></li>
-        <li><a href="index.html#chi-siamo">Chi siamo</a></li>
         <li><a href="index.html#contatti-strip">Contatti</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Servizi</h4>
-      <ul>
-        <li>Assistenza Software</li>
-        <li>Installazioni e Configurazioni</li>
-        <li>Sistemi e Reti</li>
-        <li>Linux e Sistemi Alternativi</li>
-        <li>Consulenza Informatica</li>
-        <li>Rimozione Malware</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Siti Web</h4>
-      <ul>
-        <li><a href="siti.html">Sito Web Base</a></li>
-        <li><a href="siti.html">Presenza Digitale Completa</a></li>
-        <li><a href="siti.html">Perché scegliere i nostri siti</a></li>
-        <li><a href="siti.html">Domande Frequenti</a></li>
-        <li><a href="siti.html">Case Study</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contatti</h4>
       <ul>
-        <li>Email: info@klodex.it</li>
-        <li>Tel: +39 379 3314745</li>
-        <li>Telegram: @klodex</li>
+        <li><a href="mailto:info@klodex.it">info@klodex.it</a></li>
+        <li><a href="tel:+393793314745">+39 379 3314745</a></li>
+        <li>Telegram: @klodex_it</li>
         <li>Lun – Ven: 9:00 – 18:00</li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Klodex – Tutti i diritti riservati.</span>
+    <span>© 2026 KLODEX – Tutti i diritti riservati.</span>
     <div class="footer-bottom-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="cookie.html">Cookie Policy</a>
     </div>
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
